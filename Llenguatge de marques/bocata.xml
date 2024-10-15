@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes" ?>
+
+<bocadillos>
+    <bocadillo>
+        <ingredientes>
+            <ingrediente>Pan</ingrediente>
+            <ingrediente>Tomate</ingrediente>
+            <ingrediente>Aceite</ingrediente>
+            <ingrediente>Butifarra</ingrediente>
+        </ingredientes>
+
+        <pasos>
+            <paso>Cortar pan</paso>
+            <paso>Aceite y tomate</paso>
+            <paso>Poner butifarra</paso>
+        </pasos>
+    </bocadillo>
+
+</bocadillos>
+

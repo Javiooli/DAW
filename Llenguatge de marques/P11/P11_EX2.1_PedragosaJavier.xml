@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Javier Pedragosa Lozano -->
+<!-- Institut Daniel Blanxart. Grau Superior Desenvolupament d'Aplicacions Web. Llenguatge de marques M0373. RA1. Pràctica 1.1, Exercici 2.1. -->
+
+<!--El codi està escrit en anglés perquè cançó i cançons contenen ces trencades, i perquè títol i àlbum porten accent, i no vull tenir problemes.
+    La taula de cançons està formada per 5 cançons, cadascuna de les quals conté els elements amb la informació sobre el títol, l'artista, l'àlbum,
+    si l'àlbum és single o no i per últim l'any de llançament. -->
+<songs> <!-- Root -->
+    <song> <!-- Parent -->
+        <title>Independent</title> <!-- Child -->
+        <artist>Halogenix</artist> <!-- Child -->
+        <album>Independent</album> <!-- Child -->
+        <isSingle>True</isSingle> <!-- Child -->
+        <releaseYear>2020</releaseYear> <!-- Child -->
+    </song>
+    <song> <!-- Parent -->
+        <title>Which way</title> <!-- Child -->
+        <artist>G Jones</artist> <!-- Child -->
+        <album>Paths</album> <!-- Child -->
+        <isSingle>False</isSingle> <!-- Child -->
+        <releaseYear>2023</releaseYear> <!-- Child -->
+    </song>
+    <song> <!-- Parent -->
+        <title>jazz is for ordinary people</title> <!-- Child -->
+        <artist>berlioz</artist> <!-- Child -->
+        <album>jazz is for ordinary people</album> <!-- Child -->
+        <isSingle>True</isSingle> <!-- Child -->
+        <releaseYear>2023</releaseYear> <!-- Child -->
+    </song>
+    <song> <!-- Parent -->
+        <title>christian death</title> <!-- Child -->
+        <artist>EKKSTACY</artist> <!-- Child -->
+        <album>misery</album> <!-- Child -->
+        <isSingle>False</isSingle> <!-- Child -->
+        <releaseYear>2022</releaseYear> <!-- Child -->
+    </song>
+    <song> <!-- Parent -->
+        <title>Елена</title> <!-- Child -->
+        <artist>Vestron Vulture</artist> <!-- Child -->
+        <album>Ghoultears</album> <!-- Child -->
+        <isSingle>False</isSingle> <!-- Child -->
+        <releaseYear>2022</releaseYear> <!-- Child -->
+    </song>
+</songs> <!-- End -->

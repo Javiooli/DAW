@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE songs SYSTEM "P11_EX3_PedragosaJavier.dtd">
+<!-- Javier Pedragosa Lozano -->
+<!-- Institut Daniel Blanxart. Grau Superior Desenvolupament d'Aplicacions Web. Llenguatge de marques M0373. RA1. Pràctica 1.1, Exercici 2.2. -->
+
+<!--El codi està escrit en anglés perquè cançó i cançons contenen ces trencades, i perquè títol i àlbum porten accent, i no vull tenir problemes.
+    La taula de cançons està formada per 5 cançons, cadascuna de les quals conté els elements amb la informació sobre el títol, l'artista, l'àlbum,
+    si l'àlbum és single o no i per últim l'any de llançament. -->
+<songs> <!-- Parent -->
+    <song artist="Halogenix" album="Independent" isSingle="True" releaseYear="2020">Independent</song>
+    <song artist="G Jones" album="Paths" isSingle="False" releaseYear="2023">Which way</song>
+    <song artist="berlioz" album="jazz is for ordinary people" isSingle="True" releaseYear="2023">jazz is for ordinary people</song>
+    <song artist="EKKSTACY" album="misery" isSingle="False" releaseYear="2022">christian death</song>
+    <song artist="Vestron Vulture" album="Ghoultears" isSingle="False" releaseYear="2022">Елена</song>
+</songs> <!-- End -->

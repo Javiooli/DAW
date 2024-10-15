@@ -1,0 +1,35 @@
+body {
+    font-family: fantasy;
+    background-image: url("bg.png");
+    font-size: 24px;
+    color: white;
+    text-align: center;
+}
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: green;
+    color: green;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkgreen;
+
+}
+
+div.llista {
+    text-align: center;
+}
+
+ul.ralist {
+    border-radius: 270px;
+    background-image: url("moontexture.jpg");
+    list-style-type: none;
+    padding: 20px;
+    margin: 0;
+    display: inline-block;
+    text-align: left;
+}

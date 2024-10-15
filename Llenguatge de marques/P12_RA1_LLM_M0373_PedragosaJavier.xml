@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Javier Pedragosa Lozano -->
+<!-- Institut Daniel Blanxart. Grau Superior Desenvolupament d'Aplicacions Web. Llenguatge de marques M0373. RA1. Pràctica 1.2 -->
+
+<!DOCTYPE ordinadors SYSTEM "P42.dtd">
+<!--Codi XML per a realitzar el procés de muntatge de
+    placa base Gigabyte X750 AORUS XTREME (870€), amb tots els seus perifèrics i
+    dispositius externs-->
+
+<ordinadors>
+    <ordinador> <!-- Unitat informàtica, equip a muntar. Format per components i passos. -->
+        <components> <!-- Elements que formen l'ordinador. Nom és el nom genèric del component. Link és l'enllaç a la pàgina de compra del model que hem escollit pel component.
+                        Unitats és la quantitat necessària del component. Preu és el preu unitari del component. Moneda és la unitat del preu.-->
+            <dispositiu nom="Memòria RAM" link="https://www.pccomponentes.com/corsair-vengeance-lpx-ddr4-3600mhz-64gb-2x32gb-cl18" unitats="1" preu="150" moneda="€"></dispositiu>
+            <dispositiu nom="Font alimentació" link="https://www.pccomponentes.com/asus-rog-thor-1000p2-gaming-1000w-80-plus-platinum-modular" unitats="1" preu="400" moneda="€"></dispositiu>
+            <dispositiu nom="Disc dur" link="https://www.pccomponentes.com/intenso-premium-ssd-2tb-m2-nvme-pcie-30" unitats="3" preu="100" moneda="€"></dispositiu>
+            <dispositiu nom="Targeta gràfica" link="https://www.pccomponentes.com/gigabyte-geforce-rtx-4090-windforce-v2-24gb-gddr6x" unitats="1" preu="2500" moneda="€"></dispositiu>
+            <dispositiu nom="Processador" link="https://www.pccomponentes.com/amd-ryzen-7-5800x3d-34ghz-box-sin-ventilador" unitats="1" preu="690" moneda="€"></dispositiu>
+        </components>
+
+        <passos> <!-- Passos detallats i ordenats pel muntatge del equip. Num és el número ordinal de la instrucció.-->
+            <pas num="1">Obrir els slots (ranures) de les targetes RAM, posar cadascuna de les memòries i tancar les pestanyes dels slots.</pas>
+            <pas num="2">Connectar directament cadascun dels discs durs en el sòcol M.2 NVMe.</pas>
+            <pas num="3">Connectar la targeta gràfica mitjançant el connector PCI Express 4.0.</pas>
+            <pas num="4">Posar el processador al sòcol AM4 i posar pasta tèrmica sobre el processador abans de tancar el sòcol.</pas>
+            <pas num="5">Connectar la font alimentació mitjançant el connector 24-pin ATX</pas>
+        </passos>
+    </ordinador>
+</ordinadors> <!--End-->
+
+

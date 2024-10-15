@@ -1,0 +1,4 @@
+<!ELEMENT biblioteca (llibre, llibre)>
+<!ELEMENT llibre (autor, titol)>
+<!ELEMENT autor (#PCDATA)>
+<!ELEMENT titol (#PCDATA)>

@@ -1,0 +1,6 @@
+<!ELEMENT songs (song, song, song, song, song)> <!-- El parent ha de contenir 5 elements "song". -->
+<!ELEMENT song (#PCDATA)> <!-- L'element song ha de contenir el títol de la cançó, que és una cadena de caràcters. -->
+<!ATTLIST song artist CDATA #REQUIRED> <!-- L'element song ha de tenir l'atribut amb el nom de l'artista. -->
+<!ATTLIST song album CDATA #REQUIRED> <!-- L'element song ha de tenir l'atribut amb el nom de l'àlbum. -->
+<!ATTLIST song isSingle CDATA #REQUIRED> <!-- L'element song ha de tenir l'atribut que diu si és un single o no. -->
+<!ATTLIST song releaseYear CDATA #REQUIRED> <!-- L'element song ha de tenir l'atribut amb l'any de sortida de la cançó. -->

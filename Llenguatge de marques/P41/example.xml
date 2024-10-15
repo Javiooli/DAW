@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE biblioteca [
+    <!ELEMENT biblioteca (llibre, llibre)>
+    <!ELEMENT llibre (autor, titol)>
+    <!ELEMENT autor (#PCDATA)>
+    <!ELEMENT titol (#PCDATA)>]>
+
+<biblioteca>
+    <llibre>
+        <autor>George Orwell</autor>
+        <titol>1984</titol>
+    </llibre>
+    <llibre>
+        <autor>Manuel Chaves Nogales</autor>
+        <titol>A sangre y fuego</titol>
+    </llibre>
+</biblioteca>

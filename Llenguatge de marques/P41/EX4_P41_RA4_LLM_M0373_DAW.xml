@@ -1,0 +1,37 @@
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE factura SYSTEM "SOL_EX4_P13_RA1_LLM_M0373_DAW.dtd">
+
+<factura id="876">
+  <emissio>2012-02-28T08:25:02</emissio>
+  <venedor id="12">
+    <nom>Felip Cuesta Pérez</nom>    
+  </venedor>
+  <client id="9878">
+    <nom>Raquel Rengo Suárez</nom>
+    <adreça>
+      <via>Carrer Alonso Cano, 2, 3r A</via>
+      <cp>41700</cp>
+      <localitat>Dos Hermanas</localitat>
+      <provincia>Sevilla</provincia>
+    </adreça>
+    <telefon num="666111666"/>
+    <telefon num="954666111"/>
+  </client>
+  <article id="121" iva="18">
+    <denominacio>Cadira giratòria model C-121</denominacio>
+    <preu>98.23</preu>
+    <quantitat>1</quantitat>
+  </article>
+  <article id="9341" iva="18">
+    <denominacio>Taula d'estudi 120x80 faig model A2-456-X</denominacio>
+    <preu>193.23</preu>
+    <quantitat>1</quantitat>
+  </article>
+  <article id="1124" iva="18">
+    <denominacio>Làmpada de taula amb pantalla taronja model AK-987</denominacio>
+    <preu>23.12</preu>
+    <quantitat>2</quantitat>    
+  </article>
+  <descompte>20</descompte>
+</factura>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deportistas>
+    <esportista>
+        <esport nom="Atletisme"/>
+        <nom>Armand Duplantis</nom>
+    </esportista>
+    <esportista>
+        <esport>Futbol</esport>
+        <nom>Lamine Yamal Nasraoui Ebana</nom>
+    </esportista>
+</deportistas>

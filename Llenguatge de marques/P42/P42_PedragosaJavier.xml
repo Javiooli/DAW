@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Javier Pedragosa Lozano -->
+<!-- Institut Daniel Blanxart. Grau Superior Desenvolupament d'Aplicacions Web. Llenguatge de marques M0373. RA4. Pràctica 4.2. -->
+
+
+<!-- El següent codi recull una taula de ciclistes amb el seu nom, data de naixement, anys de debut i retirada i últim equip com dades.-->
+ <!-- El doctype restringeix les dades a 5 elements ciclista a dins de l'arrel ciclistes, i defineix els atributs de l'element ciclista.-->
+<!DOCTYPE ciclistes [
+    <!ELEMENT ciclistes (ciclista, ciclista, ciclista, ciclista, ciclista)>
+    <!ELEMENT ciclista (#PCDATA)>
+    <!ATTLIST ciclista naixement CDATA #REQUIRED>
+    <!ATTLIST ciclista debut CDATA #REQUIRED>
+    <!ATTLIST ciclista retirada CDATA #REQUIRED>
+    <!ATTLIST ciclista ultimequip CDATA #REQUIRED>]>
+
+<ciclistes> <!-- Root -->
+    <ciclista naixement="16/07/1964" debut="1983" retirada="1996" ultimequip="Banesto">Miguel Indurain</ciclista>
+    <ciclista naixement="02/12/1973" debut="1993" retirada="2006" ultimequip="T-Mobile">Jan Ullrich</ciclista>
+    <ciclista naixement="13/01/1970" debut="1992" retirada="2003" ultimequip="Mercatone Uno">Marco Pantani</ciclista>
+    <ciclista naixement="15/04/1960" debut="1982" retirada="1994" ultimequip="Banesto">Pedro Delgado</ciclista>
+    <ciclista naixement="19/11/1969" debut="1991" retirada="2004" ultimequip="Quick Step">Richard Virenque</ciclista>
+</ciclistes> <!-- End -->

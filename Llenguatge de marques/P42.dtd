@@ -1,0 +1,14 @@
+<!ELEMENT ordinadors (ordinador)>
+<!ELEMENT ordinador (components, passos)>
+<!ELEMENT components (dispositiu+)>
+<!ELEMENT passos (pas+)>
+<!ELEMENT dispositiu (#PCDATA)>
+<!ELEMENT pas (#PCDATA)>
+<!ATTLIST dispositiu
+    nom CDATA #REQUIRED
+    link CDATA #IMPLIED
+    unitats CDATA #REQUIRED
+    preu CDATA #REQUIRED
+    moneda CDATA "€">
+<!ATTLIST pas num CDATA #REQUIRED>
+
