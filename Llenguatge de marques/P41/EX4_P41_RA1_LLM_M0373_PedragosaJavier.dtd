@@ -1,0 +1,24 @@
+<!ELEMENT factura (emissio, venedor, client, article+, descompte)>
+    <!ELEMENT emissio (#PCDATA)>
+    <!ELEMENT venedor (nom)>
+        <!ELEMENT nom (#PCDATA)>
+    <!ELEMENT client (nom, adreça, telefon+)>
+        <!ELEMENT adreça (via, cp, localitat, provincia)>
+            <!ELEMENT via (#PCDATA)>
+            <!ELEMENT cp (#PCDATA)>
+            <!ELEMENT localitat (#PCDATA)>
+            <!ELEMENT provincia (#PCDATA)>
+        <!ELEMENT telefon (#PCDATA)>
+    <!ELEMENT article (denominacio, preu, quantitat)>
+        <!ELEMENT denominacio (#PCDATA)>
+        <!ELEMENT preu (#PCDATA)>
+        <!ELEMENT quantitat (#PCDATA)>
+    <!ELEMENT descompte (#PCDATA)>
+    
+<!ATTLIST factura id CDATA #REQUIRED>
+<!ATTLIST venedor id CDATA #REQUIRED>
+<!ATTLIST client id CDATA #REQUIRED>
+<!ATTLIST telefon num CDATA #REQUIRED>
+<!ATTLIST article
+    id CDATA #REQUIRED
+    iva CDATA #REQUIRED>

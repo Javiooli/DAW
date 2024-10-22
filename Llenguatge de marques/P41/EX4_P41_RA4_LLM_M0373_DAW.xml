@@ -1,6 +1,5 @@
-
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE factura SYSTEM "SOL_EX4_P13_RA1_LLM_M0373_DAW.dtd">
+<!DOCTYPE factura SYSTEM "EX4_P13_RA1_LLM_M0373_PedragosaJavier.dtd">
 
 <factura id="876">
   <emissio>2012-02-28T08:25:02</emissio>

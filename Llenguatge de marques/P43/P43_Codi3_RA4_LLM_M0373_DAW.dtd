@@ -1,0 +1,23 @@
+<!-- El primer error era la capçalera que obria la definició d'un DOCTYPE, cosa que es fa al XML, no aquí. -->
+<!ELEMENT cataleg (producte+)>
+<!ELEMENT producte (nom, preu, descripcio, fabricant, data)>
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT preu (#PCDATA)>
+<!ELEMENT descripcio (#PCDATA)>
+<!ELEMENT fabricant (#PCDATA)>
+<!ELEMENT data (#PCDATA)> <!-- Aquest element estava definit dues vegades. -->
+<!ELEMENT categoria EMPTY>
+<!-- Aquí he inserit les que eren les 4 últimes línies de l'arxiu, ja que considero que es millor tenir totes les definicions d'elements juntes.-->
+<!ELEMENT fabricant (nom, adreça, contacte)>
+<!ELEMENT adreça (#PCDATA)>
+<!ELEMENT contacte (#PCDATA)>
+
+<!ATTLIST producte
+    id ID #REQUIRED
+    categoria CDATA #IMPLIED
+    enEstoc (sí|no) "sí"
+    descompte CDATA #IMPLIED>
+
+<!ATTLIST categoria
+    tipus (electrodomestic|electronic|moble|joguina) #REQUIRED
+    especial (edicioLimitada|nouLlançament) "nouLlançament">
