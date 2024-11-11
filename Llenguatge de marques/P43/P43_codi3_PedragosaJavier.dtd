@@ -1,0 +1,26 @@
+
+<!DOCTYPE cataleg [
+<!ELEMENT cataleg (producte+)>
+<!ELEMENT producte (nom, preu, descripcio, fabricant, data, categoria)> <!-- 1. Faltava categoria -->
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT preu (#PCDATA)>
+<!ELEMENT descripcio (#PCDATA)>
+<!--<!ELEMENT fabricant (#PCDATA)> 2. fabricant ja està definit més avall, i crec que aquella definició és la bona. -->
+<!ELEMENT data (#PCDATA)>
+<!ELEMENT categoria EMPTY>
+
+<!ATTLIST producte
+    id ID <!-- 3. He trobat informació que diu que un element ID no necessita #REQUIRED perquè ve implícit al tipus. -->
+    categoria CDATA #IMPLIED
+    enEstoc (si|no) "si" <!-- 4. i 5. He suprimit els dos accents perquè poden donar problemes. -->
+    descompte CDATA #IMPLIED>
+
+<!ATTLIST categoria
+    tipus (electrodomestic|electronic|moble|joguina) #REQUIRED
+    especial (edicioLimitada|nouLlançament) "nouLlançament">
+
+<!ELEMENT fabricant (nom, adreça, contacte)>
+<!ELEMENT adreça (#PCDATA)>
+<!ELEMENT contacte (#PCDATA)>
+<!--<!ELEMENT data (#PCDATA)>       6. Data ja està definit -->
+]>

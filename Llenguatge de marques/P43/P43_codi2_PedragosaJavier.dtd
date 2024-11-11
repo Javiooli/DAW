@@ -1,0 +1,21 @@
+<!DOCTYPE botiga [
+<!ELEMENT botiga (producte+)> <!-- 1. Canvio producte* per producte+ ja que entenc que la botiga ha de tenir al menys 1 producte. -->
+<!ELEMENT producte (nom, preu, descripcio, fabricant)>
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT preu (#PCDATA)>
+<!ELEMENT descripcio (#PCDATA)>
+<!ELEMENT fabricant (EMPTY)> <!-- 2. Fabricant ha de ser EMPTY perquè ja tenim el nom i el país com atributs. -->
+<!-- <!ELEMENT categoria (#PCDATA)> 3. Segons el que veig, categoria es defineix com atribut de producte mes avall, o sigui que sobra aquesta línia o aquella. -->
+
+<!ATTLIST producte
+    id CDATA #REQUIRED
+    enEstoc (si|no) "si" <!-- 4. El default no pot ser "true" si hem definit que "enEstoc" només pot ser "si" o "no" -->
+                         <!-- 5. L'accent de sí pot donar problemes, així que l'he suprimit. -->
+    categoria (electrodomestic|moda|alimentacio) #REQUIRED <!-- 6. He canviat el default a REQUIRED perquè considero que la categoria és important que sempre es defineixi. -->
+    descompte CDATA #IMPLIED
+    destacat CDATA #IMPLIED>
+
+<!ATTLIST fabricant
+    nom CDATA #REQUIRED
+    pais (ES|FR|DE|IT|UK|US) "ES"> <!-- 7. Aquí sobrava el #DEFAULT, ja que per posar un valor predeterminat no cal precedir-lo de cap paraula clau. -->
+]>

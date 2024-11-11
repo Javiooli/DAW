@@ -1,0 +1,17 @@
+<!DOCTYPE botiga [
+<!ELEMENT botiga (producte+)> <!-- 1.Entenc que una botiga tindrà més d'un producte, he afegit el +... -->
+<!ELEMENT producte (nom, preu, descripcio, categoria)> <!-- 2. i 3.Aquí faltaven els childs "descripció" i "categoria". -->
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT preu (#PCDATA)>
+<!ELEMENT descripcio (#PCDATA)>
+<!ELEMENT categoria (#PCDATA)>
+
+<!ATTLIST producte
+    id ID #REQUIRED <!-- 4. Aquí faltava el #REQUIRED -->
+    enEstoc (si|no) "si" <!-- 5. Si definim que "enEstoc" pot ser "si" o "no", no té sentit que el default sigui "yes". -->
+    categoria CDATA #IMPLIED> <!-- 6. Faltava el # a l'IMPLIED. -->
+
+<!ATTLIST categoria
+    tipus (electrodomestic|moda|alimentacio) #REQUIRED <!-- 7. Aquí faltava el default. -->
+    especial CDATA #REQUIRED> <!-- 8. Aquí també faltava el default. -->
+]>
