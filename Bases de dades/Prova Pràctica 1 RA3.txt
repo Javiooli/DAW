@@ -1,0 +1,39 @@
+1) ¿Quines provincies té cada país? ha de mostrar el nom del pais, el nom de la provincia ordenat pel nom del país i el nom de la provincia.
+	SELECT pa.pais, pr.provincia
+	FROM paisos AS pa, provincies AS pr
+	WHERE pa.idPais = pr.idPais
+	ORDER BY pa.pais, pr.provincia
+	
+2) ¿quins serveis disponibles té cada hotel? ha de mostrar el nom de l'hotel, el nom del servei ordenat per hotel i nom del servei.
+	SELECT h.nomHotel, s.nomServei
+	FROM hotels AS h, serveis AS s, serveishotels AS sh
+	WHERE h.idHotel = sh.idHotel AND s.idServei = sh.idServei
+	ORDER BY h.nomHotel, s.nomServei
+	
+3) ¿Quants serveis disponibles té cada hotel? ha de mostrar el nom de l'hotel i la quantitat.
+	SELECT h.nomHotel, count(s.nomServei) AS ServeisDispo
+	FROM hotels AS h, serveis AS s, serveishotels AS sh
+	WHERE h.idHotel = sh.idHotel AND s.idServei = sh.idServei
+	GROUP BY h.nomHotel
+	
+4) ¿Quantes reserves ha fet cada client? Només es vol saber els clients que han fet més de 5 reserves. Ha de mostrar el nom del client i la quantitat.
+	SELECT c.nom, count(r.numReserva) as ReservesFetes
+	FROM clients AS c, reserves AS r
+	WHERE c.idClient = r.idClient
+	GROUP BY c.nom
+	HAVING count(r.numReserva) > 5
+
+5) ¿Quantes reserves hi per cada hotel? Només es vol saber els hotels que tenen més de 10 reserves. Mostrar el nom de l'hotel i la quantitat.
+	SELECT h.nomHotel, count(r.numReserva) as ReservesFetes
+	FROM hotels AS h, reserves AS r
+	WHERE h.idHotel = r.idHotel
+	GROUP BY h.nomHotel
+	HAVING count(r.numReserva) > 10
+	
+6) ¿Quantes reserves hi ha de cada habitació de cada hotel? ha de mostrar el nom de l'hotel, el número de l'habitació i la quantitat ordenat pel nom de l'hotel i el número de l'habitació.
+	SELECT h.nomHotel, r.numHabitacio, count(r.numReserva) AS ReservesFetes
+	FROM hotels AS h, reserveshab AS r
+	WHERE h.idHotel = r.idHotel
+	GROUP BY h.nomHotel, r.numHabitacio
+	ORDER BY h.nomHotel, r.numHabitacio
+	

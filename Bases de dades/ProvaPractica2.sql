@@ -1,0 +1,64 @@
+#1. Obtenir els noms dels hotels de 3 i 5 estrelles (UNION)
+SELECT h.nomHotel, h.estrelles FROM hotels h
+WHERE h.estrelles = 3
+UNION
+SELECT h.nomHotel, h.estrelles FROM hotels h
+WHERE h.estrelles = 5
+ORDER BY estrelles;
+
+#2. Reserves que encara no s'han facturat ((NOT)EXISTS)
+SELECT r.numReserva FROM reserves r
+WHERE NOT EXISTS (
+	SELECT 1 FROM reserves r, factures f
+    WHERE r.numReserva = f.numReserva );
+
+#3. Clients que NO han reservat serveis d'hotels ((NOT)IN)
+SELECT c.nom FROM clients c
+WHERE c.idClient NOT IN (
+	SELECT r.idClient FROM reserves r, reservesserveis rs
+    WHERE r.numReserva = rs.numReserva );
+    
+#4. Clients que han fet reserves ((NOT)IN)
+SELECT c.nom FROM clients c
+WHERE c.idClient IN (
+	SELECT r.idClient FROM reserves r );
+    
+#4. Clients que han fet reserves ((NOT)EXISTS)
+SELECT c.nom FROM clients c
+WHERE EXISTS (
+	SELECT 1 FROM reserves r );
+    
+#5. Obtenir els serveis que no ofereix cada hotel ((NOT)IN)
+SELECT h.nomHotel, s.nomServei FROM hotels h, serveis s
+WHERE s.idServei NOT IN (
+	SELECT s.idServei FROM serveis s, serveishotels sh
+    WHERE s.idServei = sh.idServei );
+    
+#5. Obtenir els serveis que no ofereix cada hotel ((NOT)EXISTS)
+SELECT h.nomHotel, s.nomServei FROM hotels h, serveis s
+WHERE NOT EXISTS (
+	SELECT 1 FROM serveis s, serveishotels sh
+    WHERE s.idServei = sh.idServei );
+    
+#6. Categories d'habitacions que ofereix cada hotel ((NOT)IN)
+SELECT h.nomHotel, c.categoria FROM hotels h, categories c, habitacions hab
+WHERE c.idcategoria IN (
+	SELECT c.idcategoria FROM hotels h, habitacions hab
+    WHERE h.idHotel = hab.idHotel );
+    
+#6. Categories d'habitacions que ofereix cada hotel ((NOT)EXISTS)
+SELECT h.nomHotel, c.categoria FROM hotels h, categories c, habitacions hab
+WHERE EXISTS (
+	SELECT 1 FROM hotels h, habitacions hab
+    WHERE h.idHotel = hab.idHotel );
+
+#7. Països amb províncies sense hotels ((NOT)IN)
+SELECT p.pais FROM paisos p
+WHERE p.idPais NOT IN (
+	SELECT h.idProvincia FROM hotels h );
+
+#7. Països amb províncies sense hotels ((NOT)EXISTS)
+SELECT p.pais FROM paisos p
+WHERE EXISTS (
+	SELECT h.idProvincia FROM hotels h, provincies p
+    WHERE h.idProvincia = p.idProvincia );
