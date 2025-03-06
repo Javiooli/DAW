@@ -1,0 +1,52 @@
+﻿Javier Pedragosa Lozano
+DAW1 – Bases de dades
+18/02/2025
+
+Examen 1 (Funcions)
+
+1. Donat un idServei ha de retornar el nom del servei
+CREATE DEFINER=`root`@`localhost` FUNCTION `nomServei`(pIdServei INT) RETURNS varchar(40) CHARSET utf8mb4
+    DETERMINISTIC
+BEGIN
+	DECLARE vNomServei VARCHAR(40);
+    SELECT nomServei INTO vNomServei FROM hotels_blanxart.serveis
+    WHERE idServei = pIdServei;
+RETURN vNomServei;
+END
+
+2. Donat un idProvincia ha de retornar el nom del país de la provincia
+CREATE DEFINER=`root`@`localhost` FUNCTION `nomPaisProvincia`(pIdProvincia INT) RETURNS varchar(40) CHARSET utf8mb4
+    DETERMINISTIC
+BEGIN
+	DECLARE vNomPais VARCHAR(40);
+    SELECT pais INTO vNomPais FROM hotels_blanxart.paisos
+    WHERE idPais IN (
+		SELECT idPais FROM hotels_blanxart.provincies
+		WHERE idProvincia = pIdProvincia);
+RETURN vNomPais;
+END
+
+3. Donat un idHotel i una data ha de retornar quantes persones arriben en aquesta data (Reserves on dataInici sigui igual a la data)
+CREATE DEFINER=`root`@`localhost` FUNCTION `personesArribenDia`(pIdHotel INT, pData DATE) RETURNS int
+    DETERMINISTIC
+BEGIN
+	DECLARE vPersones INT;
+    SELECT count(*) INTO vPersones FROM hotels_blanxart.reserves
+    WHERE
+		idHotel = pIdHotel AND dataInici = pData;
+RETURN vPersones;
+END
+
+4. Donat un idHotel, una data i un idCategoria, ha de retornar quantes habitacions lliures hi ha en aquesta data
+CREATE DEFINER=`root`@`localhost` FUNCTION `habitacionsLliures`(pIdHotel INT, pData DATE, pIdCategoria INT) RETURNS int
+    DETERMINISTIC
+BEGIN
+	DECLARE vHabitacionsLliures INT;
+    SELECT count(*) INTO vHabitacionsLliures FROM hotels_blanxart.habitacions
+    WHERE idHotel = pIdHotel AND numeroHabitacio NOT IN (
+		SELECT numeroHabitacio FROM hotels_blanxart.reserveshab
+        WHERE numReserva IN (
+			SELECT numReserva FROM hotels_blanxart.reserves
+            WHERE idHotel = pIdHotel AND pData BETWEEN dataInici AND dataFi));
+RETURN vHabitacionsLliures;
+END

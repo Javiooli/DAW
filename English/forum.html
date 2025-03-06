@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum | Educational Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #f5f5f5, #e8e8e8), url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="4" fill="%2388aacc"/></svg>') repeat;
+            color: #333;
+        }
+        header {
+            background-color: rgba(58, 141, 223, 0.85);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .forum-container {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        .category {
+            margin-bottom: 20px;
+        }
+        .category h2 {
+            background: rgba(58, 141, 223, 0.85);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .topic {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .reply-box {
+            display: none;
+            margin-top: 10px;
+        }
+        .topic button {
+            background: #3a8ddf;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .topic button:hover {
+            background: #2d79c2;
+        }
+        .new-topic {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .new-topic input, .new-topic textarea, .new-topic select {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Educational Hub - Forum</h1>
+        <nav>
+            <ul>
+                <li><a href="./eduWeb.html">Home</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="./forum.html">Forum</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="forum-container">
+        <div class="category">
+            <h2>General Discussions</h2>
+            <div class="topic"><h3>Welcome to the Forum!</h3><p>Discuss anything related to education and student life.</p>
+                <button onclick="upvote(this)">Upvote (0)</button>
+                <button onclick="toggleReply(this)">Reply</button>
+                <div class="reply-box" style="display: none;">
+                    <textarea placeholder="Write a reply..."></textarea>
+                    <button onclick="submitReply(this)">Submit</button>
+                </div></div>
+        </div>
+        
+        <div class="category">
+            <h2>Project Help</h2>
+        </div>
+        
+        <div class="category">
+            <h2>Tutoring Requests</h2>
+        </div>
+        
+        <div class="new-topic">
+            <h2>Create a New Topic</h2>
+            <form onsubmit="addTopic(event)">
+                <label for="topic-title">Title:</label>
+                <input type="text" id="topic-title" required>
+                
+                <label for="category">Category:</label>
+                <select id="category">
+                    <option>General Discussions</option>
+                    <option>Project Help</option>
+                    <option>Tutoring Requests</option>
+                </select>
+                
+                <label for="content">Message:</label>
+                <textarea id="content" required></textarea>
+                
+                <button type="submit">Post Topic</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        function upvote(button) {
+            let count = parseInt(button.innerText.match(/\d+/)[0]);
+            button.innerText = `Upvote (${count ? 0 : 1})`;
+        }
+
+        function toggleReply(button) {
+            let replyBox = button.nextElementSibling;
+            replyBox.style.display = replyBox.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function submitReply(button) {
+            let replyText = button.previousElementSibling.value;
+            replyText = `User ${Math.floor(Math.random() * 1000)}: ${replyText}`;
+            if (replyText.trim()) {
+                let newReply = document.createElement('p');
+                newReply.innerText = replyText;
+                button.parentElement.parentElement.appendChild(newReply);
+                button.parentElement.style.display = 'none';
+            }
+        }
+
+        function addTopic(event) {
+            event.preventDefault();
+            let title = document.getElementById('topic-title').value;
+            let category = document.getElementById('category').value;
+            let content = document.getElementById('content').value;
+            
+            let newTopic = document.createElement('div');
+            newTopic.className = 'topic';
+            newTopic.innerHTML = `<h3>${title}</h3><p>${content}</p>
+                <button onclick="upvote(this)">Upvote (0)</button>
+                <button onclick="toggleReply(this)">Reply</button>
+                <div class="reply-box">
+                    <textarea placeholder="Write a reply..."></textarea>
+                    <button onclick="submitReply(this)">Submit</button>
+                </div>`;
+            
+            let categorySection = [...document.querySelectorAll('.category h2')].find(h2 => h2.innerText === category).parentElement;
+            
+            categorySection.appendChild(newTopic);
+            document.getElementById('topic-title').value = '';
+            document.getElementById('content').value = '';
+        }
+    </script>
+</body>
+</html>

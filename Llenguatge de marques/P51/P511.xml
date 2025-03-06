@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="./P511.xsl" type="text/xsl"?>
+<equips>
+    <equip>
+        <nom>F.C. Barcelona</nom> <!-- Nom de l'equip -->
+        <localitat>Barcelona</localitat> <!-- Ciutat originària de l'equip -->
+    </equip>
+    <equip>
+        <nom>Athletic Bilbao</nom> <!-- Nom de l'equip -->
+        <localitat>Bilbao</localitat> <!-- Ciutat originària de l'equip -->
+    </equip>
+    <equip>
+        <nom>Betis</nom> <!-- Nom de l'equip -->
+        <localitat>Sevilla</localitat> <!-- Ciutat originària de l'equip -->
+    </equip>
+    <equip>
+        <nom>Osasuna</nom> <!-- Nom de l'equip -->
+        <localitat>Pamplona</localitat> <!-- Ciutat originària de l'equip -->
+    </equip>
+    <equip>
+        <nom>Real Sociedad</nom> <!-- Nom de l'equip -->
+        <localitat>Sant Sebastià</localitat> <!-- Ciutat originària de l'equip -->
+    </equip>
+    <equip>
+        <nom>Rayo Vallecano</nom> <!-- Nom de l'equip -->
+        <localitat>Madrid</localitat> <!-- Ciutat originària de l'equip -->
+    </equip>
+</equips>

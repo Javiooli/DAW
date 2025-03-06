@@ -1,0 +1,216 @@
+/* 🎇🔥🌍 ESTILO SUPREMO - BIENVENIDO AL ESTADIO 🌍🔥🎇 */
+body {
+    font-family: 'Arial Black', sans-serif;
+    background: url('grass.jpg'), linear-gradient(to bottom, #004d00, #002200);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Contenedor de los fuegos artificiales */
+#fireworks-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 999999;
+}
+
+/* Efecto del fuego artificial */
+.firework {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    opacity: 1;
+    pointer-events: none;
+    box-shadow: 0 0 10px 5px rgba(255, 215, 0, 0.7);
+    animation: ascend 1.2s ease-out, explode 2s forwards;
+}
+
+/* Animación de ascenso rápido */
+@keyframes ascend {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+    }
+    40% {
+        transform: translateY(-250px) scale(1.2);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-500px) scale(2);
+        opacity: 0;
+    }
+}
+
+/* Animación de explosión radial */
+@keyframes explode {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(3) rotate(180deg);
+        opacity: 0.9;
+    }
+    100% {
+        transform: scale(5) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Fragmentos dispersos en todas direcciones (radial) */
+.firework:before, .firework:after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: inherit;
+    animation: fragment 2s forwards;
+    opacity: 0.8;
+}
+
+/* Animación de fragmentos en todas direcciones */
+@keyframes fragment {
+    0% {
+        transform: scale(0.2) translateX(0) translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5) translateX(calc(300px * cos(var(--random-angle)))) translateY(calc(300px * sin(var(--random-angle))));
+        opacity: 0;
+    }
+}
+
+/* Efectos adicionales de partículas brillantes */
+.firework {
+    filter: blur(2px);
+}
+
+
+/* 🏆 TITULO ULTRA ÉPICO */
+h1 {
+    font-size: 4em;
+    text-shadow: 0px 0px 30px rgba(255, 255, 0, 1), 0px 0px 60px rgba(255, 215, 0, 0.9);
+    margin-bottom: 30px;
+    color: #ffeb3b;
+    text-transform: uppercase;
+    animation: glow 1.5s infinite alternate ease-in-out;
+}
+
+/* ✨ EFECTO DE BRILLO DINÁMICO */
+@keyframes glow {
+    0% { text-shadow: 0px 0px 10px rgba(255, 255, 0, 0.7); }
+    100% { text-shadow: 0px 0px 40px rgba(255, 255, 0, 1); }
+}
+
+/* 🏟️ CAMPO DE FÚTBOL EN EL FONDO */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/4/45/Football_field.svg') no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+/* 🏅 TABLA NIVEL CHAMPIONS */
+table {
+    width: 85%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 15px;
+    box-shadow: 0px 0px 40px rgba(255, 255, 0, 0.9), 0px 0px 60px rgba(255, 165, 0, 0.8);
+    overflow: hidden;
+    transform: scale(1);
+    transition: transform 0.5s ease-in-out;
+}
+
+/* ⚡ EFECTO DE RESPLANDOR AL PASAR EL RATÓN */
+table:hover {
+    transform: scale(1.08) rotate(1deg);
+}
+
+/* 🔥 ENCABEZADOS ULTRA BRILLANTES */
+th {
+    background: linear-gradient(to bottom, #ffeb3b, #fbc02d);
+    color: black;
+    font-size: 2em;
+    padding: 20px;
+    border-bottom: 5px solid #ffd700;
+    text-transform: uppercase;
+    box-shadow: 0px 4px 20px rgba(255, 255, 0, 0.9);
+}
+
+/* 🎭 FILAS QUE ENTRAN COMO UNA OLA */
+tr {
+    animation: waveEntry 1s ease-in-out;
+}
+
+/* 🌊 ANIMACIÓN DE ENTRADA EN OLA */
+@keyframes waveEntry {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 🎭 CELDAS CON EFECTO NEÓN */
+td {
+    padding: 20px;
+    font-size: 1.5em;
+    border-bottom: 4px solid rgba(255, 255, 255, 0.4);
+    transition: background 0.5s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+/* 🔄 FILAS ALTERNAS */
+tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* 🎆 FILAS QUE BRILLAN AL PASAR EL RATÓN */
+tr:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transition: 0.3s;
+}
+
+/* 💡 EFECTO NEÓN EN CELDAS */
+td:hover {
+    text-shadow: 0px 0px 20px rgba(255, 255, 0, 1), 0px 0px 30px rgba(255, 165, 0, 1);
+    cursor: pointer;
+}
+
+th {
+    font-weight: bolder;
+}
+
+/* 🎭 BORDES REDONDEADOS */
+th, td {
+    border-radius: 10px;
+}
+
+tr:nth-child(2) {
+    background-color: green;
+    color: white;
+}
+
+tr:last-child {
+    background-color: red;
+    color: white;
+}

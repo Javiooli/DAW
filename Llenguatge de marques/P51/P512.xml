@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="P512.xsl" type="text/xsl"?>
+<lliga>
+    <equip>
+        <nom>Vikingur</nom>
+        <PJ>27</PJ> <!--Partits Jugats -->
+        <V>24</V> <!-- Victories -->
+        <E>1</E> <!-- Empats -->
+        <D>2</D> <!-- Derrotes -->
+        <GF>79</GF> <!-- Gols a favor -->
+        <GC>14</GC> <!-- Gols en contra -->
+        <DG>65</DG> <!-- Diferencia de gols -->
+        <PT>73</PT> <!-- Punts totals -->
+    </equip>
+    <equip>
+        <nom>Kí</nom>
+        <PJ>27</PJ> <!--Partits Jugats -->
+        <V>22</V> <!-- Victories -->
+        <E>1</E> <!-- Empats -->
+        <D>4</D> <!-- Derrotes -->
+        <GF>58</GF> <!-- Gols a favor -->
+        <GC>24</GC> <!-- Gols en contra -->
+        <DG>34</DG> <!-- Diferencia de gols -->
+        <PT>67</PT> <!-- Punts totals -->
+    </equip>
+    <equip>
+        <nom>Havnar Bóltfelag</nom>
+        <PJ>27</PJ> <!--Partits Jugats -->
+        <V>19</V> <!-- Victories -->
+        <E>2</E> <!-- Empats -->
+        <D>6</D> <!-- Derrotes -->
+        <GF>55</GF> <!-- Gols a favor -->
+        <GC>23</GC> <!-- Gols en contra -->
+        <DG>32</DG> <!-- Diferencia de gols -->
+        <PT>59</PT> <!-- Punts totals -->
+    </equip>
+    <equip>
+        <nom>NSÍ Runavík</nom>
+        <PJ>27</PJ> <!--Partits Jugats -->
+        <V>13</V> <!-- Victories -->
+        <E>3</E> <!-- Empats -->
+        <D>11</D> <!-- Derrotes -->
+        <GF>54</GF> <!-- Gols a favor -->
+        <GC>43</GC> <!-- Gols en contra -->
+        <DG>11</DG> <!-- Diferencia de gols -->
+        <PT>42</PT> <!-- Punts totals -->
+    </equip>
+    <equip>
+        <nom>B36 Tórshavn</nom>
+        <PJ>27</PJ> <!--Partits Jugats -->
+        <V>11</V> <!-- Victories -->
+        <E>8</E> <!-- Empats -->
+        <D>8</D> <!-- Derrotes -->
+        <GF>56</GF> <!-- Gols a favor -->
+        <GC>42</GC> <!-- Gols en contra -->
+        <DG>14</DG> <!-- Diferencia de gols -->
+        <PT>41</PT> <!-- Punts totals -->
+    </equip>
+    <equip>
+        <nom>07 Vestur</nom>
+        <PJ>27</PJ> <!--Partits Jugats -->
+        <V>9</V> <!-- Victories -->
+        <E>3</E> <!-- Empats -->
+        <D>15</D> <!-- Derrotes -->
+        <GF>34</GF> <!-- Gols a favor -->
+        <GC>60</GC> <!-- Gols en contra -->
+        <DG>-26</DG> <!-- Diferencia de gols -->
+        <PT>30</PT> <!-- Punts totals -->
+    </equip>
+    <equip>
+        <nom>EB/Streymur</nom>
+        <PJ>27</PJ> <!--Partits Jugats -->
+        <V>9</V> <!-- Victories -->
+        <E>1</E> <!-- Empats -->
+        <D>17</D> <!-- Derrotes -->
+        <GF>35</GF> <!-- Gols a favor -->
+        <GC>49</GC> <!-- Gols en contra -->
+        <DG>-14</DG> <!-- Diferencia de gols -->
+        <PT>28</PT> <!-- Punts totals -->
+    </equip>
+    <equip>
+        <nom>B68 Tofta Ítróttarfelag</nom>
+        <PJ>27</PJ> <!--Partits Jugats -->
+        <V>5</V> <!-- Victories -->
+        <E>6</E> <!-- Empats -->
+        <D>16</D> <!-- Derrotes -->
+        <GF>23</GF> <!-- Gols a favor -->
+        <GC>48</GC> <!-- Gols en contra -->
+        <DG>-25</DG> <!-- Diferencia de gols -->
+        <PT>21</PT> <!-- Punts totals -->
+    </equip>
+    <equip>
+        <nom>Skála Ítróttarfelag</nom>
+        <PJ>27</PJ> <!--Partits Jugats -->
+        <V>5</V> <!-- Victories -->
+        <E>5</E> <!-- Empats -->
+        <D>17</D> <!-- Derrotes -->
+        <GF>27</GF> <!-- Gols a favor -->
+        <GC>57</GC> <!-- Gols en contra -->
+        <DG>-30</DG> <!-- Diferencia de gols -->
+        <PT>20</PT> <!-- Punts totals -->
+    </equip>
+    <equip>
+        <nom>ÍF Fuglafjørður</nom>
+        <PJ>27</PJ> <!--Partits Jugats -->
+        <V>1</V> <!-- Victories -->
+        <E>4</E> <!-- Empats -->
+        <D>22</D> <!-- Derrotes -->
+        <GF>24</GF> <!-- Gols a favor -->
+        <GC>85</GC> <!-- Gols en contra -->
+        <DG>-61</DG> <!-- Diferencia de gols -->
+        <PT>7</PT> <!-- Punts totals -->
+    </equip>
+</lliga>

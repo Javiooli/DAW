@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #f5f5f5, #e8e8e8), url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="4" fill="%2388aacc"/></svg>') repeat;
+            color: #333;
+        }
+        header {
+            background-color: rgba(58, 141, 223, 0.85);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            padding: 20px;
+            margin: 20px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        .content-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .content-container section {
+            flex: 1;
+        }
+        .news-item img {
+            max-width: 100%;
+            height: auto;
+            max-height: 250px;
+            display: block;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .service-item {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .service-item button {
+            background: #3a8ddf;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+        .service-item button:hover {
+            background: #2d79c2;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        form input, form textarea {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        form button {
+            background: #3a8ddf;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+        form button:hover {
+            background: #2d79c2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Educational Hub</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="./forum.html">Forum</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content-container">
+        <section id="news">
+            <h2>Student Projects</h2>
+            <div class="news-item">
+                <img src="placeholder.png" alt="Project Image">
+                <p>Exciting student projects are featured here, showcasing innovation and creativity.</p>
+            </div>
+        </section>
+
+        <section id="services">
+            <h2>Tutoring Services</h2>
+            <div class="service-item">
+                <h3>Math Tutoring</h3>
+                <p>Expert guidance in algebra, calculus, and more to improve your math skills.</p>
+                <button>Enrol</button>
+            </div>
+            <div class="service-item">
+                <h3>Science Coaching</h3>
+                <p>Explore the wonders of physics, chemistry, and biology with our experienced tutors.</p>
+                <button>Enrol</button>
+            </div>
+            <div class="service-item">
+                <h3>Language Lessons</h3>
+                <p>Enhance your language proficiency with customized learning plans.</p>
+                <button>Enrol</button>
+            </div>
+        </section>
+    </div>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Educational Hub is dedicated to promoting student projects and offering high-quality tutoring services.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>If you want to offer your services as a private teacher on any subjects, submit your data and we will contact you as soon as possible.</p>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Send</button>
+        </form>
+    </section>
+</body>
+</html>
