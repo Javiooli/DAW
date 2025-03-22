@@ -1,0 +1,64 @@
+/* Estilo para el título */
+h1 {
+    font-family: 'Georgia', serif;
+    font-size: 2.5em;
+    color: #2c3e50;
+    text-align: center;
+    padding: 20px;
+    background-color: #ecf0f1;
+    border-bottom: 3px solid #2c3e50;
+    margin: 0 auto;
+    width: 80%;
+    border-radius: 10px;
+}
+
+/* Estilo para la lista */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Estilo para cada elemento de la lista */
+li {
+    text-align:center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #ecf0f1;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2em;
+    color: #34495e;
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover para los elementos */
+li:hover {
+    background-color: #f9f9f9;
+    transform: translateX(10px);
+    color: #e74c3c;
+}
+
+/* Quitar el borde inferior del último elemento */
+li:last-child {
+    border-bottom: none;
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+        width: 90%;
+    }
+    ul {
+        width: 90%;
+    }
+    li {
+        font-size: 1em;
+        padding: 10px 15px;
+    }
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="menu.xsl" type="text/xsl"?>
+<menu>
+    <item title="Primers">
+        <subitem name="Arrós" price="4,00€">El nostre arrós especial cultivat a les Terres de l'Ebre i bullit amb l'aigua del Montseny.</subitem>
+        <subitem name="Sopa" price="3,50€">El nostre brou bullit durant 5 generacions amb ossos de 437 espècies d'animals diferents.</subitem>
+        <subitem name="Puré" price="4,50€">Totes les verdures que existeixen fusionades en una sola massa triturada amb mantega de búfala.</subitem>
+        <subitem name="Amanida" price="3,00€">Amanida realment vegana no com les de tots els restaurants que porten pernil o tonyina o qualsevol cosa per no ser-ho.</subitem>
+    </item>
+    <item title="Segons">
+        <subitem name="Bistec" price="12,50€">Múscul secret d'un animal secret, t'atreveixes a provar-lo?</subitem>
+        <subitem name="San Jacobos" price="6,00€">La més gran meravella del món modern, no cal descriure'ls.</subitem>
+        <subitem name="Hamburguesa" price="13,00€">Pa, enciam, maionesa, formatge i 400g de carn de bou gallec.</subitem>
+        <subitem name="Ramen de tofu i verdures" price="11,50€">Caldo de verdures, tofu marinat i arrebossat, brots de bambú i shiitake.</subitem>
+    </item>
+    <item title="Postres">
+        <subitem name="Natilles" price="2,50€">'Clasicazo', no sabem de quina marca però Danet no perquè no saben a res.</subitem>
+        <subitem name="Flam" price="3,00€">Flam caser fet a partir d'ous blaus de gallina francesa.</subitem>
+        <subitem name="Crema catalana" price="3,50€">Crema catalana de la de veritat, ni creme bruleé ni postre genèric de llimona.</subitem>
+    </item>
+    <item title="Begudes">
+        <subitem name="Vi blanc" price="3,00€">Cabernet Sauvingon D.O. Penedés.</subitem>
+        <subitem name="Vi negre" price="3,00€">Garnatxa D.O. Conca de Barberà.</subitem>
+        <subitem name="Refresc" price="2,50€">Fanta, Coca-Cola, 7-Up...</subitem>
+        <subitem name="Aigua" price="2,00€">Aigua i res més que aigua.</subitem>
+    </item>
+</menu>
+
+

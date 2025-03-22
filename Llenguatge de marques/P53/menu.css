@@ -1,0 +1,87 @@
+/* Fondo de la página con degradado */
+body {
+    background: linear-gradient(to bottom right, #f0f4f8, #d9e7ff);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* Título principal */
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Lista principal (secciones del menú) */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Secciones (primers, segons, postres, begudes) */
+li h3 {
+    font-weight: bold;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: white;
+    text-transform: uppercase;
+}
+
+/* Colores específicos para cada sección */
+li:nth-child(1) h3 { /* Primers */
+    background-color: #3498db; /* Azul */
+}
+li:nth-child(2) h3 { /* Segons */
+    background-color: #2ecc71; /* Verde */
+}
+li:nth-child(3) h3 { /* Postres */
+    background-color: #e74c3c; /* Rojo */
+}
+li:nth-child(4) h3 { /* Begudes */
+    background-color: #9b59b6; /* Morado */
+}
+
+/* Subítems (platos) */
+li ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+li ul li {
+    padding: 10px 15px;
+    border-bottom: 1px solid #ecf0f1;
+    font-size: 1.1em;
+    color: #34495e;
+}
+
+li ul li:last-child {
+    border-bottom: none;
+}
+
+/* Estilo para destacar los precios */
+li ul li span.price {
+    font-weight: bold;
+    color: #e67e22; /* Naranja para resaltar */
+    font-size: 1.2em;
+    margin-left: 10px;
+    background-color: #fff3e0;
+    padding: 2px 8px;
+    border-radius: 3px;
+}
+
+/* Ajuste para que el XSLT aplique el estilo de precio */
+li ul li {
+    display: flex;
+    align-items: center;
+}
+li ul li p {
+    margin: 0;
+}

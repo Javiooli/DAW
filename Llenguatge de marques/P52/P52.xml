@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="P52.xsl" type="text/xsl"?>
+<wishlist> <!-- Llista desitjos -->
+    <wish><title>Un bon treball</title></wish> <!-- Element desig amb el títol a dins. -->
+    <wish><title>Una casa to guapa</title></wish><!--He hagut d'incorporar el títol a dins perquè si no no me l'agafava el xsl.-->
+    <wish><title>Un cotxe bacano</title></wish>
+    <wish><title>Un setup de la NASA</title></wish>
+    <wish><title>Les Quest 3 que les Quest 2 se'm queden antiquades</title></wish>
+    <wish><title>Un sistema de so 7.1 de 800W</title></wish>
+    <wish><title>Roba guapa</title></wish>
+    <wish><title>Totes les Vans que existeixen</title></wish>
+    <wish><title>Jocs de taula, molts jocs de taula</title></wish>
+    <wish><title>Filament infinit per la impressora 3D</title></wish>
+</wishlist>
+
+
