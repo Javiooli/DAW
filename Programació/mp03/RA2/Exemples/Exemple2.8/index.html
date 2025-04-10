@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JPedragosa</title>
+    <link rel="icon" href="../../../media/banana.gif">
+    <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body onLoad="let rect1 = new Rectangle(0, 0);">
+    <h1>Exemple RA2.8. Utilitza constructors.</h1>
+
+    <input type="number" id="amplada" placeholder="Amplada (en metres)" style="font-size:32px">
+    <input type="number" id="altura" placeholder="Altura (en metres)" style="font-size:32px">
+    <h1/>
+    <button onclick="calcArea()" style="font-size:32px">Calcula l'àrea</button>
+    <button onclick="calcPerimetre()" style="font-size:32px">Calcula el perímetre</button>
+
+    <div>
+        <p id="resultat"></p>
+    </div>
+
+    <script src = "script.js"></script>
+    <a class="back" href="javascript:history.back()">
+        <img src="../../../media/back.png" alt="Tornar enrere!">
+    </a>
+</body>
+</html>

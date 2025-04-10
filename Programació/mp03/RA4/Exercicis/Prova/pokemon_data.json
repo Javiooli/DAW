@@ -1,0 +1,149 @@
+[
+    {
+        "name": "Bulbasaur",
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "points": 34,
+        "special_power": 130,
+        "class_type": "GrassPokemon",
+        "description": "A small quadruped with a large seed on its back, Bulbasaur uses sunlight to gradually power up its abilities."
+    },
+    {
+        "name": "Ivysaur",
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "points": 83,
+        "special_power": 79,
+        "class_type": "GrassPokemon",
+        "description": "Ivysaur is a more mature evolution of Bulbasaur, featuring a bud that hints at its eventual blooming power."
+    },
+    {
+        "name": "Venusaur",
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "points": 40,
+        "special_power": 108,
+        "class_type": "GrassPokemon",
+        "description": "Venusaur has fully evolved, showcasing a large flower on its back that releases potent pollen during battles."
+    },
+    {
+        "name": "Charmander",
+        "types": [
+            "Fire"
+        ],
+        "points": 38,
+        "special_power": 94,
+        "class_type": "FirePokemon",
+        "description": "Charmander is a fiery lizard whose tail flame reflects its life force, burning brighter as it gains strength."
+    },
+    {
+        "name": "Charmeleon",
+        "types": [
+            "Fire"
+        ],
+        "points": 99,
+        "special_power": 134,
+        "class_type": "FirePokemon",
+        "description": "Charmeleon exhibits a fiercer temperament and more intense flame compared to its earlier form, making it a formidable fighter."
+    },
+    {
+        "name": "Charizard",
+        "types": [
+            "Fire",
+            "Flying"
+        ],
+        "points": 93,
+        "special_power": 146,
+        "class_type": "FirePokemon",
+        "description": "Charizard, resembling a dragon, is known for its majestic flight and its ability to unleash powerful, fiery breath."
+    },
+    {
+        "name": "Squirtle",
+        "types": [
+            "Water"
+        ],
+        "points": 100,
+        "special_power": 89,
+        "class_type": "WaterPokemon",
+        "description": "Squirtle is a small, turtle-like Pokémon that uses its hard shell for defense while mastering water-based attacks."
+    },
+    {
+        "name": "Wartortle",
+        "types": [
+            "Water"
+        ],
+        "points": 17,
+        "special_power": 105,
+        "class_type": "WaterPokemon",
+        "description": "Wartortle has a bushy tail and a sturdier build than Squirtle, reflecting its enhanced abilities in water battles."
+    },
+    {
+        "name": "Blastoise",
+        "types": [
+            "Water"
+        ],
+        "points": 25,
+        "special_power": 112,
+        "class_type": "WaterPokemon",
+        "description": "Blastoise is a fully evolved turtle Pokémon equipped with powerful water cannons, making it a strong defensive and offensive combatant."
+    },
+    {
+        "name": "Caterpie",
+        "types": [
+            "Bug"
+        ],
+        "points": 40,
+        "special_power": 95,
+        "class_type": "BugPokemon",
+        "description": "Caterpie is a small, worm-like Pokémon that may seem weak but quickly evolves into more capable forms."
+    },
+    {
+        "name": "Metapod",
+        "types": [
+            "Bug"
+        ],
+        "points": 64,
+        "special_power": 144,
+        "class_type": "BugPokemon",
+        "description": "Metapod's hard shell offers significant protection as it remains in a transitional stage, preparing for its final evolution."
+    },
+    {
+        "name": "Butterfree",
+        "types": [
+            "Bug",
+            "Flying"
+        ],
+        "points": 13,
+        "special_power": 139,
+        "class_type": "BugPokemon",
+        "description": "Butterfree is a graceful, butterfly-like Pokémon capable of swift flight and using its wings to create dazzling aerial displays."
+    },
+    {
+        "name": "Weedle",
+        "types": [
+            "Bug",
+            "Poison"
+        ],
+        "points": 49,
+        "special_power": 89,
+        "class_type": "BugPokemon",
+        "description": "Weedle is a small, insect-like Pokémon known for its venomous stinger, which it uses to deter predators."
+    },
+    {
+        "name": "Kakuna",
+        "types": [
+            "Bug",
+            "Poison"
+        ],
+        "points": 67,
+        "special_power": 75,
+        "class_type": "BugPokemon",
+        "description": "Kakuna is an intermediate form that remains motionless inside its hardened shell while it prepares for its dramatic evolution."
+    }
+]

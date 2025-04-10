@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./estil.css" />
+    <title>Pokémon Team Builder with Grid</title>
+  </head>
+  <body>
+    <header>
+      <h1>Pokémon Team Builder</h1>
+    </header>
+    <main>
+      <section id="team-section">
+        <h2>Your Team</h2>
+        <div id="selected-team-grid" class="grid-container">
+          <!-- L'equip seleccionat es mostrarà aquí -->
+        </div>
+        <button id="show-team">Show Team</button>
+      </section>
+      <section id="credits-section">
+        <h2>Crèdits</h2>
+        <p id="credits-display">Crèdits disponibles: 2000</p>
+      </section>
+      <section id="sort-options-section">
+        <h2>Sort Options</h2>
+        <form id="sort-options-form">
+          <fieldset>
+            <legend>Ordenar per:</legend>
+            <label>
+              <input type="radio" name="sort-criteria" value="name" checked />
+              Nom
+            </label>
+            <label>
+              <input type="radio" name="sort-criteria" value="points" /> Punts
+            </label>
+            <label>
+              <input type="radio" name="sort-criteria" value="type" /> Tipus
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>Mètode d'ordenació:</legend>
+            <label>
+              <input type="radio" name="sort-method" value="bubble" checked />
+              Bombolla
+            </label>
+            <label>
+              <input type="radio" name="sort-method" value="insertion" />
+              Inserció
+            </label>
+            <label>
+              <input type="radio" name="sort-method" value="selection" />
+              Selecció
+            </label>
+          </fieldset>
+          <button type="button" id="sort-team">Ordenar</button>
+        </form>
+      </section>
+      <section id="pokemon-grid-section">
+        <h2>Pokémon Grid</h2>
+        <div id="pokemon-grid">
+          <!-- Pokémon grid will be populated dynamically -->
+        </div>
+      </section>
+    </main>
+    <script src="./newTestModel.js" type="module"></script>
+  </body>
+</html>

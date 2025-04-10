@@ -1,0 +1,169 @@
+header {
+    text-align: center;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
+    background-image: url('./pexels-andreea-ch-371539-1166644.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #4a90e2;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+button {
+    margin-top: 10px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #357ABD;
+}
+.completed {
+    text-decoration: line-through;
+    color: purple;
+}
+
+button.complete {
+    background-color: purple;
+}
+
+button.undo, button.delete-forever {
+    background-color: red;
+}
+
+button.undo:hover {
+    background-color: rgb(19, 168, 69);
+}
+
+button.delete-forever:hover {
+    background-color: darkred;
+}
+
+/* Estils per a enllaços */
+a {
+    color: #4a90e2; /* Color blau modern */
+    text-decoration: none; /* Elimina la subratllada per defecte */
+    font-weight: bold;
+    transition: color 0.3s ease, border-bottom 0.3s ease; /* Suavització dels canvis de color */
+    border-bottom: 2px solid transparent; /* Afegim una línia subtil sota l'enllaç */
+}
+
+a:hover {
+    color: #357ABD; /* Canvia el color quan es fa hover */
+    border-bottom: 2px solid #357ABD; /* Mostra una línia sota l'enllaç quan es passa per sobre */
+}
+
+a:active {
+    color: #2b6ba2; /* Color més fosc quan es fa clic */
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+#pokemon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    width: 100%; /* Assegura que la graella ocupa tot l'espai disponible */
+    max-width: 1200px; /* Limita l'amplada màxima */
+    margin: 0 auto; /* Centra la graella */
+    padding: 20px; /* Afegim espai al voltant */
+    background: rgba(255, 255, 255, 0.8); /* Fons semitransparent */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pokemon-card {
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    width: 100%; /* Ocupa tot l'espai assignat pel Grid Layout */
+    max-width: 150px; /* Limita l'amplada màxima */
+}
+.pokemon-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 50%; /* Imatges rodones */
+    border: 2px solid #4a90e2;
+}
+
+.pokemon-card h3 {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+.pokemon-card p {
+    margin: 2px 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.pokemon-card.selected {
+    border: 2px solid green;
+    background-color: rgba(0, 255, 0, 0.1);
+}
+
+#selected-team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+    display: none;
+}
+
+#details-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background: #fff;
+    z-index: 999;
+    border: 2px solid #aaa;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+#details-close {
+   float: right;
+   cursor: pointer;
+   font-weight: bold;
+   color: #333;
+}

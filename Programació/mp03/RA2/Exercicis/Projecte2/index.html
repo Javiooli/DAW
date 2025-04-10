@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestió de Magatzem</title>
+    <link rel="icon" href="../../../media/banana.gif">
+    <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Gestió de Magatzem</h1>
+
+        <!-- Formulari per afegir productes -->
+        <div class="product-form">
+            <input type="text" id="productName" placeholder="Nom del Producte">
+            <input type="number" id="productQuantity" placeholder="Quantitat" min="0">
+            <input type="number" id="productPrice" placeholder="Preu Unitari" step="0.01" min="0">
+            <button id="addProduct">Afegeix Producte</button>
+        </div>
+
+        <!-- Llista de productes -->
+        <h2>Llista de Productes</h2>
+        <ul id="productList" class="productList"></ul>
+
+        <h3>Valor total del magatzem: <span id="totalValue">0</span> €</h3>
+    </div>
+
+    <!-- Carregar la llibreria Lodash -->
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+
+    <!-- Carregar l'script principal -->
+    <script src="app.js"></script>
+
+    <a class="back" href="javascript:history.back()">
+        <img src="../../../media/back.png" alt="Tornar enrere!">
+    </a>
+</body>
+</html>

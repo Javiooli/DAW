@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JPedragosa</title>
+    <link rel="icon" href="../../../media/banana.gif">
+    <link rel="stylesheet" href="../../../css/styles.css">
+    <script src=" https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js "></script>
+</head>
+<body>
+    <h1>Projecte MVVM - Gestor de Tasques.</h1>
+
+    Als següents dos camps pots introduïr el títol i la descripció de la tasca.<br/>
+    Si prems el botó d'afegir tasca, afegiras la tasca a la llista de tasques.<br/>
+    Si prems el botó de modificar d'una tasca, aquesta prendrà el títol i/o la descripció introduïts.<br/>
+    <br/>
+
+    <input type="string" id="titol" placeholder="Títol" style="font-size:32px">
+    <input type="string" id="desc" placeholder="Descripció" style="font-size:32px">
+    <h1/>
+    <button onclick="afegir()" style="font-size:32px">Afegir</button>
+
+    <h2>Llista de tasques</h2><br/>
+
+
+    <ul class="llistaTasques" id="llistaTasques">
+    </ul>
+
+    <script src="script.js"></script>
+    <a class="back" href="javascript:history.back()">
+        <img src="../../../media/back.png" alt="Tornar enrere!">
+    </a>
+</body>
+</html>

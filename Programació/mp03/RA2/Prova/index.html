@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestió de Campionats de Petanca</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Gestió de Campionats de Petanca</h1>
+  </header>
+  <main>
+    <section id="campionat-section">
+      <h2>Campionat</h2>
+      <div id="campionat-info">
+        <p><strong>Nom:</strong> <span id="campionat-nom">Campionat Local</span></p>
+        <p><strong>Nombre de partits:</strong> <span id="num-partits">0</span></p>
+      </div>
+    </section>
+    <section id="gestio-section">
+      <h2>Afegeix un Partit</h2>
+      <form id="formulari-partit">
+        <label for="jugador1">Jugador 1:</label>
+        <input type="text" id="jugador1" required>
+        
+        <label for="jugador2">Jugador 2:</label>
+        <input type="text" id="jugador2" required>
+        
+        <label for="puntsJugador1">Punts Jugador 1:</label>
+        <input type="number" id="puntsJugador1" required>
+        
+        <label for="puntsJugador2">Punts Jugador 2:</label>
+        <input type="number" id="puntsJugador2" required>
+        
+        <label for="data">Data:</label>
+        <input type="date" id="data" required>
+        
+        <button type="submit">Afegir Partit</button>
+      </form>
+    </section>
+    <section id="llista-partits">
+        <h2>Partits</h2>
+        <button id="ordena-partits">Ordena per Data</button>
+        <button id="busca-partits">Busca Partits per Jugador</button>
+        <input type="text" id="nom-jugador" placeholder="Nom del jugador">
+        <button id="partit-mes-punts">Troba el Partit amb Més Punts</button>
+        <ul id="partits-list">
+          <!-- Els partits s'afegiran aquí -->
+        </ul>
+      </section>
+        </main>
+  <script src="script.js"></script>
+</body>
+</html>

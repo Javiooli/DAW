@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JPedragosa</title>
+    <link rel="icon" href="../../media/banana.gif">
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+    <h1 style="color:aqua">Calculadora d'IMC</h1>
+    <h1>Càlcul de l'Índex de Massa Corporal a partir del pes i l'alçada.</h1>
+    <input type="number" id="weight" placeholder="Pes en kilograms" style="font-size:32px">
+    <input type="number" id="height" placeholder="Alçada en metres" style="font-size:32px">
+    <h1/>
+    <button onclick="calcularIMC()" style="font-size:32px">Calcula l'IMC</button>
+    <div>
+        <p id="resultat"></p>
+        <p id="valoracio"></p>
+    </div>
+    <script src="./script.js"></script>
+    <a class="back" href="javascript:history.back()">
+        <img src="../../media/back.png" alt="Tornar enrere!">
+    </a>
+</body>
+</html>

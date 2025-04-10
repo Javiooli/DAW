@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <title>Prova JS - Joc de Reacció</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header>
+    <h1>Prova de Javascript - Joc de Reacció</h1>
+  </header>
+
+  <main>
+    <section class="game-section">
+      <h2>Test de Reacció</h2>
+      <div id="color-box">
+        <!-- Aquí canviarà el color segons l'estat del joc -->
+      </div>
+      <button id="start-btn">Start</button>
+      <button id="stop-btn" disabled>Stop</button>
+      <p id="message"></p>
+    </section>
+
+    <section class="history-section">
+      <h3>Historial de temps (ms)</h3>
+      <ul id="history-list">
+        <!-- Llista de resultats anteriors -->
+      </ul>
+    </section>
+    <section class="error-section">
+      <h3> Historial d'errades </h3>
+      <p id="error-p">
+        <!-- Llista d'errors anteriors -->
+      </p>
+    </section>
+  </main>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

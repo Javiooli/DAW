@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JPedragosa</title>
+    <link rel="icon" href="../../../media/banana.gif">
+    <link rel="stylesheet" href="../../../css/styles.css">
+    <script src=" https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js "></script>
+</head>
+<body>
+    <h1>Exemple RA2.5. Incorporació d'una Llibreria Externa i Aplicació Complexa.</h1>
+
+    <h2>Afegir un llibre</h2><br/>
+    <input type="string" id="autor" placeholder="Nom de l'autor" style="font-size:32px">
+    <input type="string" id="titol" placeholder="Títol del llibre" style="font-size:32px">
+    <input type="number" id="any" placeholder="Any publicació" style="font-size:32px">
+    <h1/>
+    <button onclick="afegir()" style="font-size:32px">Afegir</button>
+    <h2>Eliminar un llibre per títol</h2><br/>
+    <input type="string" id="titoldel" placeholder="Nom del llibre" style="font-size:32px">
+    <button onclick="eliminar()" style="font-size:32px">Eliminar</button>
+    <h1/>
+    <h2>Cercar llibres per autor</h2><br/>
+    <input type="string" id="autorsearch" placeholder="Nom de l'autor" style="font-size:32px">
+    <button onclick="cercar()" style="font-size:32px">Cercar per autor</button>
+
+
+    <div>
+        <p id="resultat"></p>
+    </div>
+
+    <script src="script.js"></script>
+    <a class="back" href="javascript:history.back()">
+        <img src="../../../media/back.png" alt="Tornar enrere!">
+    </a>
+</body>
+</html>

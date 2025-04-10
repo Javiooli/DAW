@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Taula amb els meus 10 videojocs més jugats a Steam -->
+<Videojocs> <!-- Root -->
+    <Videojoc> <!-- Child -->
+        <Titol>Counter-Strike 2</Titol> <!-- Nom del videojoc -->
+        <Genere>Shooter</Genere> <!-- Gènere principal del videojoc-->
+        <Desenvolupador>Valve</Desenvolupador> <!-- Empresa desenvolupadora del videojoc -->
+        <HoresJugades>987.6</HoresJugades> <!-- Quantitat d'hores que he jugat -->
+        <AnyPublicacio>2012</AnyPublicacio> <!-- Any en que es publica el joc finalitzat -->
+    </Videojoc> <!-- End Child -->
+    <Videojoc> <!-- Child -->
+        <Titol>Elite Dangerous</Titol> <!-- Nom del videojoc -->
+        <Genere>Simulador</Genere> <!-- Gènere principal del videojoc-->
+        <Desenvolupador>Frontier Developments</Desenvolupador> <!-- Empresa desenvolupadora del videojoc -->
+        <HoresJugades>517.7</HoresJugades> <!-- Quantitat d'hores que he jugat -->
+        <AnyPublicacio>2015</AnyPublicacio> <!-- Any en que es publica el joc finalitzat -->
+    </Videojoc> <!-- End Child -->
+    <Videojoc> <!-- Child -->
+        <Titol>Space Engineers</Titol> <!-- Nom del videojoc -->
+        <Genere>Sandbox</Genere> <!-- Gènere principal del videojoc-->
+        <Desenvolupador>Keen Software House</Desenvolupador> <!-- Empresa desenvolupadora del videojoc -->
+        <HoresJugades>341.2</HoresJugades> <!-- Quantitat d'hores que he jugat -->
+        <AnyPublicacio>2019</AnyPublicacio> <!-- Any en que es publica el joc finalitzat -->
+    </Videojoc> <!-- End Child -->
+    <Videojoc> <!-- Child -->
+        <Titol>Terraria</Titol> <!-- Nom del videojoc -->
+        <Genere>Sandbox</Genere> <!-- Gènere principal del videojoc-->
+        <Desenvolupador>Re-Logic</Desenvolupador> <!-- Empresa desenvolupadora del videojoc -->
+        <HoresJugades>307.7</HoresJugades> <!-- Quantitat d'hores que he jugat -->
+        <AnyPublicacio>2011</AnyPublicacio> <!-- Any en que es publica el joc finalitzat -->
+    </Videojoc> <!-- End Child -->
+    <Videojoc> <!-- Child -->
+        <Titol>Factorio</Titol> <!-- Nom del videojoc -->
+        <Genere>Sandbox</Genere> <!-- Gènere principal del videojoc-->
+        <Desenvolupador>Wube Software LTD.</Desenvolupador> <!-- Empresa desenvolupadora del videojoc -->
+        <HoresJugades>241</HoresJugades> <!-- Quantitat d'hores que he jugat -->
+        <AnyPublicacio>2020</AnyPublicacio> <!-- Any en que es publica el joc finalitzat -->
+    </Videojoc> <!-- End Child -->
+    <Videojoc> <!-- Child -->
+        <Titol>Warframe</Titol> <!-- Nom del videojoc -->
+        <Genere>RPG</Genere> <!-- Gènere principal del videojoc-->
+        <Desenvolupador>Digital Extremes</Desenvolupador> <!-- Empresa desenvolupadora del videojoc -->
+        <HoresJugades>207</HoresJugades> <!-- Quantitat d'hores que he jugat -->
+        <AnyPublicacio>2013</AnyPublicacio> <!-- Any en que es publica el joc finalitzat -->
+    </Videojoc> <!-- End Child -->
+    <Videojoc> <!-- Child -->
+        <Titol>Rocket League</Titol> <!-- Nom del videojoc -->
+        <Genere>Esports</Genere> <!-- Gènere principal del videojoc-->
+        <Desenvolupador>Psyonix LLC</Desenvolupador> <!-- Empresa desenvolupadora del videojoc -->
+        <HoresJugades>174.3</HoresJugades> <!-- Quantitat d'hores que he jugat -->
+        <AnyPublicacio>2015</AnyPublicacio> <!-- Any en que es publica el joc finalitzat -->
+    </Videojoc> <!-- End Child -->
+    <Videojoc> <!-- Child -->
+        <Titol>Unturned</Titol> <!-- Nom del videojoc -->
+        <Genere>Sandbox</Genere> <!-- Gènere principal del videojoc-->
+        <Desenvolupador>Smartly Dressed Games</Desenvolupador> <!-- Empresa desenvolupadora del videojoc -->
+        <HoresJugades>144.5</HoresJugades> <!-- Quantitat d'hores que he jugat -->
+        <AnyPublicacio>2017</AnyPublicacio> <!-- Any en que es publica el joc finalitzat -->
+    </Videojoc> <!-- End Child -->
+    <Videojoc> <!-- Child -->
+        <Titol>Garry’s Mod</Titol> <!-- Nom del videojoc -->
+        <Genere>Sandbox</Genere> <!-- Gènere principal del videojoc-->
+        <Desenvolupador>Facepunch Studios</Desenvolupador> <!-- Empresa desenvolupadora del videojoc -->
+        <HoresJugades>134.1</HoresJugades> <!-- Quantitat d'hores que he jugat -->
+        <AnyPublicacio>2006</AnyPublicacio> <!-- Any en que es publica el joc finalitzat -->
+    </Videojoc> <!-- End Child -->
+    <Videojoc> <!-- Child -->
+        <Titol>Sea of Thieves</Titol> <!-- Nom del videojoc -->
+        <Genere>Sandbox</Genere> <!-- Gènere principal del videojoc-->
+        <Desenvolupador>Rare Ltd</Desenvolupador> <!-- Empresa desenvolupadora del videojoc -->
+        <HoresJugades>127.9</HoresJugades> <!-- Quantitat d'hores que he jugat -->
+        <AnyPublicacio>2020</AnyPublicacio> <!-- Any en que es publica el joc finalitzat -->
+    </Videojoc> <!-- End Child -->
+</Videojocs> <!-- End Root -->

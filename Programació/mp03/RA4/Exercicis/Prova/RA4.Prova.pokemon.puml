@@ -1,0 +1,117 @@
+@startuml
+title Pokémon Team Builder - MVVM Diagram with Separate PokemonList
+
+class Pokemon {
+    - id: int
+    - name: string
+    - types: List<types> <<NEW>>
+    - points: int
+    - specialPower: int <<NEW>>
+    - description: string <<NEW>>
+    - image: string
+    + displayDetails(): string
+}
+
+' Dynamically generated subclasses
+class GrassPokemon {
+    + displayDetails(): string
+}
+class PoisonPokemon {
+    + displayDetails(): string
+}
+class FirePokemon {
+    + displayDetails(): string
+}
+class WaterPokemon {
+    + displayDetails(): string
+}
+class ElectricPokemon {
+    + displayDetails(): string
+}
+class DragonPokemon {
+    + displayDetails(): string
+}
+
+class PokemonList {
+    - allPokemons: List<Pokemon>
+    + loadPokemons(pokemons: List<Pokemon>): void
+    + sortPokemons(criteria: string, method: string): void
+    + getPokemonByName(name: string): Pokemon
+    + shufflePokemons(): void <<NEW>>
+}
+
+class PokemonTeam {
+    - selectedTeam: List<Pokemon>
+    - credits: int
+    + addPokemon(pokemon: Pokemon): void
+    + removePokemon(pokemonName: string): void
+    + getTeamDetails(): string
+    + getCredits(): int
+}
+
+class PokemonTeamViewModel {
+    - team: PokemonTeam
+    - pokemonList: PokemonList
+    + addPokemonToTeam(name: string): void
+    + removePokemonFromTeam(name: string): void
+    + sortGlobalList(criteria: string, method: string): void
+    + getGlobalList(): List<Pokemon>
+    + getTeamDetails(): string
+    + getCredits(): int
+    + loadData(dataArray): void
+    + selectPokemon(pokemon: Pokemon): void
+    + getSelectedPokemon(): Pokemon
+    + shufflePokemons(): void <<NEW>>
+}
+
+' --------------------------------------------------
+' NEW UI CLASS with full attributes/methods
+' --------------------------------------------------
+class PokemonUI {
+    - viewModel: PokemonTeamViewModel
+    - jsonUrl: string
+    - gridContainer: HTMLElement
+    - teamGrid: HTMLElement
+    - creditsDisplay: HTMLElement
+    - showTeamButton: HTMLElement
+    - sortTeamButton: HTMLElement
+    - sortOptionsForm: HTMLElement
+
+    + init(): void
+    + cacheDom(): void
+    + bindEvents(): void
+    + fetchAndLoadPokemons(): void
+    + renderGlobalList(): void
+    + toggleSelection(card): void
+    + showTeam(): void
+    + handleSortOptions(): void
+    + updateCreditsDisplay(): void
+    + isPokemonInTeam(name: string): boolean
+    + handleShuffle(): void <<NEW>>
+    + showDetailsPopup(pokemon: Pokemon): void <<NEW>>
+}
+
+' ------------------------------------------------------------------
+' Inheritance relationships from your original UML
+' ------------------------------------------------------------------
+Pokemon <|-- GrassPokemon
+Pokemon <|-- PoisonPokemon
+Pokemon <|-- FirePokemon
+Pokemon <|-- WaterPokemon
+Pokemon <|-- ElectricPokemon
+Pokemon <|-- DragonPokemon
+
+PokemonList *-- Pokemon
+PokemonTeam *-- Pokemon
+
+' The ViewModel holds references to Team and List
+PokemonTeamViewModel *-- PokemonTeam
+PokemonTeamViewModel *-- PokemonList
+
+' The new UI class has a reference to the ViewModel
+PokemonUI *-- PokemonTeamViewModel
+
+@enduml
+
+
+

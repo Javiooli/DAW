@@ -1,8 +1,10 @@
 var msg, firstmsg;
 
-function testExpression() {
-    alert("(3 === '3') || (4 !== 4) = " + ((3 === '3') || (4 !== 4)));
+function changeMessage() {
+    msg = document.getElementById("message").textContent;
+    if (msg === ">> Hello world! <<")
+        document.getElementById("message").textContent = ">> Hola món! <<";
+    else 
+        document.getElementById("message").textContent = ">> Hello world! <<";
 
 }
-
-

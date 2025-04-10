@@ -1,0 +1,89 @@
+body {
+    background-color: #a2a560; /* Color de fons retro */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: monospace;
+  }
+  
+  h1{
+    color: #3b3b3b; /* Color text fosc */
+    font-size: 24px;
+    position: absolute;
+    top: -80px;
+    text-align: center;
+  }
+  #container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #score {
+    color: #3b3b3b; /* Color text fosc */
+    font-size: 24px;
+    position: absolute;
+    top: -30px; /* Situa el comptador sobre el grid */
+    left: 0; /* Alinea a l'esquerra */
+    text-align: left;
+    width: 100%;
+    padding-left: 20px;
+  }
+  
+  #grid {
+    display: grid;
+    grid-template-columns: repeat(20, 30px);
+    grid-template-rows: repeat(10, 30px);
+    gap: 2px;
+    width: 640px;
+    height: 320px;
+    border: 4px solid #3b3b3b; /* Contorn fosc */
+    background-color: #a2a560; /* Verd retro */
+    box-shadow: 0px 0px 10px #3b3b3b;
+    border-radius: 15px;
+  }
+  
+  #player {
+    background-color: #3b3b3b; /* Color de la serp */
+    background-image: linear-gradient(
+      135deg,
+      transparent 25%,
+      #a2a560 25%,
+      #a2a560 50%,
+      transparent 50%,
+      transparent 75%,
+      #a2a560 75%,
+      #a2a560
+    );
+    background-size: 10px 10px; /* Ratlles que s'assemblen a les del joc original */
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+
+  #fruit {
+    background-color: red; /* Color de la fruita */
+    background-image: linear-gradient(
+      135deg,
+      transparent 25%,
+      red 25%,
+      white 50%,
+      transparent 50%,
+      transparent 75%,
+      red 75%,
+      red
+    );
+    background-size: 10px 10px; /* Ratlles que s'assemblen a les del joc original */
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+
+  #restartButton {
+    width: 100%;
+    height: 100%;
+  }
+  

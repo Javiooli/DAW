@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JPedragosa</title>
+    <link rel="icon" href="../../../media/banana.gif">
+    <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+    <h1>Exercici RA2.4. Paràmetres en Mètodes i Constructors.</h1>
+
+    <input type="number" id="amplada" placeholder="Amplada (m)" style="font-size:32px; max-width: 300px;">
+    <p></p>
+
+    <input type="number" id="altura" placeholder="Alçada (m)" style="font-size:32px; max-width: 300px;">
+    <p></p>
+
+    <label for="escala" style="font-size:32px">Escala:</label>
+        <input type="number" id="escala" placeholder="Escala" value="1" style="font-size:32px; max-width: 80px;">
+
+    <h1/>
+    <button onclick="calcArea()" style="font-size:32px">Calcula l'àrea</button>
+    <button onclick="calcPerimetre()" style="font-size:32px">Calcula el perímetre</button>
+
+    <div>
+        <p id="resultat"></p>
+    </div>
+
+    <script src = "script.js"></script>
+    <a class="back" href="javascript:history.back()">
+        <img src="../../../media/back.png" alt="Tornar enrere!">
+    </a>
+</body>
+</html>

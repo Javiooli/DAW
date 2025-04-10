@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+
+@font-face {
+    font-family: 'PierSans';
+    src: url('./media/PPPierSans-Regular.otf');
+}
+
+html {
+    min-height: 100%;
+}
+
+
+body {
+    height: 100%;
+    font: 700 3rem 'PierSans', sans-serif;
+    background: url("./media/alpha.jpg"), radial-gradient(at right bottom, #001a17, #1D0202), radial-gradient(at left bottom, #3a001f, #18021D);
+    background-blend-mode:screen;
+    font-size: 24px;
+    color: #ffffff;
+    text-align: center;
+}
+
+label {
+    background: transparent;
+    font: 700 3rem 'PierSans', sans-serif;
+    color:white;
+  }
+  
+  h2 {
+    background: transparent;
+    font: 700 3rem 'PierSans', sans-serif;
+    color:#9ee619;
+  }
+
+head {
+    border-radius: 270px;
+    padding: 20px;
+    background-color: grey;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 24px;
+    font-weight: bold;
+    background-image: url("./media/button.jpg");
+    background-size: contain;
+    background-repeat:repeat;
+    color: rgb(0, 0, 0);
+    border-width: 4px;
+    border-radius: 5px;
+    border-color: gray;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkgreen;
+
+}
+
+div.llista {
+    text-align: center;
+}
+
+ul.ralist {
+    border-radius: 270px;
+    background-image: url("./media/moontexture.jpg");
+    list-style-type: none;
+    padding: 20px;
+    margin: 0;
+    display: inline-block;
+    text-align: left;
+}
+
+input {
+    font: 700 3rem 'PierSans', sans-serif;
+    font-size: 24px;
+}
+
+select {
+    font: 700 3rem 'PierSans', sans-serif;
+    font-size: 24px;
+}

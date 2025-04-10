@@ -1,0 +1,209 @@
+#battle-section {
+    padding: 20px;
+    background-color: #f0f8ff;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+}
+
+.team-display {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #999;
+    background-color: #eef;
+    border-radius: 4px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+#pokemon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    width: 100%; /* Assegura que la graella ocupa tot l'espai disponible */
+    max-width: 1200px; /* Limita l'amplada màxima */
+    margin: 0 auto; /* Centra la graella */
+    padding: 20px; /* Afegim espai al voltant */
+    background: rgba(255, 255, 255, 0.8); /* Fons semitransparent */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pokemon-card {
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    width: 100%; /* Ocupa tot l'espai assignat pel Grid Layout */
+    max-width: 150px; /* Limita l'amplada màxima */
+}
+.pokemon-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 50%; /* Imatges rodones */
+    border: 2px solid #4a90e2;
+}
+
+.pokemon-card h3 {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+.pokemon-card p {
+    margin: 2px 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.pokemon-card.selected {
+    border: 2px solid green;
+    background-color: rgba(0, 255, 0, 0.1);
+}
+
+#selected-team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Player Setup Section Styles */
+.setup-container {
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 500px;
+    background-color: #f9f9f9;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.setup-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.setup-instructions {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.player-input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.player-label {
+    display: block;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 5px;
+}
+
+.player-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.player-input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.setup-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.setup-button:hover {
+    background-color: #0056b3;
+}
+
+.setup-button:active {
+    background-color: #004085;
+}
+/* Toggle container styling */
+.toggle-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  /* The switch - the toggle button container */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+    margin-left: 10px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 24px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  
+  /* When the checkbox is checked */
+  input:checked + .slider {
+    background-color: #007bff;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  

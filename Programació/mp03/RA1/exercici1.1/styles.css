@@ -1,15 +1,20 @@
 body {
     font-family: fantasy;
-    background-image: url("bg.png");
+    background-image: url("../../media/bg.png");
     font-size: 24px;
-    color: white;
+    color: blue;
     text-align: center;
+}
+head {
+    border-radius: 270px;
+    padding: 20px;
+    background-color: grey;
 }
 button {
     padding: 10px 20px;
     font-size: 24px;
     font-weight: bold;
-    background-image: url("button.jpg");
+    background-color: green;
     background-size: contain;
     background-repeat:repeat;
     color: rgb(0, 0, 0);
@@ -30,7 +35,7 @@ div.llista {
 
 ul.ralist {
     border-radius: 270px;
-    background-image: url("moontexture.jpg");
+    background-image: url("../../media/moontexture.jpg");
     list-style-type: none;
     padding: 20px;
     margin: 0;

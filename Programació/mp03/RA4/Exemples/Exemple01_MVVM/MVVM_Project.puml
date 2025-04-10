@@ -1,0 +1,42 @@
+
+@startuml MVVM_Project
+class ABC {
+    + num: number
+    + getNum(): number
+    + show(): number
+}
+
+class LlistaABC {
+    - llista: ABC[]
+    + constructor(n: number)
+    + getLlista(): ABC[]
+    + showLlista(): string
+    + bubbleSort(): void
+}
+
+class ViewModel {
+    - llistaABC: LlistaABC
+    + constructor(n: number)
+    + getUnsortedList(): string
+    + sortList(): void
+    + getSortedList(): string
+}
+
+class View {
+    - viewModel: ViewModel
+    - unsortedListElement: HTMLElement
+    - sortedListElement: HTMLElement
+    - sortButton: HTMLElement
+    + constructor(viewModel: ViewModel)
+    + initializeView(): void
+}
+
+class HTML {
+    + index.html
+}
+
+ViewModel --> LlistaABC
+View --> ViewModel
+LlistaABC --> ABC
+HTML --> View
+@enduml

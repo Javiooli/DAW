@@ -1,0 +1,68 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #4a90e2;
+}
+
+#pokemon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    width: 100%; /* Assegura que la graella ocupa tot l'espai disponible */
+    max-width: 1200px; /* Limita l'amplada màxima */
+    margin: 0 auto; /* Centra la graella */
+    padding: 20px; /* Afegim espai al voltant */
+    background: rgba(255, 255, 255, 0.8); /* Fons semitransparent */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pokemon-card {
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    width: 100%; /* Ocupa tot l'espai assignat pel Grid Layout */
+    max-width: 150px; /* Limita l'amplada màxima */
+}
+.pokemon-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 50%; /* Imatges rodones */
+    border: 2px solid #4a90e2;
+}
+
+.pokemon-card h3 {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+.pokemon-card p {
+    margin: 2px 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.pokemon-card.selected {
+    border: 2px solid green;
+    background-color: rgba(0, 255, 0, 0.1);
+}
+
+#selected-team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
