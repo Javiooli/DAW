@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zoo>
+  <zones>
+    <zone1>Savana</zone1>
+    <zone2>Bosc tropical</zone2>
+    <zone3>Àrtic</zone3>
+    <zone4>Desert</zone4>
+    <zone5>Oceà</zone5>
+  </zones>
+  
+  <animals>
+    <animal>
+      <tipus>Mamífer</tipus>
+      <genere>Femella</genere>
+      <edat>8</edat>
+      <pes>150</pes>
+      <alcada>180</alcada>
+      <nom>Luna</nom>
+      <zona>Savana</zona>
+      <especie>Lleó</especie>
+    </animal>
+    <animal>
+      <tipus>Au</tipus>
+      <genere>Mascle</genere>
+      <edat>3</edat>
+      <pes>5</pes>
+      <alcada>60</alcada>
+      <nom>Blau</nom>
+      <zona>Bosc tropical</zona>
+      <especie>Guacamai</especie>
+    </animal>
+    <animal>
+      <tipus>Rèptil</tipus>
+      <genere>Femella</genere>
+      <edat>12</edat>
+      <pes>80</pes>
+      <alcada>40</alcada>
+      <nom>Escata</nom>
+      <zona>Desert</zona>
+      <especie>Dragó de Komodo</especie>
+    </animal>
+    <animal>
+      <tipus>Mamífer marí</tipus>
+      <genere>Mascle</genere>
+      <edat>6</edat>
+      <pes>1500</pes>
+      <alcada>300</alcada>
+      <nom>Onada</nom>
+      <zona>Oceà</zona>
+      <especie>Orca</especie>
+    </animal>
+    <animal>
+      <tipus>Mamífer</tipus>
+      <genere>Femella</genere>
+      <edat>4</edat>
+      <pes>300</pes>
+      <alcada>170</alcada>
+      <nom>Gelat</nom>
+      <zona>Àrtic</zona>
+      <especie>Os polar</especie>
+    </animal>
+    <animal>
+      <tipus>Mamífer</tipus>
+      <genere>Mascle</genere>
+      <edat>10</edat>
+      <pes>2500</pes>
+      <alcada>300</alcada>
+      <nom>Gris</nom>
+      <zona>Savana</zona>
+      <especie>Elefant africà</especie>
+    </animal>
+    <animal>
+      <tipus>Rèptil</tipus>
+      <genere>Femella</genere>
+      <edat>5</edat>
+      <pes>200</pes>
+      <alcada>50</alcada>
+      <nom>Llarga</nom>
+      <zona>Bosc tropical</zona>
+      <especie>Anaconda</especie>
+    </animal>
+    <animal>
+      <tipus>Au</tipus>
+      <genere>Mascle</genere>
+      <edat>2</edat>
+      <pes>30</pes>
+      <alcada>100</alcada>
+      <nom>Emperador</nom>
+      <zona>Àrtic</zona>
+      <especie>Pingüí emperador</especie>
+    </animal>
+    <animal>
+      <tipus>Mamífer</tipus>
+      <genere>Femella</genere>
+      <edat>7</edat>
+      <pes>50</pes>
+      <alcada>60</alcada>
+      <nom>Sorra</nom>
+      <zona>Desert</zona>
+      <especie>Fenec</especie>
+    </animal>
+    <animal>
+      <tipus>Peix</tipus>
+      <genere>Mascle</genere>
+      <edat>4</edat>
+      <pes>200</pes>
+      <alcada>180</alcada>
+      <nom>Dent</nom>
+      <zona>Oceà</zona>
+      <especie>Tauró blanc</especie>
+    </animal>
+    <animal>
+      <tipus>Mamífer</tipus>
+      <genere>Femella</genere>
+      <edat>6</edat>
+      <pes>80</pes>
+      <alcada>170</alcada>
+      <nom>Taronja</nom>
+      <zona>Bosc tropical</zona>
+      <especie>Orangutan</especie>
+    </animal>
+    <animal>
+      <tipus>Au</tipus>
+      <genere>Mascle</genere>
+      <edat>3</edat>
+      <pes>2</pes>
+      <alcada>30</alcada>
+      <nom>Veloz</nom>
+      <zona>Savana</zona>
+      <especie>Estruç</especie>
+    </animal>
+    <animal>
+      <tipus>Rèptil</tipus>
+      <genere>Femella</genere>
+      <edat>8</edat>
+      <pes>300</pes>
+      <alcada>40</alcada>
+      <nom>Cuir</nom>
+      <zona>Oceà</zona>
+      <especie>Tortuga marina</especie>
+    </animal>
+    <animal>
+      <tipus>Mamífer</tipus>
+      <genere>Mascle</genere>
+      <edat>5</edat>
+      <pes>200</pes>
+      <alcada>120</alcada>
+      <nom>Ratllat</nom>
+      <zona>Savana</zona>
+      <especie>Zebra</especie>
+    </animal>
+    <animal>
+      <tipus>Au</tipus>
+      <genere>Femella</genere>
+      <edat>2</edat>
+      <pes>0.5</pes>
+      <alcada>10</alcada>
+      <nom>Nèctar</nom>
+      <zona>Bosc tropical</zona>
+      <especie>Colibrí</especie>
+    </animal>
+    <animal>
+      <tipus>Mamífer</tipus>
+      <genere>Mascle</genere>
+      <edat>4</edat>
+      <pes>600</pes>
+      <alcada>180</alcada>
+      <nom>Banya</nom>
+      <zona>Savana</zona>
+      <especie>Rinoceront blanc</especie>
+    </animal>
+    <animal>
+      <tipus>Rèptil</tipus>
+      <genere>Femella</genere>
+      <edat>3</edat>
+      <pes>40</pes>
+      <alcada>30</alcada>
+      <nom>Camaleó</nom>
+      <zona>Bosc tropical</zona>
+      <especie>Camaleó pantera</especie>
+    </animal>
+    <animal>
+      <tipus>Mamífer marí</tipus>
+      <genere>Mascle</genere>
+      <edat>7</edat>
+      <pes>1000</pes>
+      <alcada>250</alcada>
+      <nom>Flipper</nom>
+      <zona>Oceà</zona>
+      <especie>Dofí mular</especie>
+    </animal>
+    <animal>
+      <tipus>Au</tipus>
+      <genere>Femella</genere>
+      <edat>5</edat>
+      <pes>8</pes>
+      <alcada>100</alcada>
+      <nom>Majestuosa</nom>
+      <zona>Savana</zona>
+      <especie>Àguila daurada</especie>
+    </animal>
+    <animal>
+      <tipus>Mamífer</tipus>
+      <genere>Mascle</genere>
+      <edat>6</edat>
+      <pes>180</pes>
+      <alcada>90</alcada>
+      <nom>Tacat</nom>
+      <zona>Savana</zona>
+      <especie>Guepard</especie>
+    </animal>
+    <animal>
+      <tipus>Rèptil</tipus>
+      <genere>Femella</genere>
+      <edat>4</edat>
+      <pes>100</pes>
+      <alcada>50</alcada>
+      <nom>Escames</nom>
+      <zona>Desert</zona>
+      <especie>Serp de cascavell</especie>
+    </animal>
+    <animal>
+      <tipus>Mamífer</tipus>
+      <genere>Mascle</genere>
+      <edat>3</edat>
+      <pes>70</pes>
+      <alcada>80</alcada>
+      <nom>Saltador</nom>
+      <zona>Savana</zona>
+      <especie>Cangur vermell</especie>
+    </animal>
+    <animal>
+      <tipus>Au</tipus>
+      <genere>Femella</genere>
+      <edat>2</edat>
+      <pes>3</pes>
+      <alcada>40</alcada>
+      <nom>Rosa</nom>
+      <zona>Savana</zona>
+      <especie>Flamenc</especie>
+    </animal>
+    <animal>
+      <tipus>Peix</tipus>
+      <genere>Mascle</genere>
+      <edat>5</edat>
+      <pes>150</pes>
+      <alcada>100</alcada>
+      <nom>Raig</nom>
+      <zona>Oceà</zona>
+      <especie>Manta gegant</especie>
+    </animal>
+    <animal>
+      <tipus>Mamífer</tipus>
+      <genere>Femella</genere>
+      <edat>4</edat>
+      <pes>40</pes>
+      <alcada>60</alcada>
+      <nom>Bambú</nom>
+      <zona>Bosc tropical</zona>
+      <especie>Panda gegant</especie>
+    </animal>
+    <animal>
+      <tipus>Rèptil</tipus>
+      <genere>Mascle</genere>
+      <edat>6</edat>
+      <pes>300</pes>
+      <alcada>60</alcada>
+      <nom>Dents</nom>
+      <zona>Savana</zona>
+      <especie>Cocodril del Nil</especie>
+    </animal>
+    <animal>
+      <tipus>Au</tipus>
+      <genere>Femella</genere>
+      <edat>3</edat>
+      <pes>1</pes>
+      <alcada>20</alcada>
+      <nom>Piulador</nom>
+      <zona>Bosc tropical</zona>
+      <especie>Tucà</especie>
+    </animal>
+    <animal>
+      <tipus>Mamífer</tipus>
+      <genere>Mascle</genere>
+      <edat>7</edat>
+      <pes>250</pes>
+      <alcada>150</alcada>
+      <nom>Gegant</nom>
+      <zona>Bosc tropical</zona>
+      <especie>Goril·la de muntanya</especie>
+    </animal>
+    <animal>
+      <tipus>Peix</tipus>
+      <genere>Femella</genere>
+      <edat>2</edat>
+      <pes>0.1</pes>
+      <alcada>5</alcada>
+      <nom>Nemo</nom>
+      <zona>Oceà</zona>
+      <especie>Peix pallasso</especie>
+    </animal>
+    <animal>
+      <tipus>Mamífer</tipus>
+      <genere>Mascle</genere>
+      <edat>5</edat>
+      <pes>900</pes>
+      <alcada>180</alcada>
+      <nom>Cuallarga</nom>
+      <zona>Savana</zona>
+      <especie>Girafa</especie>
+    </animal>
+    <animal>
+      <tipus>Rèptil</tipus>
+      <genere>Femella</genere>
+      <edat>4</edat>
+      <pes>5</pes>
+      <alcada>20</alcada>
+      <nom>Geko</nom>
+      <zona>Desert</zona>
+      <especie>Gecko lleopard</especie>
+    </animal>
+    <animal>
+      <tipus>Au</tipus>
+      <genere>Mascle</genere>
+      <edat>6</edat>
+      <pes>10</pes>
+      <alcada>80</alcada>
+      <nom>Elegant</nom>
+      <zona>Savana</zona>
+      <especie>Secretari</especie>
+    </animal>
+    <animal>
+      <tipus>Mamífer</tipus>
+      <genere>Femella</genere>
+      <edat>3</edat>
+      <pes>30</pes>
+      <alcada>50</alcada>
+      <nom>Vermell</nom>
+      <zona>Bosc tropical</zona>
+      <especie>Panda vermell</especie>
+    </animal>
+    <animal>
+      <tipus>Peix</tipus>
+      <genere>Mascle</genere>
+      <edat>4</edat>
+      <pes>300</pes>
+      <alcada>150</alcada>
+      <nom>Espasa</nom>
+      <zona>Oceà</zona>
+      <especie>Peix espasa</especie>
+    </animal>
+    <animal>
+      <tipus>Mamífer</tipus>
+      <genere>Femella</genere>
+      <edat>5</edat>
+      <pes>60</pes>
+      <alcada>70</alcada>
+      <nom>Taques</nom>
+      <zona>Savana</zona>
+      <especie>Hiena tacada</especie>
+    </animal>
+    <animal>
+      <tipus>Au</tipus>
+      <genere>Mascle</genere>
+      <edat>2</edat>
+      <pes>0.3</pes>
+      <alcada>15</alcada>
+      <nom>Colorit</nom>
+      <zona>Bosc tropical</zona>
+      <especie>Quetzal</especie>
+    </animal>
+    <animal>
+      <tipus>Rèptil</tipus>
+      <genere>Femella</genere>
+      <edat>7</edat>
+      <pes>150</pes>
+      <alcada>45</alcada>
+      <nom>Iggy</nom>
+      <zona>Bosc tropical</zona>
+      <especie>Iguana verda</especie>
+    </animal>
+    <animal>
+      <tipus>Mamífer</tipus>
+      <genere>Mascle</genere>
+      <edat>6</edat>
+      <pes>80</pes>
+      <alcada>75</alcada>
+      <nom>Urpa</nom>
+      <zona>Bosc tropical</zona>
+      <especie>Jaguar</especie>
+    </animal>
+    <animal>
+      <tipus>Au</tipus>
+      <genere>Femella</genere>
+      <edat>4</edat>
+      <pes>4</pes>
+      <alcada>50</alcada>
+      <nom>Nocturna</nom>
+      <zona>Bosc tropical</zona>
+      <especie>Mussol reial</especie>
+    </animal>
+    <animal>
+      <tipus>Mamífer marí</tipus>
+      <genere>Mascle</genere>
+      <edat>8</edat>
+      <pes>1200</pes>
+      <alcada>400</alcada>
+      <nom>Gegant</nom>
+      <zona>Oceà</zona>
+      <especie>Balena geperuda</especie>
+    </animal>
+    <animal>
+      <tipus>Rèptil</tipus>
+      <genere>Femella</genere>
+      <edat>3</edat>
+      <pes>2</pes>
+      <alcada>15</alcada>
+      <nom>Camuflatge</nom>
+      <zona>Desert</zona>
+      <especie>Llangardaix cornut</especie>
+    </animal>
+    <animal>
+      <tipus>Mamífer</tipus>
+      <genere>Mascle</genere>
+      <edat>5</edat>
+      <pes>450</pes>
+      <alcada>150</alcada>
+      <nom>Ratllat</nom>
+      <zona>Savana</zona>
+      <especie>Tigre de Bengala</especie>
+    </animal>
+    <animal>
+      <tipus>Au</tipus>
+      <genere>Femella</genere>
+      <edat>2</edat>
+      <pes>0.2</pes>
+      <alcada>10</alcada>
+      <nom>Brillant</nom>
+      <zona>Bosc tropical</zona>
+      <especie>Colibrí safir</especie>
+    </animal>
+    <animal>
+      <tipus>Peix</tipus>
+      <genere>Mascle</genere>
+      <edat>4</edat>
+      <pes>500</pes>
+      <alcada>200</alcada>
+      <nom>Ràpid</nom>
+      <zona>Oceà</zona>
+      <especie>Tonyina</especie>
+    </animal>
+    <animal>
+      <tipus>Mamífer</tipus>
+      <genere>Femella</genere>
+      <edat>6</edat>
+      <pes>35</pes>
+      <alcada>60</alcada>
+      <nom>Nit</nom>
+      <zona>Bosc tropical</zona>
+      <especie>Lleopard nebulós</especie>
+    </animal>
+    <animal>
+      <tipus>Rèptil</tipus>
+      <genere>Mascle</genere>
+      <edat>5</edat>
+      <pes>70</pes>
+      <alcada>35</alcada>
+      <nom>Closca</nom>
+      <zona>Desert</zona>
+      <especie>Tortuga del desert</especie>
+    </animal>
+    <animal>
+      <tipus>Au</tipus>
+      <genere>Femella</genere>
+      <edat>3</edat>
+      <pes>6</pes>
+      <alcada>70</alcada>
+      <nom>Plomes</nom>
+      <zona>Savana</zona>
+      <especie>Paó reial</especie>
+    </animal>
+    <animal>
+      <tipus>Mamífer</tipus>
+      <genere>Mascle</genere>
+      <edat>7</edat>
+      <pes>160</pes>
+      <alcada>100</alcada>
+      <nom>Banyes</nom>
+      <zona>Savana</zona>
+      <especie>Antílop kudu</especie>
+    </animal>
+  </animals>
+</zoo>
