@@ -2,7 +2,7 @@
 # pedragosa_sets.py
 
 # -------------------------------------------------------
-# 1) Què és una set?
+# 1) Què és un set?
 # Un set és una estructura de dades nativa de Python que
 # serveix per emmagatzemar un conjunt d'elements no ordenats
 # i únics, és a dir, que no permet elements duplicats.
@@ -32,45 +32,69 @@ print("Diferència:", A - B)
 
 # -------------------------------------------------------
 # 3) Per a què serveixen?
-# Són útils per representar conjunts de dades fixes, constants,
-# o que no necessitem modificar. També són útils com a claus de
-# diccionaris, i s'utilitzen sovint com a tal en intel·ligència
-# artificial https://stackoverflow.com/a/47368454/30842109.
+# Són útils per eliminar duplicats d’una llista o per comprovar
+# si un element existeix de forma ràpida.
 # -------------------------------------------------------
 
-com_autonoma = "Catalunya"
-ciutat = "Barcelona"
-habitants = {("Catalunya", "Barcelona"): 1686208}
-print(f"{ciutat}, ubicada a {com_autonoma}, té {habitants[(com_autonoma, ciutat)]} habitants.")
+llista = [1, 2, 2, 3, 3, 3, 4]
+sense_duplicats = set(llista)
+print("Llista sense duplicats:", sense_duplicats)
+
 
 # -------------------------------------------------------
 # 4) Diferència amb les llistes:
-# - Les llistes són mutables, és a dir, podem canviar els seus valors
-# - Les tuples són immutables, és a dir, no es poden modificar.
-# - Les llistes es defineixen amb [] i les tuples amb ().
+# - Les llistes mantenen l’ordre, els sets no.
+# - Les llistes poden tenir duplicats, els sets no.
+# - Els sets són més ràpids per comprovar si un element hi és.
 # -------------------------------------------------------
 
-llista = [1, 2, 3]
-tupla = (1, 2, 3)
-# llista[0] = 4 és correcte
-# tupla[0] = 4 dona error.
+# Les llistes mantenen l'ordre, per tant, sabem que ruta[0] és Esparreguera, i ruta[3] és Olesa de Montserrat
+ruta = ["Esparreguera", "Collbató", "Monistrol de Montserrat", "Olesa de Montserrat", "Abrera"]
+print(f"Sortida: {ruta[0]}. Parada per dinar: {ruta[3]}.")
+
+# Com que els sets no mantenen l'ordre, no hi ha manera d'endevinar quin element estara a cada posició.
+destins = {"Esparreguera", "Collbató", "Monistrol de Montserrat", "Olesa de Montserrat", "Abrera"}
+print(f"Algun dels destins son: {list(destins)[0]}, {list(destins)[1]} i {list(destins)[2]}")
+
 
 # -------------------------------------------------------
 # 5) Ús de mètodes (3 exemples)
 # -------------------------------------------------------
 
-# 1. count() -> compta quantes vegades apareix un valor
-tupla = (1, 2, 2, 3, 2)
-print("El número 2 apareix:", tupla.count(2), "vegades")
+# 1. add() → afegeix un element
+fruites.add("maduixa")
+print("Després d'afegir maduixa:", fruites)
 
-# 2. index() -> retorna la posició de la primera aparició
-print("Posició del número 3:", tupla.index(3))
+# 2. remove() → elimina un element (error si no existeix)
+fruites.remove("plàtan")
+print("Després d'eliminar plàtan:", fruites)
 
-# 3. len() -> retorna la llargada
-print("Longitud de la tupla:", len(tupla))
+# 3. union() → combina dos conjunts
+fruites2 = {"kiwi", "poma"}
+unio = fruites.union(fruites2)
+print("Unió de fruites:", unio)
+
+
+# -------------------------------------------------------
+# Càsting entre tipus
+# -------------------------------------------------------
+
+# set -> llista
+llista_de_set = list(fruites)
+print("Set convertit a llista:", llista_de_set)
+
+# llista -> set
+set_de_llista = set(llista)
+print("Llista convertida a set:", set_de_llista)
+
+# set -> tupla
+tupla_de_set = tuple(fruites)
+print("Set convertit a tupla:", tupla_de_set)
+
 
 # -------------------------------------------------------
 # Reflexió:
-# Les tuples són útils quan volem garantir que la informació
-# no canviarà, com coordenades, colors RGB, o claus constants.
+# Crec que els sets són molt útils per eliminar duplicats,
+# per fer operacions matemàtiques de conjunts o per comprovar
+# si un element està dins d’un conjunt de manera eficient.
 # -------------------------------------------------------

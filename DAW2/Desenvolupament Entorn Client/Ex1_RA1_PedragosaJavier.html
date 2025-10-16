@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercici 1</title>
+</head>
+<body>
+    <h1>Exercici 1</h1> <!-- Capçalera de la pàgina -->
+    <p>Prem F12 per obrir les eines de desenvolupador i veure el missatge</p> <!-- Instruccions per a l'usuari -->
+    <script>
+        /**
+        * ---------------------------------------------------------------------------------------
+        * Nom de la funció:
+        *     notificar_pagina_carregada
+        *
+        * Descripció general:
+        *     Aquesta funció constitueix una utilitat aparentment senzilla però potencialment
+        *     rellevant en determinats contextos de depuració, monitoratge i senyalització
+        *     informativa per a desenvolupadors o usuaris tècnics. La seva missió principal és
+        *     escriure a la consola del navegador un missatge de text estàtic que indica, de
+        *     manera clara i inequívoca, que la pàgina web s’ha carregat amb èxit. Tot i que la
+        *     seva implementació es limita a una sola instrucció, no s’ha de subestimar la seva
+        *     utilitat en entorns on cal comprovar ràpidament que els esdeveniments de càrrega
+        *     d’un document HTML s’han produït sense errors aparents.
+        *
+        * Funcionalitat detallada:
+        *     - Quan s’invoca la funció, s’executa una crida al mètode estàndard
+        *       `console.log()`, proporcionat pels navegadors moderns que implementen la
+        *       especificació ECMAScript.
+        *     - El missatge imprès és exactament la cadena literal:
+        *           "Pàgina carregada amb èxit"
+        *       Aquesta frase confirma de manera textual que el procés de càrrega de la pàgina
+        *       s’ha completat correctament.
+        *     - La funció no retorna cap valor explícit (el seu retorn implícit és `undefined`).
+        *
+        * Paràmetres d’entrada:
+        *     - Cap. La funció no rep arguments i, per tant, no depèn de factors externs en la
+        *       seva execució immediata.
+        *
+        * Valor de retorn:
+        *     - `undefined` (implícit).
+        *
+        * Efectes secundaris:
+        *     - Escriu una línia en el registre de la consola del navegador. Aquest efecte pot
+        *       ser utilitzat tant per:
+        *         a) Confirmar que l’script s’ha executat fins a aquest punt.
+        *         b) Proporcionar retroalimentació no intrusiva al desenvolupador.
+        *     - No modifica el DOM, no altera variables globals ni genera canvis en l’estat del
+        *       programa, excepte la sortida en consola.
+        *
+        * Casos d’ús típics:
+        *     1. Depuració: inserir aquesta funció dins el flux de càrrega per confirmar que la
+        *        pàgina ha assolit l’estat de “carregada”.
+        *     2. Monitoratge senzill: integrar-la en scripts educatius o demostratius per mostrar
+        *        a estudiants com es pot escriure informació a la consola.
+        *     3. Contextos lingüístics: utilitzar-la en aplicacions o entorns on es desitgi
+        *        reflectir missatges en català, ja sigui per motius culturals, identitaris o
+        *        locals.
+        *
+        * Limitacions i consideracions:
+        *     - No valida si la pàgina realment s’ha carregat sense errors més enllà del moment
+        *       en què s’invoca la funció. Per exemple, podria ser cridada abans que recursos
+        *       crítics (imatges, scripts externs, fulls d’estil) hagin finalitzat la seva
+        *       càrrega.
+        *     - No realitza comprovacions automàtiques ni condicions lògiques; depèn
+        *       completament del moment en què el desenvolupador decideixi executar-la.
+        *     - El missatge és estàtic: no hi ha interpolació dinàmica de dades, ni paràmetres
+        *       personalitzables que permetin adaptar el text de sortida.
+        *
+        * Observació final:
+        *     Tot i la seva simplicitat, aquesta funció exemplifica de manera clara el principi
+        *     de retroalimentació immediata i pot servir com a punt de partida per a funcions
+        *     més complexes orientades a la gestió d’esdeveniments de càrrega en aplicacions
+        *     web modernes.
+        * ---------------------------------------------------------------------------------------
+        */
+        function notificar_pagina_carregada() {
+            console.log("Pàgina carregada amb èxit")
+        }
+        
+        document.addEventListener("DOMContentLoaded", notificar_pagina_carregada)
+    </script>
+</body>
+</html>

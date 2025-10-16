@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Ex3_RA1</title>
+</head>
+<body>
+    <form>
+        <h1>Formulari</h1>
+        <p>Això és la descripció totalment innecessària del formulari, que conté només quatre camps que a més estan degudament etiquetats.</p>
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" name="nom" placeholder="Ex: Paco" required><br><br>
+
+        <label for="cognom">Cognom:</label>
+        <input type="text" id="cognom" name="cognom" placeholder="Ex: Meralgo" required><br><br>
+
+        <label for="email">Adreça mail:</label>
+        <input type="email" id="email" name="email" placeholder="Ex: pa.comer.algo@email.com" required><br><br>
+
+        <label for="telefon">Número de telèfon:</label>
+        <input type="tel" id="telefon" name="telefon" placeholder="Ex: 612345678" pattern="[0-9]{9}" required><br><br>
+
+        <input type="submit" value="Enviar"/>
+    </form>
+</body>
+</html>

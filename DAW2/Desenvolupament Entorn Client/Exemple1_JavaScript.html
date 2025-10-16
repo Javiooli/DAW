@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <title>Canvi de color amb JavaScript</title>
+  <style>
+    /* Estil CSS per a l'element amb id "zona" */
+    #zona {
+      width: 200px; /* Amplada fixa */
+      height: 100px; /* Alçada fixa */
+      background-color: #FFC; /* Color de fons inicial (pàl·lid) */
+      border: 2px solid #666; /* Bordi mitjà gris */
+      text-align: center; /* Centrat del text horitzontal */
+      line-height: 100px; /* Centrat vertical del text segons l'alçada */
+      transition: background 0.5s; /* Transició suau de 0.5 segons per al canvi de color */
+      margin-bottom: 10px; /* Espai sota l'element */
+    }
+    /* Estil del botó */
+    button {
+      padding: 6px 14px; /* Espai interior per fer-lo més gran */
+      font-size: 1rem; /* Mida de lletra estàndard o 16 px */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Contenidor que mostra un missatge i canvia el color quan fem clic -->
+  <div id="zona">Fes clic al botó!</div>
+
+  <!-- Botó que executa la funció canviaColor() quan es fa clic -->
+  <button onclick="canviaColor()">Canvia el color</button>
+
+  <script>
+    // Funció JavaScript que canvia el color de fons de l'element "zona"
+    function canviaColor() {
+      let zona = document.getElementById('zona');  // Captura l'element amb id "zona"
+      // Assigna un nou color de fons, el #FF0000.
+      zona.style.backgroundColor = '#FF0000';
+    }
+  </script>
+
+</body>
+</html>

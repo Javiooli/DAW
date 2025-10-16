@@ -1,0 +1,131 @@
+/* 🪩 FUTURISTIC GLASS FORM – by ChatGPT */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at 20% 20%, #1e0033, #000010 80%);
+  color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Subtle animated aurora background */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: conic-gradient(from 0deg, #00ffe077, #ff00c877, #0077ff77, #00ffe077);
+  filter: blur(150px);
+  opacity: 0.2;
+  animation: aurora 20s linear infinite;
+  z-index: -1;
+}
+
+@keyframes aurora {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Form container styling */
+form {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.1), inset 0 0 20px rgba(255, 255, 255, 0.05);
+  width: 360px;
+  padding: 2rem 2.5rem;
+  animation: popIn 0.8s ease-out;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.8) translateY(20px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* Header + description */
+h1 {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.8em;
+  letter-spacing: 1px;
+  color: #00ffe0;
+  margin-bottom: 0.5em;
+  text-shadow: 0 0 10px #00ffe0aa;
+}
+
+p {
+  font-size: 0.95em;
+  color: #ccc;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Labels & inputs */
+label {
+  display: block;
+  font-size: 0.9em;
+  margin-bottom: 0.3em;
+  color: #aefcff;
+  text-shadow: 0 0 4px #00ffe0;
+}
+
+input {
+  width: 90%;
+  padding: 0.7em 1em;
+  margin-bottom:1em;
+  font-size: 1em;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.1);
+  transition: all 0.25s ease;
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+input:focus {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 15px #00ffe0aa, inset 0 0 10px #00ffe055;
+  transform: scale(1.02);
+}
+
+/* Cool glowing border when valid */
+input:valid {
+  border: 1px solid #39ff14;
+  box-shadow: 0 0 12px #39ff14cc;
+}
+
+/* Space between fields */
+br + br {
+  display: none;
+}
+input + br {
+  margin-bottom: 1rem;
+}
+
+/* Add a little “focus ring” animation on labels */
+input:focus + br + label,
+input:focus + label {
+  color: #39ff14;
+  text-shadow: 0 0 8px #39ff14aa;
+}
+
+/* Responsive */
+@media (max-width: 420px) {
+  form {
+    width: 90%;
+    padding: 1.5rem;
+  }
+  h1 { font-size: 1.5em; }
+}

@@ -17,6 +17,7 @@ print(f"Tupla1: {tupla1}")
 tupla2 = tuple([5, 6, 7, 8])
 print(f"Tupla2: {tupla2}")
 
+
 # -------------------------------------------------------
 # 2) Què fan?
 # Les tuples serveixen per emmagatzemar informació que no
@@ -26,6 +27,7 @@ print(f"Tupla2: {tupla2}")
 
 coordenades = (41.3851, 2.1734) # Latitud i longitud de Barcelona
 print(f"Coordenades BCN: {coordenades}")
+
 
 # -------------------------------------------------------
 # 3) Per a què serveixen?
@@ -40,6 +42,7 @@ ciutat = "Barcelona"
 habitants = {("Catalunya", "Barcelona"): 1686208}
 print(f"{ciutat}, ubicada a {com_autonoma}, té {habitants[(com_autonoma, ciutat)]} habitants.")
 
+
 # -------------------------------------------------------
 # 4) Diferència amb les llistes:
 # - Les llistes són mutables, és a dir, podem canviar els seus valors
@@ -51,6 +54,7 @@ llista = [1, 2, 3]
 tupla = (1, 2, 3)
 # llista[0] = 4 és correcte
 # tupla[0] = 4 dona error.
+
 
 # -------------------------------------------------------
 # 5) Ús de mètodes (3 exemples)
@@ -65,6 +69,7 @@ print("Posició del número 3:", tupla.index(3))
 
 # 3. len() -> retorna la llargada
 print("Longitud de la tupla:", len(tupla))
+
 
 # -------------------------------------------------------
 # Reflexió:
