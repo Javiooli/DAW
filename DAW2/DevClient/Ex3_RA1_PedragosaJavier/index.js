@@ -3,6 +3,10 @@ const path = require('path') // Importació de la llibreria path per poder envia
 const app = express(); //La variable app, representa el servidor web que estem construint i sobre el que configurarem les rutes, gestió de peticions, etc.
 const port = 3000; //Decidim el port del localhost, http://localhost:3000
 
+// Middleware per parsejar el cos de les peticions POST (formularis i JSON)
+app.use(express.urlencoded({ extended: true })); // parse application/x-www-form-urlencoded
+app.use(express.json()); // parse application/json
+
 
 /*Definim una ruta HTTP de tipus GET per a la URL arrel /.
 Quan algú accedeix a aquesta adreça, s'executa la funció que rep 2 paràmetres:
@@ -11,6 +15,13 @@ app.use(express.static(path.join(__dirname, "public"))); // Això és necessari 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, "public", "index.html"));
 });
+
+// Definim una escolta a l'acció /receive amb el mètode post que rebi el cos de la petició, l'imprimeixi per consola
+// i l'envii de tornada per evitar que la pagina es pengi.
+app.post('/receive', function(req, res) { 
+    console.log('Rebuda POST a /receive:', req.body);
+    res.send('Dades rebudes: ' + JSON.stringify(req.body));
+} );
 
 /*Aquesta línia posa el servidor a "escoltar" el port 3000, fent que el servidor s'activi i estigui esperant peticions.
 Quan el servidor s'inicia, s'executa la funció que imprimeix un missatge informant que està funcionant i a on es pot accedir. */
