@@ -1,0 +1,73 @@
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    max-width: 760px;
+    margin: 48px auto;
+    line-height: 1.6;
+    padding: 0 16px;
+}
+header h1 {
+    margin: 0 0 8px 0;
+}
+.example {
+    background: #f5f5f5;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-family: monospace;
+    display: inline-block;
+}
+footer {
+    margin-top: 48px;
+    color: #6b7280;
+    font-size: 0.9rem;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    padding: 16px 12px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    background: linear-gradient(180deg, rgba(245, 245, 245, 0.6), transparent);
+    border-radius: 8px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* smaller / muted text inside footer */
+footer small {
+    font-size: 0.85rem;
+    color: #9ca3af;
+}
+
+/* links in footer: subtle and accessible */
+footer a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.06);
+    padding-bottom: 1px;
+    transition: color 150ms ease, border-bottom-color 150ms ease;
+}
+
+footer a:hover,
+footer a:focus {
+    color: #111827;
+    border-bottom-color: rgba(0, 0, 0, 0.14);
+    outline: none;
+}
+
+/* responsive tweak for very small screens */
+@media (max-width: 420px) {
+    footer {
+        padding: 14px 10px;
+        font-size: 0.85rem;
+    }
+}

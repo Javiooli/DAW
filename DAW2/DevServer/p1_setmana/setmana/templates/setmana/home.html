@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ca">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'setmana/style.css' %}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dies de la Setmana</title>
+</head>
+<body>
+    <header>
+        <h1>Dies de la Setmana</h1>
+    </header>
+
+    <main>
+        <p>Aquesta pàgina mostra el comportament segons el dia de la setmana passat per URL. Per provar-ho, introdueix un valor numèric al final de la ruta (per exemple, <span class="example">3</span>).</p>
+
+        <p>Regles:</p>
+        <ul>
+            <li>0 o un valor menor que 0: torna a la pàgina d'inici.</li>
+            <li>Valors positius (1, 2, 3, ...): mostren el dia corresponent.</li>
+        </ul>
+
+        <p>Exemples d'URL:</p>
+        <ul>
+            <li class="example">/setmana/3</li>
+            <li class="example">/setmana/1</li>
+            <li class="example">/setmana/0  ← torna al home</li>
+        </ul>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <p class="footer-name">Javier Pedragosa</p>
+            <p class="footer-course">INS Daniel Blanxart - Desenvolupament d'Aplicacions Web 2</p>
+            <p class="footer-meta">p1_setmana · <a href="mailto:24.javier.pedragosa@insdanielblanxart.cat">24.javier.pedragosa@insdanielblanxart.cat</a></p>
+            <small>&copy; 2025 Javier Pedragosa. Tots els drets reservats.</small>
+        </div>
+    </footer>
+    {% if error %}
+        <script>alert("Valor no vàlid")</script>
+    {% endif %}
+
+</body>
+</html>

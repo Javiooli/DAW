@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ca">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Registre</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <main>
+        <h1>Formulari de registre</h1>
+
+        <form id="registerForm" novalidate>
+            <div class="field">
+                <label for="username">Nom d'usuari</label>
+                <input id="username" name="username" type="text" />
+                <div class="error" id="error-username" aria-live="polite"></div>
+            </div>
+
+            <div class="field">
+                <label for="email">Correu electrònic</label>
+                <input id="email" name="email" type="email" />
+                <div class="error" id="error-email" aria-live="polite"></div>
+            </div>
+
+            <div class="field">
+                <label for="password">Contrasenya</label>
+                <input id="password" name="password" type="password" />
+                <div class="error" id="error-password" aria-live="polite"></div>
+            </div>
+
+            <div class="field">
+                <label for="confirmPassword">Confirmació de contrasenya</label>
+                <input id="confirmPassword" name="confirmPassword" type="password" />
+                <div class="error" id="error-confirm" aria-live="polite"></div>
+            </div>
+
+            <div class="field checkbox">
+                <label>
+                    <input id="terms" name="terms" type="checkbox" />
+                    Accepto els termes i condicions
+                </label>
+                <div class="error" id="error-terms" aria-live="polite"></div>
+            </div>
+
+            <div class="actions">
+                <button type="submit">Registrar-se</button>
+            </div>
+
+            <div id="form-success" class="success" aria-live="polite"></div>
+        </form>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

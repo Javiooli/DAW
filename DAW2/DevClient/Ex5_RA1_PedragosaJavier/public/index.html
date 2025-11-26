@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ca">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Registre</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <main>
+        <h1>Formulari de registre</h1>
+
+        <form id="registerForm" novalidate>
+
+            <div class="field">
+                <label for="firstName">Nom</label>
+                <input id="firstName" name="firstName" type="text" />
+                <div class="error" id="error-firstName" aria-live="polite"></div>
+            </div>
+
+            <div class="field">
+                <label for="surname1">1r cognom</label>
+                <input id="surname1" name="surname1" type="text" />
+                <div class="error" id="error-surname1" aria-live="polite"></div>
+            </div>
+
+            <div class="field">
+                <label for="surname2">2n cognom (opcional)</label>
+                <input id="surname2" name="surname2" type="text" />
+                <div class="error" id="error-surname2" aria-live="polite"></div>
+            </div>
+
+            <div class="field">
+                <label for="email">Correu electrònic</label>
+                <input id="email" name="email" type="email" placeholder="nom@domini.extensió" />
+                <div class="error" id="error-email" aria-live="polite"></div>
+            </div>
+
+            <div class="field">
+                <label for="phone">Número de telèfon</label>
+                <input id="phone" name="phone" type="text" placeholder="612 345 678 o 612-345-678" />
+                <div class="error" id="error-phone" aria-live="polite"></div>
+            </div>
+
+            <div class="field">
+                <label for="dob">Data de naixement (dd/mm/aaaa)</label>
+                <input id="dob" name="dob" type="text" placeholder="dd/mm/aaaa" />
+                <div class="error" id="error-dob" aria-live="polite"></div>
+            </div>
+
+            <div class="field">
+                <label for="card">Targeta de crèdit</label>
+                <input id="card" name="card" type="text" placeholder="1234-5678-9012-3456 o 1234 5678 9012 3456" />
+                <div class="error" id="error-card" aria-live="polite"></div>
+            </div>
+
+            <div class="field">
+                <label for="password">Contrasenya</label>
+                <input id="password" name="password" type="password" />
+                <div class="error" id="error-password" aria-live="polite"></div>
+            </div>
+
+            <div class="field">
+                <label for="confirmPassword">Confirmació de contrasenya</label>
+                <input id="confirmPassword" name="confirmPassword" type="password" />
+                <div class="error" id="error-confirm" aria-live="polite"></div>
+            </div>
+
+            <div class="field checkbox">
+                <label>
+                    <input id="terms" name="terms" type="checkbox" />
+                    Accepto els termes i condicions
+                </label>
+                <div class="error" id="error-terms" aria-live="polite"></div>
+            </div>
+
+            <div class="actions">
+                <button type="submit">Registrar-se</button>
+            </div>
+
+            <div id="form-success" class="success" aria-live="polite"></div>
+        </form>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

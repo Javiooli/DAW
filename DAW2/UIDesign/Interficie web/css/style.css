@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+  font-family: 'PierSans';
+  src: url('PPPierSans-Regular.otf');
+}
+
+.share-tech-mono-regular {
+  font-family: "Share Tech Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+body {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  background-color: var(--primary-color);
+  background-image: var(--bg-texture);
+  background-size: 25%;
+  font: 700 3rem 'Share Tech Mono', sans-serif;
+  -webkit-text-stroke: 2px var(--secondary-color);
+  color: transparent;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1 {
+  font: 700 3rem 'Share Tech Mono', sans-serif;
+  -webkit-text-stroke: 0px var(--secondary-color);
+  border-radius: 35px;
+  padding-top: 0px;
+  padding-bottom: 10px;
+  padding-left: 300px;
+  padding-right: 300px;
+  color: var(--text-color);
+  font-size: 72px;
+}
+
+h2 {
+  font: 700 3rem 'Share Tech Mono', sans-serif;
+  -webkit-text-stroke: 0px var(--secondary-color);
+  border-radius: 35px;
+  padding-top: 0px;
+  padding-bottom: 10px;
+  padding-left: 300px;
+  padding-right: 300px;
+  color: var(--text-color);
+  font-size: 48px;
+  margin-bottom: 20px;
+  text-decoration: underline;
+  text-decoration-line: underline;
+}
+
+h3 {
+  margin: 10px
+}
+
+.back {
+  img {
+    padding: 25px;
+    filter: invert(1);
+    width: 50px;
+    height: auto;
+  }
+}
+
+form {
+  button {
+    padding: 10px 20px;
+    font-size: 24px;
+    font-weight: bold;
+    background-image: url("../media/button.jpg");
+    background-size: contain;
+    background-repeat:repeat;
+    color: rgb(0, 0, 0);
+    border-width: 4px;
+    border-radius: 5px;
+    border-color: gray;
+    cursor: pointer;
+  }
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style-type: none;
+  margin-bottom: 200px;
+  margin: 0;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.3);
+  width: max-content;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 20px;
+
+  li {
+    padding: 6px 0;
+    border: 10px;
+
+    a {
+      position: center;
+      display: block;
+      padding: 4px 0;
+      font: 700 3rem 'Share Tech Mono', sans-serif;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      -webkit-text-stroke: 2px var(--secondary-color);
+      background: linear-gradient(var(--secondary-color) 0 100%) left / 0 no-repeat;
+      color: transparent;
+      background-clip: text;
+      transition: 0.5s linear;
+
+      &:hover {
+        background-size: 100%;
+      }
+    }
+  }
+}
