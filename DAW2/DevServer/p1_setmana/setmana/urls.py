@@ -5,3 +5,4 @@ urlpatterns = [
     path("/<str:pk>",views.dia,name="dia"),
     path("/", views.home, name="home")
 ]
+

@@ -9,7 +9,8 @@
 </head>
 <body>
     <header>
-        <h1>Avui és {{ nom_dia }}</h1>
+        <h1>Avui és {{ nom_dia }}{{ emoji }}</h1>
+        <img src="{% static 'setmana/img/' %}{{ nom_dia }}.gif"/>
     </header>
 </body>
 </html>
