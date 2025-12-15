@@ -5,6 +5,7 @@
 !.vscode/extensions.json
 !.vscode/*.code-snippets
 !*.code-workspace
+DAW2/IA/ipynb/.venv/*
 
 # Built Visual Studio Code Extensions
 *.vsix
