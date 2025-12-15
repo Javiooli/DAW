@@ -1,0 +1,32 @@
+@import url(./reset.css);
+@import url(./variables.css);
+@import url(./layout.css);
+@import url(./texture.css);
+/*
+  styles.css
+  --------------------------------------
+  1) Objectiu principal:
+    Fer una pàgina web responsive i accessible que faci
+    servir unitats flexibles per tal de respectar diferents densitats i
+    preferències d'usuari.
+
+  2) Estructura i decisions tècniques:
+    - Variables CSS definides en rem per mantenir relació amb la mida base.
+    - Vores i radis expressats en rems per evitar unitats absolutes.
+    - Les imatges tenen "width:100%" i "height:auto" per adaptar-se al contenidor.
+    - Les cartes utilitzen "grid-template-columns: repeat(auto-fit, minmax(18rem,1fr))"
+      per reorganitzar-se automàticament segons la mida disponible.
+
+  3) Breakpoints implementats:
+    - 320px: mòbils molt petits - apilament complet i menú toggle.
+    - 360px: petits smartphones - lleugers ajustos de marges
+    - 768px: tablets - layout en una columna i 2 columnes de cartes
+    - 1024px: tauletes grans/escriptoris petits - menú horitzontal i sidebar reduït
+    - 1366px: escriptoris amples - més espai pel sidebar
+    - 1920px+: pantalles grans - distribució de 3 columnes per les cartes
+
+  4) Accessibilitat:
+    - Contrastos comprovats a l'eina Colors Contrast Checker
+    - Focus visible per enllaços i botons.
+*/
+

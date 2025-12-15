@@ -1,0 +1,419 @@
+@import url(./variables.css);
+@import url(./texture.css);
+
+/* Classe utilitat per ocultar text visualment però accessible (per figcaption) */
+.visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    line-height: 1.45;
+    color: #ffffff;
+    background-image: var(--texture);
+    background-color: #1a3834;
+    background-repeat: repeat, repeat;
+    background-position: left top, 0 0;
+    background-size: 20rem, auto;
+    /* 20rem és flexible i s'adapta a la base de font */
+    -webkit-font-smoothing: antialiased; /* Això he vist que es nota moltíssim a la qualitat dels textos */
+    font-size: 1rem;
+    /* base = 16px aproximadament */
+}
+
+/* --- Capçalera i navegació ---
+   La capçalera conté el nom de la pàgina i el menú nav.
+   La navegació té un botó toggle per a pantalles petites (controlat pel script del final del HTML).
+*/
+.site-header {
+    background-color: rgba(6, 28, 22, 0.85);
+    border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.06);
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gap);
+    backdrop-filter: blur(4px);
+    /* suavitza la textura sota la capçalera */
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.35);
+}
+
+.brand h1 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--color-foreground)
+}
+
+.tagline {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: .9rem
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--gap)
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: var(--gap);
+    align-items: center
+}
+
+.main-nav a {
+    color: var(--color-foreground);
+    text-decoration: none;
+    padding: .45rem .6rem;
+    border-radius: .25rem;
+    font-weight: 600
+}
+
+.main-nav a:focus,
+.main-nav a:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--color-accent)
+}
+
+/* Botó de toggle pel menú nav a pantalles petites: es mostra gràcies les media queries */
+.nav-toggle {
+    display: none;
+    /* es mostrara a pantalles petites */
+    background: var(--color-accent);
+    color: white;
+    border: none;
+    padding: .5rem .7rem;
+    border-radius: .25rem;
+    cursor: pointer
+}
+
+/* --- HERO ---
+   El contenidor principal té una imatge adaptativa.
+*/
+.hero {
+    max-width: var(--max-width);
+    margin: 1.25rem auto;
+    padding: 0 1rem;
+}
+
+.hero-figure {
+    margin: 1rem 0 0
+}
+
+.hero-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    object-fit: cover;
+    box-shadow: 0 0.25rem 0.75rem rgba(39, 60, 35, 0.06)
+}
+
+.lead {
+    font-weight: 600;
+    color: var(--color-accent-dark)
+}
+
+/* --- Secció de cartes (cards) ---
+   Utilitzem un grid flexible amb minmax per que les cartes es
+   reorganitzin automàticament segons l'amplada disponible.
+*/
+.cards-section {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1rem 1rem
+}
+
+.cards-section h3 {
+    font-weight: 600;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 1rem
+}
+
+.card {
+    background: #ffffffcc;
+    padding: 1rem;
+    border-radius: var(--radius);
+    border: 0.0625rem solid rgba(200, 230, 200, 0.45);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    backdrop-filter: blur(2px)
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: calc(var(--radius) - 0.125rem);
+    object-fit: cover
+}
+
+.card h4 {
+    margin: .75rem 0 0.25rem;
+    font-size: 1.0625rem;
+    color: var(--color-accent-dark)
+}
+
+.card p {
+    flex: 1;
+    color: #000000
+}
+
+.card-btn {
+    display: inline-block;
+    margin-top: 0.75rem;
+    padding: .5rem .75rem;
+    background: var(--color-accent-dark);
+    color: white;
+    border-radius: .25rem;
+    text-decoration: none
+}
+
+/* --- Layout principal (article + aside) ---
+   Fem servir grid amb columnes flexibles; a pantalles petites
+   es redistribueix en una sola columna.
+*/
+.layout {
+    max-width: var(--max-width);
+    margin: 0 auto 2rem;
+    display: grid;
+    grid-template-columns: 1fr 20rem;
+    /* fallback per pantalles mitjanes */
+    gap: 1rem;
+    padding: 0 1rem;
+}
+
+.main-article {
+    background: #fff;
+    padding: 1rem;
+    border-radius: var(--radius);
+    border: 0.0625rem solid rgba(240, 245, 251, 1);
+}
+
+.main-article p {
+    color: var(--color-accent-dark);
+}
+
+#article-title {
+    color: #000;
+    font-weight:500;
+}
+
+.sidebar {
+    background: #fbfdff;
+    padding: 1rem;
+    border-radius: var(--radius);
+    border: 0.0625rem solid rgba(240, 245, 251, 1);
+    color: var(--color-foreground-cards)
+}
+
+/* Formulari: labels visibles i inputs adaptatius */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem
+}
+
+.contact-form label {
+    font-size: .95rem
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: .5rem;
+    border: 0.0625rem solid rgba(207, 224, 255, 1);
+    border-radius: .25rem
+}
+
+.contact-form button {
+    background: var(--color-accent);
+    color: white;
+    border: none;
+    padding: .6rem .8rem;
+    border-radius: .25rem;
+    cursor: pointer
+}
+
+/* Peu de pàgina: harmonitzat amb fons verd fosc i textura. */
+footer {
+    background-color: rgba(4, 20, 16, 0.9);
+    /* fosc, deixa veure textura subtilment */
+    color: var(--color-foreground);
+    padding: 1.25rem;
+    text-align: center;
+    border-top: 0.0625rem solid rgba(255, 255, 255, 0.04);
+}
+
+footer p {
+    margin: 0.25rem 0;
+    color: rgba(255, 255, 255, 0.85)
+}
+
+footer .legal {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: .9rem
+}
+
+/* Estats de focus per accessibilitat (clars i visibles) */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+    outline: 0.1875rem solid var(--focus-color);
+    outline-offset: 0.125rem
+}
+
+/*
+  Media queries per a les resolucions sol·licitades:
+  320px, 360px, 768px, 1024px, 1366px, 1920px
+  Observació: les media queries utilitzen valors en px per apuntar resolucions
+  concretes; les propietats internes continuen fent servir unitats flexibles.
+*/
+
+/* Mòbil molt petit: 320px */
+@media (max-width: 320px) {
+    .site-header {
+        padding: .5rem
+    }
+
+    .brand h1 {
+        font-size: 1rem
+    }
+
+    .nav-toggle {
+        display: inline-block
+    }
+
+    .main-nav ul {
+        display: none
+    }
+
+    .layout {
+        grid-template-columns: 1fr
+    }
+
+    .cards {
+        grid-template-columns: 1fr
+    }
+}
+
+/* 360px (telèfons modernes petits) */
+@media (max-width: 360px) {
+    .hero {
+        margin: 1rem auto
+    }
+
+    .hero-figure img {
+        border-radius: calc(var(--radius) - 0.0625rem)
+    }
+}
+
+/* Tauletes/phones grans: 768px */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: inline-block
+    }
+
+    .main-nav ul {
+        display: none
+    }
+
+    .main-nav ul.open {
+        color: var(--color-foreground-cards);
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        right: 1rem;
+        top: 4.25rem;
+        background: white;
+        padding: .5rem;
+        border: 0.0625rem solid rgba(230, 238, 252, 1);
+        border-radius: var(--radius)
+    }
+
+    .main-nav a {
+        color: var(--color-foreground-cards);
+    }
+
+    .layout {
+        grid-template-columns: 1fr
+    }
+
+    .cards {
+        grid-template-columns: 1fr 1fr
+    }
+}
+
+/* Pantalles mitjanes/escriptori petit: 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .main-nav ul {
+        display: flex
+    }
+
+    .nav-toggle {
+        display: none
+    }
+
+    .layout {
+        grid-template-columns: 1fr 18rem
+    }
+
+    .cards {
+        grid-template-columns: repeat(3, 1fr)
+    }
+}
+
+/* Escriptori ample: 1366px */
+@media (min-width: 1025px) and (max-width: 1366px) {
+    .layout {
+        grid-template-columns: 1fr 22rem
+    }
+
+    .cards {
+        grid-template-columns: repeat(3, 1fr)
+    }
+}
+
+/* Pantalles molt grans: 1920px */
+@media (min-width: 1367px) {
+    .layout {
+        grid-template-columns: 1fr 24rem
+    }
+
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: var(--max-width);
+        margin: 0 auto
+    }
+}
+
+/* Respectem preferències d'animació reduïda */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important
+    }
+}
+
+/* Contrast addicional per text important */
+.lead {
+    color: #7fd2e9
+}

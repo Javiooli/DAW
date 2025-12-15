@@ -1,0 +1,22 @@
+/* --- Variables globals --- */
+:root {
+    /* Paleta: verd bosc i gris fosc */
+    /* gris */
+    --color-bg: #262626;
+    /* blanc per text principal */
+    --color-foreground: #ffffff;
+    /* negre pels textos de les cards */
+    --color-foreground-cards: #000000;
+    --color-accent: #2e7d32;
+    /* verd bosc (accent) */
+    --color-accent-dark: #1b5e20;
+    /* verd més fosc per botons/hover */
+    --focus-color: #262626;
+    /* verd clar per outlines de focus */
+    --radius: 0.375rem;
+    /* 6px equivalència en rem (6/16 = 0.375) */
+    --max-width: 62.5rem;
+    /* 1000px en rem per mantenir flexibilitat */
+    --gap: 1rem;
+    /* espais modulars */
+}

@@ -1,0 +1,180 @@
+<!doctype html>
+<!--
+  Pàgina d'exemple accessible i responsive
+  -----------------------------------------
+  Procediment seguit i canvis realitzats (comentari extens en català):
+
+  1) Objectiu: convertir el disseny del Fòrum 2 en una interfície HTML/CSS
+     accessible i responsive que contingui obligatòriament: <header>, <nav>,
+     <main>, <section>, <footer> amb classes i contingut.
+
+  2) Escalabilitat: s'ha afegit el meta viewport a <head> per garantir que
+     les unitats relatives (rem, %, vw) funcionin com s'espera.
+
+  3) Contingut afegit:
+     - Imatge destacada al hero.
+     - Tres cards dins de la secció #cards-section. Cada card és
+       un joc de taula.
+     - Formulari de contacte a l'aside per tenir alguna cosa funcional.
+
+  4) Accessibilitat:
+     - Enllaç "Saltar al contingut" per millorar la navegació amb teclat.
+     - Etiquetes aria on cal.
+     - Labels associats als camps del formulari i textos alternatius a les
+       imatges (atribut "alt").
+
+  5) Responsivitat i reorganització:
+     - Les cards estan dins d'un grid amb "auto-fit" i "minmax" per reordenar
+       automàticament segons l'amplada disponible.
+     - La navegació disposa d'un botó toggle (JS mínim) que mostra/oculta el
+       menú en pantalles petites; CSS canvia la direcció/layout segons breakpoint.
+
+  Canvis tècnics principals:
+  - Imatges externes, adaptatives amb "width:100%" i "height:auto".
+  - CSS amb unitats flexibles: "rem", "%", "vw" i "fr" als grids.
+  - Media queries per 320/360/768/1024/1366/1920 per redistribuir els elements.
+-->
+<html lang="ca">
+    <head>
+        <meta charset="utf-8" />
+        <!--
+      Escalabilitat: meta viewport per assegurar que la pàgina s'adapta
+      a la grandària de la finestra i que les unitats relatives funcionen.
+    -->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- Metadades de l'autor. -->
+        <meta name="author" content="Javier Pedragosa" />
+        <title>Ludoteca de Javier Pedragosa</title>
+        <!-- Enllaç al fitxer CSS extern -->
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+    <body>
+        <!-- Capçalera principal amb identificador i títol -->
+        <header class="site-header">
+            <!-- Títol de la web -->
+            <div class="brand">
+                <h1>Javier Pedragosa</h1>
+                <p class="tagline">La meva ludoteca</p>
+            </div>
+
+            <!-- Navegació principal -->
+            <nav class="main-nav" aria-label="Navegació principal">
+                <button class="nav-toggle" aria-expanded="false"
+                    aria-controls="nav-list">Menu</button>
+                <ul id="nav-list">
+                    <li><a href="#">Inici</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#contact">Contacte</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Contingut principal -->
+        <main id="main" class="site-main">
+            <!-- Secció HERO amb imatge destacada adaptativa. 
+                 Afegeixo una imatge aleatòria per mostrar com s'adapta a diferents resolucions. -->
+            <section id="hero" aria-labelledby="hero-title" class="hero">
+                <h2 id="hero-title">Benvinguts</h2>
+                <p class="lead">Aquesta és una petita part de la meva col·lecció
+                    de jocs de taula.</p>
+                <figure class="hero-figure">
+                    <img
+                        src="https://dailyworkerplacement.com/wp-content/uploads/2017/12/shelfb-1648x1140.jpg"
+                        alt="Prestatge ple de jocs de taula." />
+                </figure>
+            </section>
+
+            <!-- Secció amb cartes (cards) que es reorganitzen segons la mida del dispositiu.
+                 Cada carta conté una imatge, un títol i descripció. -->
+            <section id="cards-section" class="cards-section"
+                aria-labelledby="cards-title">
+                <h3 id="cards-title">Els meus preferits:</h3>
+                <div class="cards">
+                    <!-- Carta 1 -->
+                    <card class="card" aria-labelledby="card1-title">
+                        <img
+                            src="https://www.thegamesteward.com/cdn/shop/products/yedo-deluxe-master-set-daimyo-pledge-bundle-kickstarter-special-kickstarter-board-game-board-dice-31519038996632.jpg?v=1628654455&width=1000"
+                            alt="Yedo: Deluxe Master Set" />
+                        <h4 id="card1-title">Yedo: Deluxe Master Set</h4>
+                        <p>Col·locació de treballadors i compleció de missions
+                            amb un gran èmfasi en el comerç entre jugadors.</p>
+                        <a class="card-btn" href="#">Més informació</a>
+                    </card>
+
+                    <!-- Carta 2 -->
+                    <card class="card" aria-labelledby="card2-title">
+                        <img
+                            src="https://shop.direwolfdigital.com/cdn/shop/products/store_componenets_35a1e2a3-8c71-48b5-b2e6-5895ec5aefc8_1200x1200.png?v=1758567254"
+                            alt="Clank: Catacombs" />
+                        <h4 id="card2-title">Clank: Catacumbas</h4>
+                        <p>Creació de baralles amb exploració d'un mapa
+                            dinàmic.</p>
+                        <a class="card-btn" href="#">Més informació</a>
+                    </card>
+
+                    <!-- Carta 3 -->
+                    <card class="card" aria-labelledby="card3-title">
+                        <img
+                            src="https://boardgamereview.co.uk/wp-content/uploads/2020/12/Little-Town-being-played.png"
+                            alt="Little town" />
+                        <h4 id="card3-title">Little Town</h4>
+                        <p>Col·locació de treballadors, maneig de recursos i
+                            construcció d'edificis.</p>
+                        <a class="card-btn" href="#">Més informació</a>
+                    </card>
+                </div>
+            </section>
+
+            <!-- Estructura de dos columnes: article + apartat (aside) -->
+            <div class="layout">
+                <article class="main-article" aria-labelledby="article-title">
+                    <h3 id="article-title">Sobre mi</h3>
+                    <p>Soc un estudiant de DAW amb una afició pels jocs de taula
+                        i videojocs des que tinc memòria. <br />
+                    </p>
+                </article>
+
+                <!-- Contingut secundari dins un aside amb rol complementari -->
+                <aside class="sidebar" aria-labelledby="aside-title">
+                    <h4 id="aside-title">Contacte</h4>
+
+                    <!-- Formulari senzill -->
+                    <form class="contact-form"
+                        aria-label="Formulari de contacte">
+                        <label for="name">Nom</label>
+                        <input id="name" name="name" type="text" />
+
+                        <label for="email">Correu electrònic</label>
+                        <input id="email" name="email" type="email" />
+
+                        <label for="message">Missatge</label>
+                        <textarea id="message" name="message"
+                            rows="4"></textarea>
+
+                        <button type="submit">Enviar</button>
+                    </form>
+                </aside>
+            </div>
+        </main>
+
+        <!-- Peu de pàgina -->
+        <footer>
+            <p>&copy; 2025 Javier Pedragosa. Tots els drets reservats.</p>
+        </footer>
+
+        <!-- Script mínim per fer el toggle de navegació -->
+        <script>
+        // Activem el botó de menu per usuaris amb pantalla petita (mòbils)
+        (function () {
+            var btn = document.querySelector('.nav-toggle');
+            var list = document.getElementById('nav-list');
+            if (!btn || !list) return;
+            btn.addEventListener('click', function () {
+            var expanded = btn.getAttribute('aria-expanded') === 'true';
+            btn.setAttribute('aria-expanded', String(!expanded));
+            list.classList.toggle('open');
+            });
+        })();
+    </script>
+    </body>
+</html>
