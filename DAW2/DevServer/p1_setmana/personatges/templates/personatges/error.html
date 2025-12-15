@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'personatges/error.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Personatge no trobat</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>404</h1>
+            <p class="subtitle">Personatge no trobat</p>
+        </header>
+
+        <main>
+            <div class="meme-container">
+                <img src="{% static 'personatges/img/error.png' %}" alt="MTG Lost in the Woods card" class="meme-image"/>
+                <p class="meme-text">"Are you sure this is the way?"</p>
+            </div>
+
+            <div class="error-message">
+                <p>Sembla que aquest personatge no existeix al Multivers.</p>
+                <p class="hint">Potser t'has equivocat amb el nom? Torna al <a href="/personatges/home" class="home-link">home</a> per veure els personatges disponibles.</p>
+            </div>
+
+        </main>
+
+        <a href="/personatges/home" class="back-button">← Tornar al home</a>
+        
+    </div>
+
+</body>
+</html>

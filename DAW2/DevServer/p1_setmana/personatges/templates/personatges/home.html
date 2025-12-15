@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ca">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'personatges/home.css' %}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Personatges</title>
+</head>
+<body>
+    <header>
+        <h1>Personatges</h1>
+    </header>
+
+    <main>
+        <p>Aquesta pàgina mostrarà el personatge passat per URL. Per provar-ho, introdueix un dels següents personatges al final de la URL.</p>
+
+        <p>Regles:</p>
+        <ul>
+            <li>home: torna a la pàgina d'inici.</li>
+            <li>Valors vàlids: mostren el personatge corresponent.</li>
+        </ul>
+
+        <p>Personatges:</p>
+        <ul>
+            <li class="example">Jace Beleren (/personatges/jace)</li>
+            <li class="example">Chandra Nalaar (/personatges/chandra)</li>
+            <li class="example">Liliana Vess (/personatges/liliana)</li>
+            <li class="example">Tezzeret (/personatges/tezzeret)</li>
+            <li class="example">Ajani Goldmane (/personatges/ajani)</li>
+            <li class="example">/personatges/home  ← torna al home</li>
+        </ul>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <p class="footer-name">Javier Pedragosa</p>
+            <p class="footer-course">INS Daniel Blanxart - Desenvolupament d'Aplicacions Web 2</p>
+            <p class="footer-meta">p2_templates · <a href="mailto:24.javier.pedragosa@insdanielblanxart.cat">24.javier.pedragosa@insdanielblanxart.cat</a></p>
+            <small>&copy; 2025 Javier Pedragosa. Tots els drets reservats.</small>
+        </div>
+    </footer>
+    {% if error %}
+        <script>alert("Valor no vàlid")</script>
+    {% endif %}
+
+</body>
+</html>
