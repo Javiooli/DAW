@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+        button {
+            padding: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button onclick="loadExercise('ex1.js')">Exercici 1</button>
+        <button onclick="loadExercise('ex2.js')">Exercici 2</button>
+        <button onclick="loadExercise('ex3.js')">Exercici 3</button>
+        <button onclick="loadExercise('ex4.js')">Exercici 4</button>
+        <button onclick="loadExercise('ex5.js')">Exercici 5</button>
+        <button onclick="loadExercise('ex6.js')">Exercici 6</button>
+        <button onclick="loadExercise('ex7.js')">Exercici 7</button>
+    </div>
+
+    <script>
+        function loadExercise(filename) {
+            const script = document.createElement('script');
+            script.src = filename;
+            document.body.appendChild(script);
+        }
+    </script>
+</body>
+</html>
