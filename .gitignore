@@ -9,3 +9,5 @@ DAW2/IA/.venv/*
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+.venv/
