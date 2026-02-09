@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resum - Gestor de Preferències</title>
+    <style>
+        /* Estils iguals que a les altres pàgines */
+        :root {
+            --bg-color: #f5f5f5;
+            --text-color: #333;
+            --container-bg: white;
+            --border-color: #ddd;
+            --button-bg: #007bff;
+            --button-hover: #0056b3;
+        }
+
+        body.tema-fosc {
+            --bg-color: #1a1a1a;
+            --text-color: #e0e0e0;
+            --container-bg: #2d2d2d;
+            --border-color: #444;
+            --button-bg: #0d6efd;
+            --button-hover: #0a58ca;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--container-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            padding: 10px 20px;
+            background-color: var(--button-bg);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--button-hover);
+        }
+
+        .summary-section {
+            margin-bottom: 30px;
+        }
+
+        .summary-card {
+            padding: 20px;
+            background-color: var(--bg-color);
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .summary-card h2 {
+            margin-bottom: 15px;
+            color: var(--button-bg);
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-box {
+            padding: 20px;
+            background-color: var(--bg-color);
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid var(--border-color);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: var(--button-bg);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+        }
+
+        body.tema-fosc .stat-label {
+            color: #999;
+        }
+
+        .elements-list {
+            margin-top: 15px;
+        }
+
+        .element-preview {
+            padding: 10px;
+            margin-bottom: 8px;
+            background-color: var(--container-bg);
+            border-left: 3px solid var(--button-bg);
+            border-radius: 3px;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+
+        .info-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background-color: var(--button-bg);
+            color: white;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--button-bg);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            text-align: center;
+            margin-top: 30px;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: var(--button-hover);
+        }
+
+        .center-button {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Resum General</h1>
+
+        <!-- Links de navegació -->
+        <div class="nav-links">
+            <a href="index.html">Inici</a>
+            <a href="settings.html">Configuració</a>
+            <a href="summary.html">Resum</a>
+        </div>
+
+        <!-- Estadístiques generals en format de quadrícula -->
+        <div class="stat-grid" id="statsGrid">
+            <!-- Això es carrega dinàmicament -->
+        </div>
+
+        <!-- Detalls del resum -->
+        <div class="summary-section" id="summarySection">
+            <!-- Això també es carrega dinàmicament -->
+        </div>
+
+        <!-- Botó per tornar a la pàgina principal -->
+        <div class="center-button">
+            <a href="index.html" class="back-button">← Tornar a l'Inici</a>
+        </div>
+    </div>
+
+    <script>
+        // Això s'executa quan la pàgina carrega
+        document.addEventListener('DOMContentLoaded', function() {
+            // Aplico el tema que té guardat
+            aplicarTemaGuardat();
+
+            // Mostro el resum complet
+            mostrarResum();
+
+            // Funció que mostra tot el resum de preferències
+            function mostrarResum() {
+                // Agafo totes les dades del localStorage
+                const tema = localStorage.getItem('tema') || null;
+                const elementsJSON = localStorage.getItem('elements');
+                const elements = elementsJSON ? JSON.parse(elementsJSON) : [];
+
+                // Calculo estadístiques
+                const totalElements = elements.length;
+                const temaConfigurat = tema ? 'Sí' : 'No';
+                const espaciUtilitzat = calcularEspaciLocalStorage();
+
+                // Si no hi ha cap dada
+                if (!tema && totalElements === 0) {
+                    document.getElementById('statsGrid').innerHTML = `
+                        <div class="no-data">
+                            <h2>😢 No hi ha res per mostrar</h2>
+                            <p>Encara no has configurat cap preferència!</p>
+                            <p>Ves a la pàgina principal per començar.</p>
+                        </div>
+                    `;
+                    document.getElementById('summarySection').innerHTML = '';
+                    return;
+                }
+
+                // Mostro les estadístiques en format de capses
+                const statsHTML = `
+                    <div class="stat-box">
+                        <div class="stat-number">${totalElements}</div>
+                        <div class="stat-label">Elements Guardats</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">${tema ? '✓' : '✗'}</div>
+                        <div class="stat-label">Tema Configurat</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">${espaciUtilitzat}</div>
+                        <div class="stat-label">KB Utilitzats</div>
+                    </div>
+                `;
+                document.getElementById('statsGrid').innerHTML = statsHTML;
+
+                // Creo el resum detallat
+                let summaryHTML = '';
+
+                // Informació del tema
+                summaryHTML += `
+                    <div class="summary-card">
+                        <h2>🎨 Preferències de Tema</h2>
+                        <p>
+                            <span class="info-badge">${tema === 'clar' ? '🌞 Clar' : tema === 'fosc' ? '🌙 Fosc' : '❌ Sense configurar'}</span>
+                            ${tema ? 'Has configurat el tema de l\'aplicació.' : 'Encara no has seleccionat cap tema.'}
+                        </p>
+                    </div>
+                `;
+
+                // Informació dels elements
+                summaryHTML += `
+                    <div class="summary-card">
+                        <h2>📋 Elements de la Llista</h2>
+                        <p>Tens un total de <strong>${totalElements}</strong> element${totalElements !== 1 ? 's' : ''} guardat${totalElements !== 1 ? 's' : ''} a la teva llista.</p>
+                `;
+
+                // Si hi ha elements, els mostro tots
+                if (totalElements > 0) {
+                    summaryHTML += '<div class="elements-list">';
+                    elements.forEach((element, index) => {
+                        summaryHTML += `
+                            <div class="element-preview">
+                                <strong>${index + 1}.</strong> ${element}
+                            </div>
+                        `;
+                    });
+                    summaryHTML += '</div>';
+                } else {
+                    summaryHTML += '<p style="color: #999; margin-top: 10px;">La teva llista està buida.</p>';
+                }
+
+                summaryHTML += '</div>';
+
+                // Informació addicional
+                const dataActual = new Date().toLocaleDateString('ca-ES', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+
+                summaryHTML += `
+                    <div class="summary-card">
+                        <h2>ℹ️ Informació Addicional</h2>
+                        <p>📅 Data d'avui: <strong>${dataActual}</strong></p>
+                        <p>💾 Espai utilitzat al localStorage: <strong>${espaciUtilitzat} KB</strong></p>
+                        <p>🔢 Total de preferències: <strong>${Object.keys(localStorage).length}</strong></p>
+                    </div>
+                `;
+
+                document.getElementById('summarySection').innerHTML = summaryHTML;
+            }
+
+            // Funció que aplica el tema guardat
+            function aplicarTemaGuardat() {
+                const tema = localStorage.getItem('tema');
+                if (tema === 'fosc') {
+                    document.body.classList.add('tema-fosc');
+                }
+            }
+
+            // Funció que calcula l'espai utilitzat al localStorage
+            function calcularEspaciLocalStorage() {
+                let total = 0;
+                for (let key in localStorage) {
+                    if (localStorage.hasOwnProperty(key)) {
+                        total += localStorage[key].length + key.length;
+                    }
+                }
+                return (total / 1024).toFixed(2);
+            }
+        });
+    </script>
+</body>
+</html>

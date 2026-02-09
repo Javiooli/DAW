@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Preferències</title>
+    <style>
+        /* Això són els estils per defecte, tema clar */
+        :root {
+            --bg-color: #f5f5f5;
+            --text-color: #333;
+            --container-bg: white;
+            --border-color: #ddd;
+            --button-bg: #007bff;
+            --button-hover: #0056b3;
+        }
+
+        /* Estils pel tema fosc, aquí canvia tot */
+        body.tema-fosc {
+            --bg-color: #1a1a1a;
+            --text-color: #e0e0e0;
+            --container-bg: #2d2d2d;
+            --border-color: #444;
+            --button-bg: #0d6efd;
+            --button-hover: #0a58ca;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--container-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            padding: 10px 20px;
+            background-color: var(--button-bg);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--button-hover);
+        }
+
+        .config-section {
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            background-color: var(--container-bg);
+            color: var(--text-color);
+            font-size: 16px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            background-color: var(--container-bg);
+            color: var(--text-color);
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: var(--button-bg);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--button-hover);
+        }
+
+        .llista-elements {
+            margin-top: 20px;
+        }
+
+        .llista-elements h2 {
+            margin-bottom: 15px;
+        }
+
+        .llista-elements ul {
+            list-style: none;
+        }
+
+        .llista-elements li {
+            padding: 12px;
+            margin-bottom: 8px;
+            background-color: var(--bg-color);
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-eliminar {
+            background-color: #dc3545;
+            padding: 5px 15px;
+            font-size: 14px;
+        }
+
+        .btn-eliminar:hover {
+            background-color: #c82333;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Gestor de Preferències</h1>
+
+        <!-- Links de navegació, així es pot moure l'usuari -->
+        <div class="nav-links">
+            <a href="index.html">Inici</a>
+            <a href="settings.html">Configuració</a>
+            <a href="summary.html">Resum</a>
+        </div>
+
+        <!-- Selector de tema, això és el típic clar/fosc -->
+        <div class="config-section">
+            <label for="tema">Selecciona el tema:</label>
+            <select id="tema">
+                <option value="clar">🌞 Tema Clar</option>
+                <option value="fosc">🌙 Tema Fosc</option>
+            </select>
+        </div>
+
+        <!-- Aquí es poden afegir elements a la llista -->
+        <div class="config-section">
+            <label for="nouElement">Afegeix un element a la llista:</label>
+            <div class="input-group">
+                <input type="text" id="nouElement" placeholder="Escriu alguna cosa...">
+                <button id="btnAfegir">Afegir</button>
+            </div>
+        </div>
+
+        <!-- La llista d'elements que va guardant l'usuari -->
+        <div class="llista-elements">
+            <h2>📋 Elements guardats</h2>
+            <ul id="llistaElements"></ul>
+        </div>
+    </div>
+
+    <script>
+        // Això carrega tot quan la pàgina està llesta
+        document.addEventListener('DOMContentLoaded', function() {
+            // Aquí agafo els elements del DOM que necessito
+            const selectTema = document.getElementById('tema');
+            const inputNouElement = document.getElementById('nouElement');
+            const btnAfegir = document.getElementById('btnAfegir');
+            const llistaElements = document.getElementById('llistaElements');
+
+            // Aquí carrego les preferències que hi havia guardades
+            carregarPreferencies();
+
+            // Event listener pel selector de tema, cada cop que canvia
+            selectTema.addEventListener('change', function() {
+                const temaSeleccionat = selectTema.value;
+                aplicarTema(temaSeleccionat);
+                // Guardo el tema al localStorage perquè es mantingui
+                localStorage.setItem('tema', temaSeleccionat);
+            });
+
+            // Event listener pel botó d'afegir
+            btnAfegir.addEventListener('click', afegirElement);
+
+            // També puc afegir prement Enter, més còmode
+            inputNouElement.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    afegirElement();
+                }
+            });
+
+            // Funció que afegeix un element a la llista
+            function afegirElement() {
+                const text = inputNouElement.value.trim();
+                
+                // Si no ha escrit res, no faig res
+                if (text === '') {
+                    alert('No pots afegir un element buit!');
+                    return;
+                }
+
+                // Agafo la llista actual del localStorage
+                let elements = obtenirElements();
+                
+                // Afegeixo el nou element
+                elements.push(text);
+                
+                // Guardo la llista actualitzada
+                localStorage.setItem('elements', JSON.stringify(elements));
+                
+                // Netejar l'input
+                inputNouElement.value = '';
+                
+                // Actualitzo la vista
+                mostrarElements();
+            }
+
+            // Aquesta funció mostra tots els elements que hi ha guardats
+            function mostrarElements() {
+                const elements = obtenirElements();
+                
+                // Si no hi ha elements, mostro un missatge
+                if (elements.length === 0) {
+                    llistaElements.innerHTML = '<div class="empty-state">No hi ha cap element guardat encara. Afegeix-ne un!</div>';
+                    return;
+                }
+
+                // Si hi ha elements, els mostro tots
+                llistaElements.innerHTML = '';
+                elements.forEach((element, index) => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <span>${element}</span>
+                        <button class="btn-eliminar" onclick="eliminarElement(${index})">Eliminar</button>
+                    `;
+                    llistaElements.appendChild(li);
+                });
+            }
+
+            // Funció per eliminar un element específic
+            window.eliminarElement = function(index) {
+                let elements = obtenirElements();
+                // Trec l'element de la llista
+                elements.splice(index, 1);
+                // Guardo la llista actualitzada
+                localStorage.setItem('elements', JSON.stringify(elements));
+                // Actualitzo la vista
+                mostrarElements();
+            };
+
+            // Funció que agafa els elements del localStorage
+            function obtenirElements() {
+                const elements = localStorage.getItem('elements');
+                // Si no hi ha res, retorno un array buit
+                return elements ? JSON.parse(elements) : [];
+            }
+
+            // Funció que aplica el tema (clar o fosc)
+            function aplicarTema(tema) {
+                if (tema === 'fosc') {
+                    document.body.classList.add('tema-fosc');
+                } else {
+                    document.body.classList.remove('tema-fosc');
+                }
+            }
+
+            // Carrega totes les preferències guardades al localStorage
+            function carregarPreferencies() {
+                // Carrego el tema
+                const temaGuardat = localStorage.getItem('tema');
+                if (temaGuardat) {
+                    selectTema.value = temaGuardat;
+                    aplicarTema(temaGuardat);
+                }
+
+                // Mostro els elements guardats
+                mostrarElements();
+            }
+        });
+    </script>
+</body>
+</html>

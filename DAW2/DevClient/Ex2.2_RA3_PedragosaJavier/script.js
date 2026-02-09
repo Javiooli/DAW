@@ -6,6 +6,15 @@ class Tasques {
         this.carregarTasques();
     }
 
+    // Funció creada per poder comprovar que no s'afegeixen duplicats.
+    cercarTasca(titol) {
+        this.tasques.forEach(tasca => {
+            if (tasca.titol == titol)
+                return tasca;
+        });
+        return false;
+    }
+
     carregarTasques() {
         for (let index = 0; index < localStorage.length; index++) {
             const desc = localStorage.getItem(localStorage.key(index));
@@ -55,6 +64,25 @@ class Tasques {
         botoEditar.setAttribute("onClick", `modificar(${tasca.id})`);
         li.appendChild(botoEditar);
 
+        //Crear i afegir comptador i botons per augmentar o reduïr el comptador.
+        let comptador = document.createElement('button');
+        comptador.className = "comptador";
+        comptador.innerHTML = tasca.comptador;
+
+        let botoAugmentarComptador = document.createElement('button');
+        botoAugmentarComptador.className = "comptadorBtn";
+        botoAugmentarComptador.innerText = "⬆️";
+        botoAugmentarComptador.setAttribute("onClick", `augmentarTasca(${tasca.id})`);
+        li.appendChild(botoAugmentarComptador);
+
+        li.appendChild(comptador);
+
+        let botoRestarComptador = document.createElement('button');
+        botoRestarComptador.className = "comptadorBtn";
+        botoRestarComptador.innerText = "⬇️";
+        botoRestarComptador.setAttribute("onClick", `restarTasca(${tasca.id})`);
+        li.appendChild(botoRestarComptador);
+
         //Per últim, afegir element a la llista de la vista.
         ul.appendChild(li);
     }
@@ -101,7 +129,7 @@ class Tasques {
         let titol = document.getElementById("titol").value;
         let desc = document.getElementById("desc").value;
         //if (la trobem a la llista interna)...
-        if (tasca && (titol != "" || desc != "")) {
+        if (tasca && (titol != "" && desc != "")) {
             //Si rebem un títol, el modifiquem.
             if (titol) tasca.titol = titol;
 
@@ -133,6 +161,24 @@ class Tasques {
             botoEditar.setAttribute("onClick", `modificar(${tasca.id})`);
             li.appendChild(botoEditar);
 
+            //Crear i afegir comptador i botons per augmentar o reduïr el comptador.
+            let botoAugmentarComptador = document.createElement('button');
+            botoAugmentarComptador.className = "comptadorBtn";
+            botoAugmentarComptador.innerText = "⬆️";
+            botoAugmentarComptador.setAttribute("onClick", `augmentarTasca(${tasca.id})`);
+            li.appendChild(botoAugmentarComptador);
+
+            let comptador = document.createElement('p');
+            comptador.className = "comptador";
+            comptador.innerHTML = tasca.comptador;
+            li.appendChild(comptador);
+
+            let botoRestarComptador = document.createElement('button');
+            botoRestarComptador.className = "comptadorBtn";
+            botoRestarComptador.innerText = "⬇️";
+            botoRestarComptador.setAttribute("onClick", `restarTasca(${tasca.id})`);
+            li.appendChild(botoRestarComptador);
+
             //Per últim, buidem els camps de la vista.
             document.getElementById("titol").value = "";
             document.getElementById("desc").value = "";
@@ -140,8 +186,18 @@ class Tasques {
         } else if (!tasca) alert("Tasca no trobada.");
         else alert("No s'ha introduït cap títol ni descripció.");
     }
+
+    augmentarTasca(id) {
+        //Busquem la tasca a la llista del model.
+        let tasca = _.find(this.tasques, { id: id });
+        tasca.afegirComptador();
+    }
     
-    
+    restarTasca(id) {
+        //Busquem la tasca a la llista del model.
+        let tasca = _.find(this.tasques, { id: id });
+        tasca.restarComptador();
+    }
 }
 
 class Tasca {
@@ -150,6 +206,7 @@ class Tasca {
         this.desc = desc;
         this.compl = false;
         this.id = tasques.count;
+        this.comptador = 1;
         console.log(this.id);
     }
 
@@ -159,6 +216,14 @@ class Tasca {
 
     canviarEstat(){
         this.compl = !this.compl;
+    }
+
+    afegirComptador() {
+        this.comptador++;
+    }
+
+    restarComptador() {
+        this.comptador--;
     }
 
 }
@@ -171,15 +236,18 @@ function afegir() {
     desc = document.getElementById("desc").value;
 
     //Comprovem que s'ha introduït un títol i una descripció.
-    if (titol != "") {
+    if (titol != "") { // Aixi assegurem que no es poden afegir elements en blanc
         if (desc != "") {
-            //Afegim la tasca.
-            let tasca = new Tasca(titol, desc, tasques);
-            tasques.guardarTasca(tasca);
-            tasques.afegirTasca(tasca);
-            //Buidem els dos camps de la vista.
-            document.getElementById("titol").value = "";
-            document.getElementById("desc").value = "";
+            if (tasques.cercarTasca(titol) == false) { // Comprovem que no existeix cap tasca amb el mateix títol.
+                //Afegim la tasca.
+                let tasca = new Tasca(titol, desc, tasques);
+                tasques.guardarTasca(tasca);
+                tasques.afegirTasca(tasca);
+                //Buidem els dos camps de la vista.
+                document.getElementById("titol").value = "";
+                document.getElementById("desc").value = "";
+            }
+            else alert("Ja hi ha una tasca amb el mateix títol.")
         } else alert("Si us plau, introdueix una descripció.");
     } else alert("Si us plau, introdueix el títol.");
 }
@@ -194,4 +262,22 @@ function completar(id){
 
 function modificar(id){
     tasques.modificarTasca(id);
+}
+
+function augmentarTasca(id) {
+    let tasca = _.find(tasques.tasques, { id: id });
+    if (!tasca) return;
+    tasques.augmentarTasca(id);
+    let li = document.getElementById(id);
+    let comptador = li ? li.querySelector('.comptador') : null;
+    if (comptador) comptador.innerText = tasca.comptador;
+}
+
+function restarTasca(id) {
+    let tasca = _.find(tasques.tasques, { id: id });
+    if (!tasca) return;
+    tasques.restarTasca(id);
+    let li = document.getElementById(id);
+    let comptador = li ? li.querySelector('.comptador') : null;
+    if (comptador) comptador.innerText = tasca.comptador;
 }

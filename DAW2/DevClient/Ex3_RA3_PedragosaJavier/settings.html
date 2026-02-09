@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuració - Gestor de Preferències</title>
+    <style>
+        /* Els mateixos estils que a index.html per mantenir coherència */
+        :root {
+            --bg-color: #f5f5f5;
+            --text-color: #333;
+            --container-bg: white;
+            --border-color: #ddd;
+            --button-bg: #007bff;
+            --button-hover: #0056b3;
+        }
+
+        body.tema-fosc {
+            --bg-color: #1a1a1a;
+            --text-color: #e0e0e0;
+            --container-bg: #2d2d2d;
+            --border-color: #444;
+            --button-bg: #0d6efd;
+            --button-hover: #0a58ca;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--container-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            padding: 10px 20px;
+            background-color: var(--button-bg);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--button-hover);
+        }
+
+        .config-info {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: var(--bg-color);
+            border-radius: 8px;
+        }
+
+        .config-info h2 {
+            margin-bottom: 15px;
+            color: var(--button-bg);
+        }
+
+        .info-item {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            color: #666;
+        }
+
+        body.tema-fosc .info-value {
+            color: #999;
+        }
+
+        .danger-zone {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #ffe6e6;
+            border: 2px solid #ff4444;
+            border-radius: 8px;
+        }
+
+        body.tema-fosc .danger-zone {
+            background-color: #3d1f1f;
+            border-color: #ff6666;
+        }
+
+        .danger-zone h2 {
+            color: #cc0000;
+            margin-bottom: 15px;
+        }
+
+        .danger-zone p {
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .btn-danger {
+            padding: 12px 30px;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+
+        .elements-preview {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: var(--container-bg);
+            border-radius: 5px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .element-item {
+            padding: 8px;
+            margin-bottom: 5px;
+            background-color: var(--bg-color);
+            border-radius: 3px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚙️ Configuració</h1>
+
+        <!-- Links de navegació -->
+        <div class="nav-links">
+            <a href="index.html">Inici</a>
+            <a href="settings.html">Configuració</a>
+            <a href="summary.html">Resum</a>
+        </div>
+
+        <!-- Aquí es mostra la configuració actual -->
+        <div class="config-info" id="configInfo">
+            <h2>Configuració Actual</h2>
+            <!-- Això es carrega dinàmicament amb JavaScript -->
+        </div>
+
+        <!-- Zona perillosa, aquí es pot esborrar tot -->
+        <div class="danger-zone">
+            <h2>⚠️ Zona Perillosa</h2>
+            <p>Aquesta acció eliminarà totes les teves preferències guardades, incloent el tema i la llista d'elements. Aquesta acció no es pot desfer!</p>
+            <button class="btn-danger" id="btnEliminar">Eliminar Totes les Preferències</button>
+        </div>
+    </div>
+
+    <script>
+        // Això s'executa quan la pàgina està llesta
+        document.addEventListener('DOMContentLoaded', function() {
+            const configInfo = document.getElementById('configInfo');
+            const btnEliminar = document.getElementById('btnEliminar');
+
+            // Carrego el tema que tenia guardat
+            aplicarTemaGuardat();
+
+            // Mostro la configuració actual
+            mostrarConfiguracio();
+
+            // Event listener pel botó d'eliminar
+            btnEliminar.addEventListener('click', function() {
+                // Demano confirmació perquè no la cagui l'usuari
+                const confirmacio = confirm('Estàs segur que vols eliminar totes les preferències? Aquesta acció no es pot desfer.');
+                
+                if (confirmacio) {
+                    // Netejo tot el localStorage
+                    localStorage.clear();
+                    
+                    // Missatge de confirmació
+                    alert('Totes les preferències han estat eliminades!');
+                    
+                    // Redirigeixo a la pàgina principal
+                    window.location.href = 'index.html';
+                }
+            });
+
+            // Funció que mostra tota la configuració guardada
+            function mostrarConfiguracio() {
+                // Agafo el tema
+                const tema = localStorage.getItem('tema') || 'No configurat';
+                
+                // Agafo els elements
+                const elementsJSON = localStorage.getItem('elements');
+                const elements = elementsJSON ? JSON.parse(elementsJSON) : [];
+
+                // Si no hi ha cap dada guardada
+                if (!localStorage.getItem('tema') && elements.length === 0) {
+                    configInfo.innerHTML = `
+                        <h2>Configuració Actual</h2>
+                        <div class="no-data">
+                            <p>No hi ha cap preferència guardada encara.</p>
+                            <p>Ves a la pàgina principal per començar a configurar!</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                // Creo l'HTML amb la informació
+                let html = '<h2>Configuració Actual</h2>';
+                
+                // Mostro el tema
+                html += `
+                    <div class="info-item">
+                        <div class="info-label">🎨 Tema seleccionat:</div>
+                        <div class="info-value">${tema === 'clar' ? '🌞 Tema Clar' : tema === 'fosc' ? '🌙 Tema Fosc' : 'No configurat'}</div>
+                    </div>
+                `;
+
+                // Mostro els elements
+                html += `
+                    <div class="info-item">
+                        <div class="info-label">📋 Elements guardats:</div>
+                        <div class="info-value">${elements.length} element${elements.length !== 1 ? 's' : ''}</div>
+                `;
+
+                // Si hi ha elements, els mostro
+                if (elements.length > 0) {
+                    html += '<div class="elements-preview">';
+                    elements.forEach((element, index) => {
+                        html += `<div class="element-item">${index + 1}. ${element}</div>`;
+                    });
+                    html += '</div>';
+                }
+
+                html += '</div>';
+
+                // Mostro l'espai utilitzat al localStorage
+                const espaciUtilitzat = calcularEspaciLocalStorage();
+                html += `
+                    <div class="info-item">
+                        <div class="info-label">💾 Espai utilitzat:</div>
+                        <div class="info-value">${espaciUtilitzat} KB</div>
+                    </div>
+                `;
+
+                configInfo.innerHTML = html;
+            }
+
+            // Funció que aplica el tema guardat
+            function aplicarTemaGuardat() {
+                const tema = localStorage.getItem('tema');
+                if (tema === 'fosc') {
+                    document.body.classList.add('tema-fosc');
+                }
+            }
+
+            // Funció que calcula quant espai ocupa el localStorage
+            function calcularEspaciLocalStorage() {
+                let total = 0;
+                for (let key in localStorage) {
+                    if (localStorage.hasOwnProperty(key)) {
+                        total += localStorage[key].length + key.length;
+                    }
+                }
+                // Retorno en KB amb dos decimals
+                return (total / 1024).toFixed(2);
+            }
+        });
+    </script>
+</body>
+</html>
