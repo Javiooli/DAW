@@ -1,0 +1,101 @@
+:root {
+    --primary: #2c3e50;
+    --accent: #3498db;
+    --danger: #e74c3c;
+    --success: #27ae60;
+    --bg: #f4f7f6;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg);
+    margin: 0;
+    color: var(--primary);
+}
+
+header {
+    background-color: var(--primary);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.catalogo { flex: 2; min-width: 300px; }
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.producto-card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.stock-bajo { color: var(--danger); font-weight: bold; }
+
+/* Carrito */
+.carrito { flex: 1; min-width: 300px; }
+
+.card-carrito {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    border-top: 4px solid var(--accent);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#lista-carrito {
+    list-style: none;
+    padding: 0;
+}
+
+.item-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    transition: opacity 0.3s;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.btn-agregar { background-color: var(--accent); color: white; width: 100%; }
+.btn-eliminar { background-color: var(--danger); color: white; padding: 4px 8px; }
+.btn-danger { background-color: var(--danger); color: white; width: 100%; margin-bottom: 10px; }
+.btn-success { background-color: var(--success); color: white; width: 100%; }
+
+button:hover { opacity: 0.8; }
+
+.carrito-resumen {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-top: 2px solid var(--primary);
+    padding-top: 10px;
+}

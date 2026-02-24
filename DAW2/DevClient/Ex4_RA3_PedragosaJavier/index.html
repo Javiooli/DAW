@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda con Gestión de Stock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Hardware Store Pro</h1>
+    </header>
+
+    <main class="container">
+        <section class="catalogo">
+            <h2>Productos Disponibles</h2>
+            <div id="contenedor-productos" class="grid-productos">
+                </div>
+        </section>
+
+        <section class="carrito">
+            <h2>Tu Cesta</h2>
+            <div class="card-carrito">
+                <ul id="lista-carrito">
+                    </ul>
+                
+                <div class="carrito-resumen">
+                    <p>Total: <span id="total">0.00</span>€</p>
+                    <div class="acciones-carrito">
+                        <button id="btn-vaciar" class="btn-danger">Buidar Carretó</button>
+                        <button id="btn-comprar" class="btn-success">Finalizar Compra</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
