@@ -1,0 +1,12 @@
+Controlar Tokens:
+
+min_length i max_length
+truncation=True o False per si volem tallar el text original fins els tokens que podem gaudir
+Per controlar la Generació:
+
+do_sample: per mostrar paraules que no estiguin al text. True/False
+temperature: A més alta més capacitat de creació (imaginació).
+num_beams: diversificació d'opcions (arbre) i sempre escull la millor opció. Per defecte és 4 però a més alt més opcions, cpu i gpu més pensa.
+repetition_penalty: A més penalització menys paraules repetides. 1.0 sense penalització i 1.5 ja la posem en seriosos problemes.
+no_repeat_ngram_size: Repetició de seqüència de paraules.
+num_return_sequences: Resums que podem generar.
