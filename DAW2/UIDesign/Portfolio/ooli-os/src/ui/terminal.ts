@@ -1,6 +1,7 @@
 import { addLine, getState, clearTerminal } from "../core/state";
 import { runCommand } from "../core/commandRegistry";
 import { getPastCommand } from "../core/commandHistory";
+import { searchCommand } from "../core/tabFunction";
 
 export function initTerminal() {
     const input = document.getElementById("terminal-input") as HTMLInputElement;
@@ -9,6 +10,7 @@ export function initTerminal() {
     input.addEventListener("keydown", (e) => {
         if (e.key === "Tab") { // Future Autocomplete :)
             e.preventDefault();
+            inputFoundCommand(input);
             return;
         }
 
@@ -69,4 +71,9 @@ function inputPastCommand(container: HTMLInputElement, up: boolean) {
     container.value = pastCommand;
 
     container.style.backgroundColor = "transparent";
+}
+
+function inputFoundCommand(container: HTMLInputElement) {
+    let foundCommand: string = searchCommand(container.value);
+    container.value = foundCommand;
 }

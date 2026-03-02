@@ -1,6 +1,6 @@
 type CommandHandler = (args: string[]) => string
 
-const commands: Record<string, CommandHandler> = {
+export const commands: Record<string, CommandHandler> = {
     help: () => `
 Available commands:
 - help

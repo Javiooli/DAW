@@ -6,7 +6,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div id="terminal">
     <div id="terminal-output"></div>
     <div class="input-line">
-      <span>javier@portfolio:~$</span>
+      <span>root@ooliOS:~$</span>
       <input id="terminal-input" autofocus />
     </div>
   </div>
