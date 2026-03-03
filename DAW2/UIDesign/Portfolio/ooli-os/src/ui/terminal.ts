@@ -1,5 +1,5 @@
 import { addLine, getState, clearTerminal } from "../core/state";
-import { runCommand } from "../core/commandRegistry";
+import { runCommand, commandDescriptions } from "../core/commandRegistry";
 import { getPastCommand } from "../core/commandHistory";
 import { searchCommand } from "../core/tabFunction";
 
@@ -11,6 +11,7 @@ export function initTerminal() {
         if (e.key === "Tab") { // Future Autocomplete :)
             e.preventDefault();
             inputFoundCommand(input);
+            render(output);
             return;
         }
 
@@ -37,6 +38,8 @@ export function initTerminal() {
 
             if (result === "__CLEAR__") {
                 clearTerminal();
+            } else if (result === "_HELP_") {
+                askHelp(value.substring(value.toLowerCase().indexOf("help") + 4).trim());
             } else {
                 addLine({ type: "output", content: result });
             }
@@ -51,7 +54,7 @@ export function initTerminal() {
     });
 }
 
-function render(container: HTMLDivElement) {
+export function render(container: HTMLDivElement) {
     container.innerHTML = "";
 
     const state = getState();
@@ -74,6 +77,10 @@ function inputPastCommand(container: HTMLInputElement, up: boolean) {
 }
 
 function inputFoundCommand(container: HTMLInputElement) {
-    let foundCommand: string = searchCommand(container.value);
+    let foundCommand: string = searchCommand(container);
     container.value = foundCommand;
+}
+
+function askHelp(command: string) {
+    addLine({ type: "output", content: commandDescriptions[command] });
 }

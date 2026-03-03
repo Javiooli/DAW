@@ -1,17 +1,17 @@
 type CommandHandler = (args: string[]) => string
 
 export const commands: Record<string, CommandHandler> = {
-    help: () => `
-Available commands:
-- help
-- about
-- projects
-- clear
-
-`,
+    help: (args) => commandDescriptions[args[0]],
     about: () => "Soy Javier Pedragosa, desarrollador web.",
     projects: () => "Proyecto 1...\nProyecto 2...\nProyecto 3",
     clear: () => "__CLEAR__"
+}
+
+export const commandDescriptions: Record<string, string> = {
+    help: "Show useful info about any command. Usage: help <command>",
+    about: "Show info about me.",
+    projects: "Show a list of projects I have developed.",
+    clear: "Clears the terminal"
 }
 
 export function runCommand(input: string): string {
