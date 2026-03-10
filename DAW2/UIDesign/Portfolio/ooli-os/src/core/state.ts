@@ -4,6 +4,8 @@ import {addLine as addLineFromHistory} from "./commandHistory";
 export type TerminalLine = {
     type: "input" | "output";
     content: string;
+    prompt?: string;
+    variant?: "logo" | "syscard";
 }
 
 type State = {
@@ -26,10 +28,4 @@ export function addLine(line: TerminalLine) {
 
 export function clearTerminal() {
     state.history = [];
-    console.log("-- Console cleared --");
-    console.log("History:");
-    state.history.forEach(line => {
-        if (line.type == "input")
-            console.log(line.content);
-    });
 }
