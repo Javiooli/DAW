@@ -88,7 +88,15 @@ export const commands: Record<string, CommandHandler> = {
         pendingNotepadTitle = title.length > 0 ? title : null;
         return '__OPEN_NOTEPAD__';
     },
-    about: () => 'Soy Javier Pedragosa, desarrollador web.',
+    about: () => {
+        const quickInfo = resolveExecutableDocument('~/quick-info.md');
+        if (!quickInfo) {
+            return 'about: quick-info.md not found';
+        }
+
+        pendingTextApp = quickInfo;
+        return '__OPEN_TEXT_APP__';
+    },
     projects: () => '- portfolio-cli\n- Nessun Dorma\n- Collectify\n\n(try: ls ~/projects and cat files)',
     clear: () => '__CLEAR__',
     video: () => '__OPEN_VIDEO__',
