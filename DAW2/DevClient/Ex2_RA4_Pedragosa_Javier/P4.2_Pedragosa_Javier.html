@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Llista de Productes (AJAX)</title>
+</head>
+<body>
+  <button id="btnCarregar">Mostrar Productes</button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Preu</th>
+      </tr>
+    </thead>
+    <tbody id="cosTaula"></tbody>
+  </table>
+
+  <script>
+    const btnCarregar = document.getElementById("btnCarregar");
+    const cosTaula = document.getElementById("cosTaula");
+
+    btnCarregar.addEventListener("click", async () => {
+      cosTaula.innerHTML = "";
+
+      try {
+        const resposta = await fetch("productes.json");
+
+        if (!resposta.ok) {
+          throw new Error("No s'han pogut carregar els productes.");
+        }
+
+        const productes = await resposta.json();
+
+        productes.forEach(producte => {
+          const fila = document.createElement("tr");
+          fila.innerHTML = `
+            <td>${producte.id}</td>
+            <td>${producte.nom}</td>
+            <td>${Number(producte.preu).toFixed(2)} €</td>
+          `;
+          cosTaula.appendChild(fila);
+        });
+      } catch (error) {
+        cosTaula.innerHTML = `
+          <tr>
+            <td colspan="3">Error: ${error.message}</td>
+          </tr>
+        `;
+      }
+    });
+  </script>
+</body>
+</html>

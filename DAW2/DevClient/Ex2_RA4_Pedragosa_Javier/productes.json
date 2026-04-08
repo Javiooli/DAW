@@ -1,0 +1,5 @@
+[
+  { "id": 1, "nom": "Teclat Mecànic", "preu": 85.50 },
+  { "id": 2, "nom": "Ratolí Gaming", "preu": 45.90 },
+  { "id": 3, "nom": "Monitor 4K", "preu": 299.99 }
+]

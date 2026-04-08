@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petición AJAX con XMLHttpRequest</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .contenedor {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .info-box {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            text-align: left;
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: 600;
+            margin: 20px 0;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        #mensaje {
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px dashed #ddd;
+            color: #666;
+            font-size: 18px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        #mensaje.error {
+            background: #ffebee;
+            border-color: #ef5350;
+            color: #c62828;
+        }
+
+        #mensaje.exito {
+            background: #e8f5e9;
+            border-color: #66bb6a;
+            color: #2e7d32;
+        }
+
+        #mensaje.cargando {
+            background: #fff3e0;
+            border-color: #ffa726;
+            color: #e65100;
+        }
+
+        .loader {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: currentColor;
+            border-radius: 50%;
+            animation: pulse 1.5s ease-in-out infinite;
+            margin-right: 8px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        .codigo {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 20px 0;
+            overflow-x: auto;
+            text-align: left;
+        }
+
+        .codigo code {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Petición AJAX</h1>
+        
+        <div class="info-box">
+            <strong>Cómo funciona:</strong><br>
+            Al pulsar el botón se envía una petición GET asíncrona al archivo 
+            <code>saludo.txt</code>. El navegador no se bloquea, y cuando el servidor 
+            responde, se inserta el mensaje en el div.
+        </div>
+
+        <button id="btnSaludar" onclick="hacerPeticionAJAX()">
+            Saludar (GET Asíncrono)
+        </button>
+
+        <div id="mensaje">
+            Pulsa el botón para cargar el mensaje desde el servidor
+        </div>
+
+        <div class="codigo">
+            <code>
+// Crear objeto XMLHttpRequest<br>
+const xhr = new XMLHttpRequest();<br>
+<br>
+// Configurar petición GET asíncrona<br>
+xhr.open('GET', 'saludo.txt', true);<br>
+<br>
+// Definir qué hacer cuando responda<br>
+xhr.onload = function() { ... }<br>
+<br>
+// Enviar petición<br>
+xhr.send();
+            </code>
+        </div>
+
+        <footer>
+            <p>Ejercicio: Ciclo de vida de peticiones asíncronas</p>
+        </footer>
+    </div>
+
+    <script>
+        /**
+         * FUNCIÓN: hacerPeticionAJAX()
+         * 
+         * Realiza una petición GET asíncrona a 'saludo.txt'
+         * Cuando llega la respuesta, inserta el contenido en el div #mensaje
+         */
+        function hacerPeticionAJAX() {
+            // Obtener referencias
+            const btnSaludar = document.getElementById('btnSaludar');
+            const divMensaje = document.getElementById('mensaje');
+
+            // Deshabilitar botón y mostrar estado de carga
+            btnSaludar.disabled = true;
+            divMensaje.innerHTML = '<span class="loader"></span> Cargando...';
+            divMensaje.classList.remove('exito', 'error');
+            divMensaje.classList.add('cargando');
+
+            // 1. CREAR objeto XMLHttpRequest
+            const xhr = new XMLHttpRequest();
+
+            // 2. CONFIGURAR la petición
+            // open(metodo, url, async)
+            xhr.open('GET', 'saludo.txt', true);
+
+            // 3. DEFINIR función callback para cuando readyState cambie
+            xhr.onreadystatechange = function() {
+                // Verificar si la petición está completa (readyState=4)
+                // y si el servidor respondió correctamente (status=200)
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // Respuesta correcta
+                    divMensaje.innerHTML = xhr.responseText;
+                    divMensaje.classList.remove('cargando', 'error');
+                    divMensaje.classList.add('exito');
+                } else if (xhr.readyState === 4 && xhr.status !== 200) {
+                    // Respuesta con error
+                    divMensaje.innerHTML = `Error: ${xhr.status} - ${xhr.statusText}`;
+                    divMensaje.classList.remove('cargando', 'exito');
+                    divMensaje.classList.add('error');
+                }
+                // Si readyState < 4, la petición aún está en proceso, no hacer nada
+            };
+
+            // Alternativa moderna (más limpia): usar onload
+            // xhr.onload = function() {
+            //     if (xhr.status === 200) {
+            //         divMensaje.innerHTML = xhr.responseText;
+            //         divMensaje.classList.remove('cargando', 'error');
+            //         divMensaje.classList.add('exito');
+            //     } else {
+            //         divMensaje.innerHTML = `Error: ${xhr.status}`;
+            //         divMensaje.classList.remove('cargando', 'exito');
+            //         divMensaje.classList.add('error');
+            //     }
+            // };
+
+            // Manejar errores de red
+            xhr.onerror = function() {
+                divMensaje.innerHTML = 'Error de conexión';
+                divMensaje.classList.remove('cargando', 'exito');
+                divMensaje.classList.add('error');
+            };
+
+            // 4. ENVIAR la petición
+            // Como es GET, no enviamos datos en el cuerpo
+            xhr.send();
+
+            // IMPORTANTE: Este console.log se ejecuta ANTES que el callback
+            // porque la petición es ASÍNCRONA
+            console.log('Petición enviada, el navegador continúa ejecutando código...');
+
+            // Restaurar botón después de 3 segundos (para permitir otra petición)
+            setTimeout(() => {
+                btnSaludar.disabled = false;
+            }, 3000);
+        }
+
+        // Mostrar información en la consola cuando carga la página
+        console.log('%cINFORMACIÓN IMPORTANTE', 'color: #667eea; font-size: 16px; font-weight: bold;');
+        console.log('%c' + 
+            'Los estados principales de readyState son:\n' +
+            '0 (UNSENT): Objeto creado, pero open() no ha sido llamado\n' +
+            '1 (OPENED): open() ha sido llamado\n' +
+            '2 (HEADERS_RECEIVED): Se han recibido los headers\n' +
+            '3 (LOADING): Se está descargando el body\n' +
+            '4 (DONE): Petición completada (éxito o error)\n\n' +
+            'Los códigos de estado comunes son:\n' +
+            '200-299: Éxito\n' +
+            '300-399: Redirección\n' +
+            '400-499: Error del cliente (404, 403, etc.)\n' +
+            '500-599: Error del servidor',
+            'color: #666; font-family: monospace; line-height: 1.6;'
+        );
+    </script>
+</body>
+</html>
