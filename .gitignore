@@ -11,3 +11,6 @@ DAW2/IA/.venv/*
 *.vsix
 
 .venv/
+/DAW2/DevServer/DjangoAdmin/venv
+*.pyc
+/DAW2/DevServer/DjangoAdmin/.vscode
