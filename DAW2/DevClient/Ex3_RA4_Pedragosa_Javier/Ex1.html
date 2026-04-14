@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercici 1</title>
+</head>
+<body>
+  <button id="btnCarregar">Carregar missatge</button>
+  <p id="resultat"></p>
+
+  <script>
+    document.getElementById("btnCarregar").addEventListener("click", function() {
+      const xhr = new XMLHttpRequest();
+
+      xhr.open("GET", "missatge.txt", true);
+
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          document.getElementById("resultat").textContent = xhr.responseText;
+        }
+      };
+
+      xhr.send();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercici 2</title>
+</head>
+<body>
+  <button id="btnCarregar">Fer petició</button>
+  <p id="estat">ReadyState: </p>
+
+  <script>
+    document.getElementById("btnCarregar").addEventListener("click", function() {
+      const xhr = new XMLHttpRequest();
+
+      xhr.onreadystatechange = function() {
+        document.getElementById("estat").textContent =
+          "ReadyState: " + xhr.readyState;
+      };
+
+      xhr.open("GET", "missatge.txt", true);
+      xhr.send();
+    });
+  </script>
+</body>

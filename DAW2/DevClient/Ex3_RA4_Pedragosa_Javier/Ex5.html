@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercici 5</title>
+</head>
+<body>
+  <button id="btnComprovar">Comprovar fitxer</button>
+  <p id="missatge"></p>
+
+  <script>
+    document.getElementById("btnComprovar").addEventListener("click", function() {
+      const xhr = new XMLHttpRequest();
+
+      xhr.open("GET", "inexistent.txt", true);
+
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          document.getElementById("missatge").textContent =
+            "Fitxer carregat correctament.";
+        } else if (xhr.status === 404) {
+          document.getElementById("missatge").textContent =
+            "Error 404: El fitxer no existeix.";
+        }
+      };
+
+      xhr.send();
+    });
+  </script>
+</body>
+</html>

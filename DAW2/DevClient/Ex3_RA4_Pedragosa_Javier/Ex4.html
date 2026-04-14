@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercici 4</title>
+</head>
+<body>
+  <button id="btnCarregar">Carregar productes</button>
+  <ul id="llistaProductes"></ul>
+
+  <script>
+    document.getElementById("btnCarregar").addEventListener("click", function() {
+      const xhr = new XMLHttpRequest();
+
+      xhr.open("GET", "productes.json", true);
+
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          const productes = JSON.parse(xhr.responseText);
+          const ul = document.getElementById("llistaProductes");
+
+          ul.innerHTML = "";
+
+          productes.forEach(function(producte) {
+            const li = document.createElement("li");
+            li.textContent = producte.nom + " - " + producte.preu + "€";
+            ul.appendChild(li);
+          });
+        }
+      };
+
+      xhr.send();
+    });
+  </script>
+</body>
+</html>
