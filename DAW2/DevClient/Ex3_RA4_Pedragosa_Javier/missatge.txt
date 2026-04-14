@@ -1,0 +1,1 @@
+Hola! Aquest és el missatge carregat amb AJAX.

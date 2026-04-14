@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercici 3</title>
+</head>
+<body>
+  <button id="btnCarregar">Carregar alumnes</button>
+  <ul id="llistaAlumnes"></ul>
+
+  <script>
+    document.getElementById("btnCarregar").addEventListener("click", function() {
+      const xhr = new XMLHttpRequest();
+
+      xhr.open("GET", "alumnes.json", true);
+
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          const alumnes = JSON.parse(xhr.responseText);
+          const ul = document.getElementById("llistaAlumnes");
+
+          ul.innerHTML = "";
+
+          alumnes.forEach(function(alumne) {
+            const li = document.createElement("li");
+            li.textContent = alumne.nom;
+            ul.appendChild(li);
+          });
+        }
+      };
+
+      xhr.send();
+    });
+  </script>
+</body>
+</html>
