@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Tots els llibres</h1>
+
+{% if book_list %}
+  <ul class="listing">
+    {% for book in book_list %}
+      <li>
+        <strong>{{ book.title }}</strong>
+        {% if book.author %}
+          - {{ book.author.first_name }} {{ book.author.last_name }}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No hi ha llibres registrats.</p>
+{% endif %}
+{% endblock %}
