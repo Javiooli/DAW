@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Inici de la Biblioteca Local</h1>
+<p>Benvingut a <em>LocalLibrary</em>, un lloc web desenvolupat amb Django.</p>
+
+<h2>Contingut dinamic</h2>
+<p>La biblioteca te els seguents registres:</p>
+
+<div class="stats">
+  <div class="stat-row">
+    <strong>Llibres:</strong>
+    <span class="badge">{{ num_books }}</span>
+  </div>
+  <div class="stat-row">
+    <strong>Autors:</strong>
+    <span class="badge">{{ num_authors }}</span>
+  </div>
+</div>
+{% endblock %}
