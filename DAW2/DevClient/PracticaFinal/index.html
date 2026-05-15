@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestió de Biblioteca</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>📚 Gestió de Biblioteca</h1>
+</header>
+
+<main>
+    <section id="seccio-registre">
+        <h2>Afegir llibre</h2>
+        <form id="formLibro">
+            <input id="titulo" placeholder="Títol" required>
+            <input id="autor" placeholder="Autor" required>
+            <input id="isbn" placeholder="ISBN (Format: 000-0-000)">
+            <input id="anio" placeholder="Any de publicació">
+            <button type="submit">Afegir llibre</button>
+        </form>
+        <div id="missatge-error" class="missatge-error hidden"></div>
+    </section>
+
+    <hr>
+
+    <section id="seccio-busqueda">
+        <h2>Cercar</h2>
+        <input id="busqueda" placeholder="Cercar per títol o autor...">
+        <div id="stats"></div>
+    </section>
+
+    <ul id="listaLibros"></ul>
+
+    <section id="acciones-globales">
+        <button id="btnRanking">🏆 Veure Rànquing Préstecs</button>
+        <button id="btnGuardar">💾 Guardar a LocalStorage</button>
+        <button id="btnCargar">📂 Recuperar de LocalStorage</button>
+        <button id="btnFetch">🌐 Importar Llibres (JSON)</button>
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

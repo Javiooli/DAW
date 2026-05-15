@@ -1,0 +1,220 @@
+:root {
+    --bg: #1a1a2e;
+    --surface: #16213e;
+    --card: #0f3460;
+    --accent: #e94560;
+    --accent2: #f5a623;
+    --text: #eaeaea;
+    --subtext: #a0aec0;
+    --border: #2d3748;
+    --success: #48bb78;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+nav {
+    background: var(--surface);
+    border-bottom: 2px solid var(--accent);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    height: 56px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-brand {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent);
+    white-space: nowrap;
+}
+
+nav ul { list-style: none; display: flex; gap: 1rem; }
+nav ul a {
+    color: var(--text);
+    text-decoration: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+nav ul a:hover { background: var(--card); color: var(--accent2); }
+
+main { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+
+.page-header { margin-bottom: 2rem; }
+.page-header h1 { font-size: 2rem; color: var(--accent2); margin-bottom: 0.5rem; }
+.page-header p { color: var(--subtext); }
+
+.section { margin-bottom: 2.5rem; }
+.section h2 { font-size: 1.3rem; color: var(--accent2); margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+
+/* Stats grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.stat-card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 1.2rem;
+    text-align: center;
+    border: 1px solid var(--border);
+}
+.stat-number { font-size: 2.2rem; font-weight: 800; color: var(--accent); }
+.stat-label { font-size: 0.85rem; color: var(--subtext); margin-top: 0.3rem; }
+
+/* Search */
+.search-bar { margin-bottom: 1rem; }
+.search-bar input {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.6rem 1rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 0.95rem;
+}
+.search-bar input:focus { outline: 2px solid var(--accent); }
+
+/* Table */
+.table-wrapper { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+thead { background: var(--card); }
+th { padding: 0.7rem 0.8rem; text-align: left; color: var(--accent2);
+     font-weight: 600; white-space: nowrap; }
+td { padding: 0.55rem 0.8rem; border-bottom: 1px solid var(--border); }
+tr:hover { background: rgba(255,255,255,0.03); }
+
+/* Pagination */
+.pagination { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 1rem; }
+.pagination button {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.3rem 0.7rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+.pagination button.active { background: var(--accent); border-color: var(--accent); }
+.pagination button:hover:not(.active) { background: var(--border); }
+
+/* Charts */
+.chart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+}
+.chart-card {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 1.2rem;
+    border: 1px solid var(--border);
+}
+.chart-card.full-width { grid-column: 1 / -1; }
+.chart-card h3 { color: var(--accent2); margin-bottom: 1rem; font-size: 1rem; }
+.chart-card img { width: 100%; border-radius: 8px; }
+
+/* Forms */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+.form-group label { font-size: 0.9rem; font-weight: 600; color: var(--accent2); }
+.hint { font-weight: 400; color: var(--subtext); font-size: 0.8rem; }
+.form-group input {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.5rem 0.8rem;
+    color: var(--text);
+    font-size: 1rem;
+}
+.form-group input:focus { outline: 2px solid var(--accent); }
+
+/* Model tabs */
+.model-tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+.tab-btn {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--subtext);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+.tab-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+.tab-btn:hover:not(.active) { border-color: var(--accent2); color: var(--accent2); }
+
+.model-desc { color: var(--subtext); font-size: 0.92rem; margin-bottom: 1rem;
+    background: var(--surface); padding: 0.8rem 1rem; border-radius: 8px;
+    border-left: 3px solid var(--accent2); }
+
+.btn-predict {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 0.7rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    margin-bottom: 1.5rem;
+}
+.btn-predict:hover { opacity: 0.85; }
+
+/* Result box */
+.result-box {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid var(--accent);
+}
+.result-box.hidden { display: none; }
+.pred-main { font-size: 1.3rem; margin-bottom: 1rem; }
+.pred-main strong { color: var(--accent2); }
+
+.prob-bars { display: flex; flex-direction: column; gap: 0.6rem; }
+.prob-row { display: flex; align-items: center; gap: 0.8rem; }
+.prob-label { width: 120px; font-size: 0.85rem; color: var(--subtext); }
+.prob-bar-wrap { flex: 1; background: var(--border); border-radius: 4px; height: 14px; }
+.prob-bar { background: var(--accent); height: 100%; border-radius: 4px; transition: width 0.3s; }
+.prob-val { width: 45px; font-size: 0.85rem; text-align: right; }
+
+/* Chart viewer */
+.chart-tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+.chart-tab {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--subtext);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+.chart-tab.active { background: var(--accent2); border-color: var(--accent2); color: #000; font-weight: 600; }
+.chart-tab:hover:not(.active) { border-color: var(--accent2); }
+
+#chart-display img { max-width: 900px; width: 100%; border-radius: 8px;
+    border: 1px solid var(--border); }

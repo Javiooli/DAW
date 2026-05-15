@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block title %}Dataset — D&D Monsters ML{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>⚔️ Dataset de Monstres D&amp;D 5e</h1>
+    <p>762 monstres de Dungeons &amp; Dragons 5a edició amb estadístiques completes.</p>
+</div>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-number">{{ stats.total }}</div>
+        <div class="stat-label">Monstres totals</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">{{ stats.clean }}</div>
+        <div class="stat-label">Monstres amb stats complets</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">{{ stats.types }}</div>
+        <div class="stat-label">Tipus diferents</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">{{ stats.max_cr }}</div>
+        <div class="stat-label">CR màxim</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">{{ stats.legendary }}</div>
+        <div class="stat-label">Monstres llegendaris</div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Explorar el dataset</h2>
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Cerca un monstre..." oninput="searchDataset()">
+    </div>
+    <div class="table-wrapper">
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th>Nom</th><th>CR</th><th>Tipus</th><th>Mida</th>
+                    <th>AC</th><th>HP</th><th>STR</th><th>DEX</th>
+                    <th>CON</th><th>INT</th><th>WIS</th><th>CHA</th>
+                    <th>Llegendari</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+    <div class="pagination" id="pagination"></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+let currentPage = 1;
+
+function loadData(page, search='') {
+    fetch(`/api/dataset?page=${page}&search=${encodeURIComponent(search)}`)
+        .then(r => r.json())
+        .then(data => {
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = '';
+            data.data.forEach(row => {
+                tbody.innerHTML += `<tr>
+                    <td><strong>${row.name}</strong></td>
+                    <td>${row.cr}</td>
+                    <td>${row.type}</td>
+                    <td>${row.size}</td>
+                    <td>${row.ac}</td>
+                    <td>${row.hp}</td>
+                    <td>${row.str}</td>
+                    <td>${row.dex}</td>
+                    <td>${row.con}</td>
+                    <td>${row.int}</td>
+                    <td>${row.wis}</td>
+                    <td>${row.cha}</td>
+                    <td>${row.legendary !== '—' ? '⭐ Sí' : 'No'}</td>
+                </tr>`;
+            });
+            renderPagination(data.total, data.page, data.per_page);
+        });
+}
+
+function renderPagination(total, page, perPage) {
+    const pages = Math.ceil(total / perPage);
+    const div = document.getElementById('pagination');
+    div.innerHTML = '';
+    for (let i = 1; i <= pages; i++) {
+        const btn = document.createElement('button');
+        btn.textContent = i;
+        btn.className = i === page ? 'active' : '';
+        btn.onclick = () => { currentPage = i; loadData(i, document.getElementById('searchInput').value); };
+        div.appendChild(btn);
+    }
+}
+
+let searchTimeout;
+function searchDataset() {
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => {
+        currentPage = 1;
+        loadData(1, document.getElementById('searchInput').value);
+    }, 300);
+}
+
+loadData(1);
+{% endblock %}

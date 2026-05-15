@@ -1,0 +1,1 @@
+﻿Per llançar la app, executar python3 app.py des d’aquest mateix directori.

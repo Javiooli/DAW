@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<style>
+  body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11.5pt; margin: 0; color: #111; }
+  .page { max-width: 820px; margin: 0 auto; padding: 2cm; }
+  h1 { font-size: 20pt; text-align: center; margin-bottom: 0.2em; }
+  h2 { font-size: 13pt; margin-top: 1.8em; margin-bottom: 0.5em; border-bottom: 2px solid #667eea; padding-bottom: 4px; color: #333; }
+  h3 { font-size: 11.5pt; margin-top: 1.2em; margin-bottom: 0.3em; color: #444; }
+  .subtitle { text-align: center; color: #555; margin-bottom: 0.2em; }
+  .author  { text-align: center; font-weight: bold; }
+  .date    { text-align: center; color: #777; margin-bottom: 2em; font-size: 10pt; }
+  p  { text-align: justify; margin-bottom: 0.6em; line-height: 1.65; }
+  ul, ol { margin: 0.4em 0 0.7em 1.6em; line-height: 1.7; }
+  code { background: #f0f0f0; padding: 1px 5px; border-radius: 3px; font-size: 10pt; font-family: monospace; }
+  .entry { background: #f9f9f9; border-left: 4px solid #667eea; padding: 0.8em 1.1em; margin: 1em 0; border-radius: 0 8px 8px 0; }
+  .entry .meta { font-size: 9.5pt; color: #888; margin-bottom: 0.4em; }
+  .problem { background: #fff3e0; border-left: 4px solid #fb8c00; padding: 0.8em 1.1em; margin: 0.8em 0; border-radius: 0 8px 8px 0; }
+  .solution { background: #e8f5e9; border-left: 4px solid #43a047; padding: 0.8em 1.1em; margin: 0.8em 0; border-radius: 0 8px 8px 0; }
+  .decision { background: #e3f2fd; border-left: 4px solid #1976d2; padding: 0.8em 1.1em; margin: 0.8em 0; border-radius: 0 8px 8px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 0.8em 0; font-size: 10.5pt; }
+  th { background: #667eea; color: #fff; padding: 6px 10px; text-align: left; }
+  td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
+  tr:nth-child(even) td { background: #f7f7f7; }
+  .page-break { page-break-before: always; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<h1>Logbook de Desplegament</h1>
+<div class="subtitle">Gestor de Tasques — Publicació a InfinityFree</div>
+<div class="author">Javier Pedragosa Lozano</div>
+<div class="date">Curs 2025–2026 · CFGS DAW · Desplegament Web</div>
+
+<h2>1. Introducció</h2>
+<p>
+Aquest document registra tots els passos duts a terme durant el desplegament de l'aplicació web <em>Gestor de Tasques</em> a la plataforma d'allotjament gratuït <strong>InfinityFree</strong>. Es detallen les decisions preses, els problemes trobats i les solucions aplicades. El document no cobreix el procés de desenvolupament de l'aplicació, sinó exclusivament la fase de publicació.
+</p>
+<p>
+L'aplicació és un gestor de tasques PHP/MySQL amb CRUD complet d'usuaris, projectes i tasques, desenvolupada per executar-se sobre un servidor Apache.
+</p>
+
+<h2>2. Eines i recursos emprats</h2>
+<table>
+  <tr><th>Eina / Recurs</th><th>Ús</th></tr>
+  <tr><td>InfinityFree</td><td>Plataforma d'allotjament web gratuït</td></tr>
+  <tr><td>FileZilla</td><td>Client FTP per pujar els fitxers al servidor</td></tr>
+  <tr><td>phpMyAdmin (InfinityFree)</td><td>Importació de l'esquema i dades de la BD</td></tr>
+  <tr><td>Navegador web</td><td>Verificació del funcionament de l'aplicació en producció</td></tr>
+</table>
+
+<h2>3. Registre d'activitat</h2>
+
+<h3>3.1. Creació del compte a InfinityFree</h3>
+<div class="entry">
+  <div class="meta">Pas 1</div>
+  <p>Es va accedir a <code>infinityfree.com</code> i es va crear un compte nou amb l'adreça de correu electrònic personal. Una vegada verificat el compte, es va crear un nou subdomini de tipus <code>javiooli.infinityfree.me</code> per allotjar l'aplicació.</p>
+</div>
+
+<div class="decision">
+  <strong>Decisió:</strong> S'ha triat InfinityFree per sobre d'altres opcions (000webhost, Byethost) perquè ofereix PHP i MySQL sense límit de temps ni obligació de publicitat visible al codi, i el panell de control és prou intuïtiu per a un primer desplegament.
+</div>
+
+<h3>3.2. Creació de la base de dades MySQL</h3>
+<div class="entry">
+  <div class="meta">Pas 2</div>
+  <p>Des del panell de control d'InfinityFree, a la secció <em>MySQL Databases</em>, es va crear una nova base de dades. InfinityFree assigna automàticament un prefix al nom de la base de dades i a l'usuari (per exemple <code>if0_41919667_tasques</code>). Es van anotar les credencials generades:</p>
+  <ul>
+    <li><strong>Host MySQL:</strong> <code>sql312.infinityfree.com</code></li>
+    <li><strong>Nom de la BD:</strong> <code>if0_41919667_tasques</code></li>
+    <li><strong>Usuari:</strong> <code>if0_41919667</code></li>
+    <li><strong>Contrasenya:</strong> la definida en crear la BD</li>
+  </ul>
+</div>
+
+<div class="problem">
+  <strong>Problema:</strong> En intentar crear la base de dades amb el nom exacte <code>gestor_tasques</code>, el sistema va rebutjar-lo i va forçar el prefix <code>if0_</code>. Això va implicar haver d'actualitzar el fitxer <code>config.php</code> amb el nou nom complet.
+</div>
+<div class="solution">
+  <strong>Solució:</strong> Es va modificar <code>config.php</code> substituint els valors locals pels d'InfinityFree:
+  <br><code>$host = "sql312.infinityfree.com";</code>
+  <br><code>$user = "if0_41919667";</code>
+  <br><code>$pass = "contrasenya_definida";</code>
+  <br><code>$db   = "if0_41919667_tasques";</code>
+</div>
+
+<h3>3.3. Importació de l'esquema SQL</h3>
+<div class="entry">
+  <div class="meta">Pas 3</div>
+  <p>Es va crear un fitxer temporal <code>setup.php</code> que s'encarregava de crear les taules i inserir les dades inicials directament des del servidor d'InfinityFree. Aquest fitxer es va pujar per FTP juntament amb la resta de l'aplicació i s'hi va accedir via el navegador per executar-lo.</p>
+</div>
+
+<div class="problem">
+  <strong>Problema:</strong> En intentar connectar-se directament al servidor MySQL d'InfinityFree (<code>sql312.infinityfree.com</code>) des de la màquina local per importar el SQL, la connexió va ser rebutjada. InfinityFree bloqueja les connexions MySQL externes al port 3306 per raons de seguretat.
+</div>
+<div class="solution">
+  <strong>Solució:</strong> Es va crear un script <code>setup.php</code> al servidor que executava les sentències SQL directament des de l'entorn d'InfinityFree (connexió local servidor–BD). Un cop executat i verificada la correcta creació de taules i inserció de dades (3 usuaris, 1 projecte, 7 tasques, 3 tipus), el fitxer es va eliminar del servidor per seguretat.
+</div>
+
+<h3>3.4. Pujada dels fitxers via FTP</h3>
+<div class="entry">
+  <div class="meta">Pas 4</div>
+  <p>Es van pujar tots els fitxers PHP i CSS al directori <code>htdocs/</code> del servidor mitjançant FTP passiu al host <code>ftpupload.net</code>:</p>
+  <ul>
+    <li><code>config.php</code> (amb les credencials d'InfinityFree)</li>
+    <li><code>_header.php</code>, <code>_footer.php</code></li>
+    <li><code>index.php</code>, <code>styles.css</code></li>
+    <li><code>usuaris.php</code>, <code>usuaris_add.php</code>, <code>usuaris_edit.php</code>, <code>usuaris_delete.php</code></li>
+    <li><code>projectes.php</code>, <code>projectes_add.php</code>, <code>projectes_edit.php</code>, <code>projectes_delete.php</code></li>
+    <li><code>tasques.php</code>, <code>tasques_add.php</code>, <code>tasques_edit.php</code>, <code>tasques_delete.php</code></li>
+  </ul>
+</div>
+
+<div class="problem">
+  <strong>Problema:</strong> En accedir a l'aplicació per primera vegada, InfinityFree retornava una pàgina buida sense contingut. Es va comprovar que el servidor tenia una protecció anti-bot basada en un repte AES de JavaScript que impedia l'accés directe.
+</div>
+<div class="solution">
+  <strong>Solució:</strong> La protecció requereix que el navegador executi JavaScript per generar una cookie <code>__test</code> amb el resultat d'un desxifrat AES-CBC. Un cop el navegador l'accepta, l'aplicació carrega correctament. Aquesta protecció és transparent per als usuaris finals amb un navegador estàndard.
+</div>
+
+<h3>3.5. Verificació en producció</h3>
+<div class="entry">
+  <div class="meta">Pas 5</div>
+  <p>Un cop pujats tots els fitxers, es va accedir a l'URL del subdomini des d'un navegador. Es van verificar manualment totes les funcionalitats:</p>
+  <ul>
+    <li>Llistat, afegir, editar i esborrar usuaris</li>
+    <li>Llistat, afegir, editar i esborrar projectes</li>
+    <li>Llistat, afegir, editar i esborrar tasques</li>
+    <li>Navegació entre seccions via la barra de navegació</li>
+    <li>Missatges de confirmació i d'error</li>
+  </ul>
+</div>
+
+<div class="problem">
+  <strong>Problema:</strong> En accedir a l'aplicació, la pàgina mostrava un error de connexió a la base de dades malgrat haver actualitzat <code>config.php</code>. Es va comprovar que FileZilla havia pujat una versió antiga del fitxer (amb les credencials locals) a causa d'un problema de caché local.
+</div>
+<div class="solution">
+  <strong>Solució:</strong> Es va esborrar el fitxer <code>config.php</code> del servidor via el gestor de fitxers del panell d'InfinityFree i es va tornar a pujar manualment la versió correcta. Posteriorment l'aplicació va funcionar correctament.
+</div>
+
+<div class="problem">
+  <strong>Problema:</strong> Les redireccions PHP amb <code>header("Location: ...")</code> no funcionaven en alguns casos, mostrant una pàgina en blanc en lloc de redirigir.
+</div>
+<div class="solution">
+  <strong>Solució:</strong> Es va verificar que no hi havia cap sortida (ni espais ni salts de línia) abans de la crida a <code>header()</code>. El problema estava en un salt de línia al final del fitxer <code>config.php</code> (després del <code>?&gt;</code>). Es va eliminar i les redireccions van funcionar correctament. A partir d'aquí, es va adoptar la pràctica d'ometre el tancament <code>?&gt;</code> en fitxers PHP purs per evitar aquest problema.
+</div>
+
+<h2>4. Estat final del desplegament</h2>
+<p>
+L'aplicació queda publicada i operativa a <code>https://javiooli.infinityfree.me</code>. Totes les funcionalitats de CRUD per a usuaris, projectes i tasques funcionen correctament en l'entorn de producció.
+</p>
+
+<h2>5. Conclusions</h2>
+<p>
+El desplegament a InfinityFree ha permès familiaritzar-se amb el procés de publicació d'una aplicació web PHP real. Els principals aprenentatges han estat:
+</p>
+<ul>
+  <li>Els noms de base de dades en allotjaments compartits sempre porten prefix — cal tenir-ho en compte en el disseny del <code>config.php</code>.</li>
+  <li>FTP passiu és la configuració correcta per a la majoria de servidors amb tallafoc.</li>
+  <li>Qualsevol sortida PHP (incloent espais o salts de línia) abans d'un <code>header()</code> provoca un error — és recomanable evitar el tancament <code>?&gt;</code> en fitxers d'inclusió.</li>
+  <li>Verificar sempre que els fitxers pujats per FTP corresponen a la versió correcta, especialment en fitxers crítics com <code>config.php</code>.</li>
+</ul>
+
+</div>
+</body>
+</html>

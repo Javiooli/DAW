@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}D&D Monsters ML{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav>
+        <div class="nav-brand">⚔️ D&amp;D Monsters ML</div>
+        <ul>
+            <li><a href="/">Dataset</a></li>
+            <li><a href="/eda">Exploració</a></li>
+            <li><a href="/models">Models</a></li>
+        </ul>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <script>
+    {% block scripts %}{% endblock %}
+    </script>
+</body>
+</html>

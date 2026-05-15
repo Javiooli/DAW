@@ -1,10 +1,11 @@
 <?php
+$host = "sql312.infinityfree.com";
+$user = "if0_41919667";
+$pass = "2025Jpl29103";
+$db   = "if0_41919667_tasques";
 
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
+$conn = mysqli_connect($host, $user, $pass, $db)
+    or die("<p class='error'>Error en la connexió: " . mysqli_connect_error() . "</p>");
 
-$conn = mysqli_connect("localhost","admin","P@ssw0rd","gestor_tasques") or exit("Error en la connexió.");
-
-echo "<h4>Connexió establerta correctament.</h4>";
-
+mysqli_set_charset($conn, "utf8mb4");
 ?>

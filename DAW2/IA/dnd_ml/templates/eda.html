@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Exploració — D&D Monsters ML{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>📊 Anàlisi Exploratòria del Dataset</h1>
+    <p>Visualitzacions generades durant el preprocessing i l'entrenament dels models.</p>
+</div>
+
+<div class="chart-grid">
+    <div class="chart-card">
+        <h3>Distribució del CR i tipus de monstres</h3>
+        <img src="{{ url_for('static', filename='img/eda_distributions.png') }}" alt="Distribucions">
+    </div>
+    <div class="chart-card">
+        <h3>Matriu de correlació entre estadístiques</h3>
+        <img src="{{ url_for('static', filename='img/eda_correlation.png') }}" alt="Correlació">
+    </div>
+    <div class="chart-card full-width">
+        <h3>HP vs CR per tipus de monstre</h3>
+        <img src="{{ url_for('static', filename='img/eda_hp_cr.png') }}" alt="HP vs CR">
+    </div>
+</div>
+{% endblock %}

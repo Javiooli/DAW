@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <title>Funcions Predefinides — Exercicis</title>
+    <style>
+        body { font-family: monospace; background: #1e1e2e; color: #cdd6f4; padding: 2rem; }
+        h1   { color: #89b4fa; margin-bottom: 0.5rem; }
+        h2   { color: #a6e3a1; margin-top: 1.5rem; border-bottom: 1px solid #313244; padding-bottom: 4px; }
+        .out { background: #313244; border-radius: 6px; padding: 1rem; margin: 0.5rem 0; white-space: pre-wrap; }
+        label{ display: block; margin-top: 0.5rem; color: #89dceb; }
+    </style>
+</head>
+<body>
+<h1>Funcions Predefinides del Llenguatge</h1>
+
+<h2>Cadenes de text</h2>
+<div id="out-cadenes" class="out"></div>
+
+<h2>Nombres</h2>
+<div id="out-nombres" class="out"></div>
+
+<h2>Diàlegs i temporització</h2>
+<div id="out-dialeg" class="out"></div>
+<div id="out-rellotge" class="out">Hora: esperant...</div>
+
+<script>
+// -- CADENES DE TEXT -------------------------------------------
+
+const outC = document.getElementById('out-cadenes');
+function log(txt) { outC.textContent += txt + '\n'; }
+
+// Ex 1 — Operacions amb la cadena
+const frase = "Aprendre JavaScript és útil";
+
+log('a) Longitud: ' + frase.length);
+log('b) Minúscules: ' + frase.toLowerCase());
+log('c) substring "JavaScript": ' + frase.substring(9, 19));
+log('d) Inclou "útil": ' + frase.includes('útil'));
+
+// Ex 2 — prompt() d'usuari (simulem una resposta fixa per a demo)
+// En un entorn real: const entrada = prompt('Escriu una frase:');
+const entrada = "Hola, sóc en Javier!"; // valor simulat
+log('\nEx2 — Frase: "' + entrada + '"');
+log('a) Primer caràcter: '   + entrada.charAt(0));
+log('b) 5 primers caràcters: ' + entrada.substring(0, 5));
+log('c) Comença per "Hola": ' + entrada.startsWith('Hola'));
+
+// Ex 3 — Convertir frase en array de paraules
+const paraules = "Programació Web".split(' ');
+log('\nEx3 — Array de paraules: ' + JSON.stringify(paraules));
+
+// Ex 4 — repeat()
+log('\nEx4 — "Hola" x5: ' + 'Hola '.repeat(5).trim());
+
+// -- NOMBRES ---------------------------------------------------
+
+const outN = document.getElementById('out-nombres');
+function logN(txt) { outN.textContent += txt + '\n'; }
+
+// Ex 1 — Divisió amb control isNaN
+// En entorn real usaríem prompt(); aquí simulem els valors
+const n1 = 10, n2 = 3;
+if (isNaN(n1) || isNaN(n2)) {
+    logN('Error: els valors han de ser numèrics.');
+} else {
+    logN(`Ex1 — ${n1} / ${n2} = ${n1 / n2}`);
+}
+
+// Ex 2 — Divisió per zero
+logN('\nEx2:');
+logN('10 / 0 = '  + (10 / 0));   // Infinity
+logN('-10 / 0 = ' + (-10 / 0));  // -Infinity
+logN('// JavaScript retorna Infinity/-Infinity, no llança error.');
+logN('// 0 / 0 = ' + (0 / 0) + ' (NaN: Not a Number)');
+
+// Ex 3 — toFixed() amb 1234.56789
+const num = 1234.56789;
+logN('\nEx3 — Número: ' + num);
+logN('a) 1 decimal:  ' + num.toFixed(1));
+logN('b) 0 decimals: ' + num.toFixed(0));
+logN('c) 3 decimals: ' + num.toFixed(3));
+
+// Ex 4 — toFixed() amb valor de l'usuari (simulat)
+const valUsuari = 98.7654;
+logN('\nEx4 — Valor: ' + valUsuari + ' → 2 decimals: ' + valUsuari.toFixed(2));
+
+// -- DIÀLEGS I TEMPORITZACIÓ -----------------------------------
+
+const outD = document.getElementById('out-dialeg');
+function logD(txt) { outD.textContent += txt + '\n'; }
+
+// Ex 1 — alert() en carregar la pàgina
+window.addEventListener('load', () => {
+    // alert('Benvingut a la pàgina de funcions predefinides!');
+    // (comentat per no bloquejar la càrrega; descomentar per veure l'alert)
+    logD('Ex1 — alert() s\'executaria en carregar la pàgina.');
+});
+
+// Ex 2 — confirm()
+document.addEventListener('DOMContentLoaded', () => {
+    // const resposta = confirm('Vols continuar?');
+    // alert(resposta ? 'Has acceptat' : 'Has cancel·lat');
+    logD('Ex2 — confirm() demanaria confirmació a l\'usuari.');
+    logD('      Si sí → alert("Has acceptat")');
+    logD('      Si no → alert("Has cancel·lat")');
+
+    // Ex 3 — prompt() amb nom personalitzat
+    // const nom = prompt('Com et dius?');
+    // alert(`Hola, ${nom}! Benvingut.`);
+    const nom = 'Javier'; // simulat
+    logD(`\nEx3 — Nom introduït: "${nom}"`);
+    logD(`      Missatge: "Hola, ${nom}! Benvingut."`);
+
+    // Ex 4 — setTimeout: missatge als 3 segons
+    logD('\nEx4 — setTimeout: apareixerà un missatge en 3 segons...');
+    setTimeout(() => {
+        logD('      → "Hola!" (apareix als 3 segons)');
+        // alert('Hola!');  // descomentar per veure l'alert real
+    }, 3000);
+
+    // Ex 5 — setInterval: hora actual cada segon
+    logD('\nEx5 — setInterval: hora actual cada segon:');
+    const rellotge = document.getElementById('out-rellotge');
+    setInterval(() => {
+        rellotge.textContent = 'Hora actual: ' + new Date().toLocaleTimeString('ca-ES');
+    }, 1000);
+});
+</script>
+</body>
+</html>

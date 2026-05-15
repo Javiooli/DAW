@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+{% block title %}Models — D&D Monsters ML{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>🤖 Models de Machine Learning</h1>
+    <p>Prova els 5 models entrenats sobre el dataset de monstres D&amp;D 5e.</p>
+</div>
+
+<div class="section">
+    <h2>Comparació global</h2>
+    <img src="{{ url_for('static', filename='img/model_comparison.png') }}" alt="Comparació" style="max-width:700px;width:100%">
+</div>
+
+<div class="section">
+    <h2>Predicció interactiva</h2>
+    <p>Introdueix les estadístiques d'un monstre i selecciona el model per obtenir una predicció.</p>
+
+    <div class="form-grid">
+        <div class="form-group">
+            <label>CR <span class="hint">(Challenge Rating)</span></label>
+            <input type="number" id="cr" value="5" min="0" max="30" step="0.5">
+        </div>
+        <div class="form-group">
+            <label>AC <span class="hint">(Armadura)</span></label>
+            <input type="number" id="ac" value="14" min="0" max="30">
+        </div>
+        <div class="form-group">
+            <label>HP <span class="hint">(Punts de vida)</span></label>
+            <input type="number" id="hp" value="80" min="1" max="700">
+        </div>
+        <div class="form-group">
+            <label>STR <span class="hint">(Força)</span></label>
+            <input type="number" id="str" value="16" min="1" max="30">
+        </div>
+        <div class="form-group">
+            <label>DEX <span class="hint">(Destresa)</span></label>
+            <input type="number" id="dex" value="12" min="1" max="30">
+        </div>
+        <div class="form-group">
+            <label>CON <span class="hint">(Constitució)</span></label>
+            <input type="number" id="con" value="15" min="1" max="30">
+        </div>
+        <div class="form-group">
+            <label>INT <span class="hint">(Intel·ligència)</span></label>
+            <input type="number" id="int" value="8" min="1" max="30">
+        </div>
+        <div class="form-group">
+            <label>WIS <span class="hint">(Saviesa)</span></label>
+            <input type="number" id="wis" value="11" min="1" max="30">
+        </div>
+        <div class="form-group">
+            <label>CHA <span class="hint">(Carisma)</span></label>
+            <input type="number" id="cha" value="9" min="1" max="30">
+        </div>
+    </div>
+
+    <div class="model-tabs">
+        <button class="tab-btn active" data-model="naive_bayes">Naive Bayes</button>
+        <button class="tab-btn" data-model="decision_tree">Arbre de Decisions</button>
+        <button class="tab-btn" data-model="knn">KNN</button>
+        <button class="tab-btn" data-model="perceptron">Perceptró</button>
+        <button class="tab-btn" data-model="neural_network">Xarxa Neuronal</button>
+    </div>
+
+    <div class="model-descriptions">
+        <p id="model-desc" class="model-desc"></p>
+    </div>
+
+    <button class="btn-predict" onclick="predict()">Predir</button>
+
+    <div id="result-box" class="result-box hidden"></div>
+</div>
+
+<div class="section">
+    <h2>Matrius de confusió i resultats</h2>
+    <div class="chart-tabs">
+        <button class="chart-tab active" onclick="showChart('cm_naive_bayes', this)">Naive Bayes</button>
+        <button class="chart-tab" onclick="showChart('decision_tree', this)">Arbre Decisions</button>
+        <button class="chart-tab" onclick="showChart('dt_feature_importance', this)">Importància features</button>
+        <button class="chart-tab" onclick="showChart('knn_k_search', this)">KNN (cerca k)</button>
+        <button class="chart-tab" onclick="showChart('cm_knn', this)">CM KNN</button>
+        <button class="chart-tab" onclick="showChart('cm_perceptron', this)">Perceptró</button>
+        <button class="chart-tab" onclick="showChart('nn_loss_curve', this)">Loss Neuronal</button>
+        <button class="chart-tab" onclick="showChart('cm_neural_network', this)">CM Neuronal</button>
+    </div>
+    <div id="chart-display">
+        <img id="chart-img" src="{{ url_for('static', filename='img/cm_naive_bayes.png') }}" alt="Gràfic">
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+const descriptions = {
+    naive_bayes: "Naive Bayes classifica el tipus de monstre (humanoid, dragon, undead...) a partir dels seus stats. Assumeix independència entre les variables.",
+    decision_tree: "L'arbre de decisions prediu el bracket de dificultat del monstre: Fàcil (CR ≤ 4), Mitjà (CR ≤ 10) o Difícil (CR > 10).",
+    knn: "KNN (K-Nearest Neighbors) classifica el bracket de dificultat del monstre (Fàcil/Mitjà/Difícil) buscant els k monstres més similars. El valor de k s'ha optimitzat per validació creuada.",
+    perceptron: "El perceptró fa una classificació binària: determina si el monstre és llegendari o no, basant-se en totes les estadístiques.",
+    neural_network: "La xarxa neuronal (MLP, 3 capes ocultes: 128-64-32) classifica la mida del monstre: Tiny, Small, Medium, Large, Huge o Gargantuan."
+};
+
+let selectedModel = 'naive_bayes';
+document.getElementById('model-desc').textContent = descriptions[selectedModel];
+
+document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedModel = btn.dataset.model;
+        document.getElementById('model-desc').textContent = descriptions[selectedModel];
+        document.getElementById('result-box').classList.add('hidden');
+    });
+});
+
+function predict() {
+    const payload = {
+        model: selectedModel,
+        cr: document.getElementById('cr').value,
+        ac: document.getElementById('ac').value,
+        hp: document.getElementById('hp').value,
+        str: document.getElementById('str').value,
+        dex: document.getElementById('dex').value,
+        con: document.getElementById('con').value,
+        int: document.getElementById('int').value,
+        wis: document.getElementById('wis').value,
+        cha: document.getElementById('cha').value,
+    };
+    fetch('/api/predict', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload)
+    })
+    .then(r => r.json())
+    .then(data => {
+        const box = document.getElementById('result-box');
+        box.classList.remove('hidden');
+        let html = `<div class="pred-main">Predicció: <strong>${data.prediction}</strong></div>`;
+        if (data.probabilities) {
+            html += '<div class="prob-bars">';
+            data.probabilities.forEach(p => {
+                html += `<div class="prob-row">
+                    <span class="prob-label">${p.label}</span>
+                    <div class="prob-bar-wrap"><div class="prob-bar" style="width:${Math.min(p.prob,100)}%"></div></div>
+                    <span class="prob-val">${p.prob}%</span>
+                </div>`;
+            });
+            html += '</div>';
+        }
+        box.innerHTML = html;
+    });
+}
+
+function showChart(name, btn) {
+    document.querySelectorAll('.chart-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('chart-img').src = `/static/img/${name}.png`;
+}
+{% endblock %}

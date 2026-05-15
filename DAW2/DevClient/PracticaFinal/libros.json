@@ -1,0 +1,5 @@
+[
+  { "titulo": "1984", "autor": "George Orwell", "isbn": "978-84-233", "anio": 1949 },
+  { "titulo": "El Gran Gatsby", "autor": "F. Scott Fitzgerald", "isbn": "978-84-150", "anio": 1925 },
+  { "titulo": "Fahrenheit 451", "autor": "Ray Bradbury", "isbn": "978-84-451", "anio": 1953 }
+]
